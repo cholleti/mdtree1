@@ -1,0 +1,439 @@
+
+.HowItsWork h1{
+	font-size: 28px;
+	padding: 20px 0px;
+	display: block;
+	font-weight: 600;
+	color: #595959;
+}
+.HowItsWork {
+	line-height: 2em;
+}
+.HowItsWork h4{
+	font-size: 24px;
+	color: #7f7f7f;
+	line-height: 2em;
+	text-align: left;
+	display: inline-block;
+}
+.HowItsWork h6{
+	font-size: 24px;
+	color: #7f7f7f;
+	line-height: 2em;
+}
+
+.HowItsWork  li{
+	list-style: inside;
+	font-size: 24px;
+	color: #7f7f7f;
+	text-align: left;
+	line-height: 2em;
+}
+.HowItsWork li.itsFree,.HowItsWork h4.itsFree,.howtosave .itsFree{
+	color: #e11a58;
+	font-size: 24px;
+	list-style: none;
+	padding-left: 25px;
+}
+.howtosave .itsFree{
+	padding-left: 0px;
+	font-size: 20px;
+}
+.HowItsWork h4.itsFree{
+	padding-left: 0px;
+}
+.HowItsWork p  {
+	font-size: 24px;
+	color: #7f7f7f;
+	line-height: 2em;
+}
+.HowItsWork   span.itsFree{
+	font-size: 24px;
+	color: #e11a58;
+}
+.HowItsWork img.modelweb{
+	margin-top: 75px;
+	margin-bottom: 30px;
+}
+.HowItsWork .findnowbutton{
+	margin-bottom: 20px;
+}
+.howtosave .closebutton{
+	color: #e11a58;
+	font-size: 20px;
+	font-weight: bold;
+	position: absolute;
+	top: 0px;
+	cursor: pointer;
+}
+.HowItsWork .heightbase{
+	height: 337px;
+}
+.HowItsWork .providerDemo{
+	font-size: 14px;
+	width: 135px;
+	height: 40px;
+	margin-top: 20px;
+}
+
+
+
+
+
+
+
+.howToSave h1{
+	font-size: 28px;
+	padding: 20px 0px;
+	display: block;
+	font-weight: 600;
+	color: #595959;
+	clear: both;
+}
+.howToSave h1.itsFree{
+	font-size: 24px;
+	color: #e11a58;
+}
+.howToSave li{
+	font-size: 20px;
+	color: #7f7f7f;
+	line-height: 2em;
+	list-style: inherit;
+}
+.howToSave p{
+	font-size: 24px;
+	color: #7f7f7f;
+	line-height: 2em;
+}
+
+
+
+
+.ProvidersStatic h1{
+	padding: 30px 0px;
+	font-size: 27px;
+	color: #7f7f7f;
+	font-weight: 500;
+	line-height: 1.5em;
+}
+.ProvidersStatic h2{
+	font-size: 28px;
+	color: #595959;
+	font-weight: 500;
+	margin: 30px 50px;
+	text-align: center;
+}
+.ProvidersStatic .roundedBox{
+	border: 1px solid #d5d5d5;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+.ProvidersStatic span , .ProvidersStatic li{
+	font-size: 20px;
+	color: #7f7f7f;
+	line-height: 2em;
+}
+.ProvidersStatic li{
+	list-style: inherit;
+}
+
+.ProvidersStatic .center{
+	text-align: center;
+}
+.ProvidersStatic .JoinNow{
+	width: 200px;
+	font-size: 16px;
+	margin: 30px;
+	height: 40px;
+	margin-left: 45px;
+}
+.ProvidersStatic .marginLeft{
+	margin-left: 30px;
+}
+
+
+#about-us h1{
+	margin-top: 19px;
+	margin-bottom: 1.5em;
+	font-size: 1.3em;
+	margin-bottom: .8em;
+	font-weight: bold;
+}
+
+
+#about-us h2{
+	font-size: 16px;
+	margin-top: 10px;
+}
+
+
+#about-us h1,#about-us h2,#about-us h3,#about-us h4,#about-us h5,#about-us h6 {
+
+font-weight: bold;
+margin-bottom: 10px;
+
+
+}
+
+.aboutus .headedbox.halfsize {
+	width: 340px;
+}
+.aboutus .headedbox ,.sectionDiv{
+	margin-bottom: 20px;
+	background: url(../images/team-member-headerbg.png) repeat-x;
+	padding: 0 20px 19px 20px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border: 1px solid #d5d5d5;
+	margin-right: 18px;
+	min-height: 215px;
+	margin-top: 30px;
+}
+
+.aboutus h1, .team h1, .contact h2, .mdtreetvpage h1, .mdtreetvpage h1 span,.howtosave h1,.ProvidersStatic  h1{
+	font-family: 'Varela Round', sans-serif;
+	font-size: 45px;
+	color: #B4B4B2;
+	font-weight: 600;
+	line-height: 1.4em;
+}
+.aboutus h1 span, .team h1 span, .contact h2 span, .mdtreetvpage h3{
+	font-family: 'Varela Round', sans-serif;
+	color: #e21a58;
+	margin-bottom: 30px;
+}
+.team h1 span, .contact h2 span, .mdtreetvpage h1 span{
+	display:block;
+}
+
+
+
+.aboutus h1 a:hover{
+	text-decoration: none;
+}
+.aboutus h2{
+	margin-top: 19px;
+	margin-bottom: 1.5em;
+	font-size: 1.3em;
+	margin-bottom: .8em;
+	font-weight: bold;
+	text-align: center;
+}
+.aboutus ul li{
+	list-style: initial;
+	/* padding-left: 20px; */
+	margin-left: 20px;
+}
+.abboutusimage{
+	display: block;
+}
+
+
+
+.first_col li{
+	text-align: right;
+	padding-right: 15px;
+}
+.first_col li {
+	font-size: 1.2em;
+	font-weight: bold;
+	color: #4B4830;
+	display: block;
+	text-decoration: none;
+}
+.first_col .active {
+	background: url(../images/sidenavarrow.png) right center no-repeat;
+	
+}
+.first_col .nav > li.active > a {
+	color: white;
+}
+.first_col .nav > li:last-child > a {
+ padding-right: 15px; 
+}
+.first_col .nav > li > a{
+	font-size: .9em;
+	color: black;
+}
+
+
+
+.contact {
+	margin-top: -21px;
+}
+.contact h1{
+	font-weight: bold;
+	text-align: center;
+	font-size: 17px;
+}
+/*.contact h2{
+	font-size: 50px;
+}*/
+.contact h3{
+	font-size: 51px;
+	font-weight: 700;
+}
+.contact h4{
+	color: #4A9D94;
+	padding-bottom: 10px;
+	float: left;
+}
+.contact p{
+	font-size: 14px;
+	padding-bottom: 10px;
+}
+.contact h5{
+	font-size: 15px;
+}
+.contact .subpage{
+	width: 280px;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-left: 0;
+	margin-top: 20px;
+}
+
+
+/*.mdtreetvpage h1, .mdtreetvpage h1 span{
+	font-size: 50px;
+}*/
+.mdtreetvpage h3{
+	font-size: 48px;
+	font-weight: 600;
+	margin-top: 8px;
+}
+.mdtreetvpage h1, .mdtreetvpage h2, .mdtreetvpage h3 {
+	padding-left: 20px;
+}
+.termsofuse {
+	margin-top: -21px;
+}
+.termsofuse h2{
+	font-weight: bold;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	font-size: 17px;
+}
+.termsofuse p{
+	color: #4b4830;
+	margin-bottom: 15px;
+	line-height: 1.4em;
+	text-align: justify;
+	font-size: 14px;
+}
+.termsofuse li{
+	line-height: 1.4em;
+	padding-left: 10px;
+	font-size: 14px;
+}
+
+
+
+.policies {
+	margin-top: -21px;
+}
+.policies h1{
+	font-weight: bold;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	font-size: 20px;
+}
+.policies h2{
+	font-weight: bold;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	font-size: 17px;
+}
+.policies p{
+	color: #4b4830;
+	margin-bottom: 15px;
+	line-height: 1.4em;
+	text-align: justify;
+	font-size: 14px;
+}
+.policies li{
+	line-height: 1.4em;
+	padding-left: 10px;
+	font-size: 14px;
+}
+.team{
+	margin-top: -22px;
+}
+/*.team h1{
+	font-size: 50px;
+}*/
+.team li{
+	border:1px solid #F0F0E6;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	margin-bottom: 5px;
+	height: 40px;
+	width: 50%;
+	background-color: #F7F7EB;
+}
+.team li.white{
+	background: white;
+}
+.team li h3{
+	padding-top: 11px;
+	padding-left: 10px;
+	font-weight: bold;
+}
+.team li span{
+	font-size: 13px;
+	font-style: italic;
+	font-weight: normal;
+}
+.team p{
+	font-size: 48px;
+	font-weight: 900;
+}
+.howtosave p{
+	text-align: justify;
+	font-size: 20px;
+	margin-top: 30px;
+	line-height: 1.8em;
+	color: #7f7f7f;
+}
+.howtosave button.findnowbutton{
+	width: 150px;
+}
+.howtosave button.findnowbutton.providerDemo{
+	margin-top: 15px;
+}
+
+
+/*.howtosave h1{
+	text-align: center;
+}*/
+
+.sectionDiv h2{
+	text-align: center;
+	font-weight: bold;
+	padding-bottom: 10px;
+	padding-top: 16px;
+	margin-bottom: 10px;
+	font-size: 17px;
+}
+.sectionDiv .right{
+	margin-top: 30px;
+}
+.sectionDiv .leftSide{
+	font-size: 20px;
+	color: #7f7f7f;
+	line-height: 2em;
+	border-right: 1px solid rgba(127, 127, 127, 0.2);
+}
+.sectionDiv .leftSide li{
+	list-style: initial;
+}
+.sectionDiv{
+	min-height: 350px;
+}
+.ViewProviderDemo{
+	position: absolute;
+	top: -8px;
+}

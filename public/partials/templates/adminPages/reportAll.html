@@ -1,0 +1,127 @@
+
+<div class="sectionpart  reportAll" ng-controller="ReportAllctrl">
+  <h1 class="titleh1">Over all Provider OnBoard Report</h1>
+  <nav class="date-wise">
+    <ul class="flex padTop">
+      <li   ng-class="{active: selectedOption === 'date'}" >
+        <a  href="" class="date-Base"  ng-click="changeView('date')"></a>
+      </li>
+
+      <li   ng-class="{active: selectedOption === 'month'}">
+        <a  href="" class="Month-Base" ng-click="changeView('month')"></a>
+      </li>
+
+      <li   ng-class="{active: selectedOption === 'year'}">
+        <a  href="" class="Year-Base" ng-click="changeView('year')"></a>
+      </li>
+
+      <li   ng-class="{active: selectedOption === 'monthyear'}" >
+        <a   href="" class="MonthYear-Base"  ng-click="changeView('monthyear')"></a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="row graphBody">
+    <div class="row">
+
+      <form class="col-sm-9 col-sm-offset-1" ng-class="{{selectedOption}}">
+        <div ng-show="selectedOption == 'date'" class="row" >
+          
+          <div class="col-sm-5 flex marginTop">
+            <label class="col-sm-9 ">Start Date</label>
+            <input min-date="minDate"   data-ng-model="formData.form" class="form-control"  createslotdateenddate />
+          </div>
+          
+          <div class="col-sm-5 flex marginTop">
+            <label class="col-sm-8 ">End Date</label>
+            <input min-date="minDate"   data-ng-model="formData.to" class="form-control"  createslotdateenddate 
+            ng-change="dateChange()"/>
+          </div>
+        </div>
+        <div ng-show="selectedOption == 'month'">
+          <div class="col-sm-6  flex marginTop">
+            <label class="col-sm-10 ">Select Month</label>
+            <input min-date="minDate"   data-ng-model="formData.Month" class="form-control"  createslotdatemonth/>
+          </div>
+        </div>
+        <div ng-show="selectedOption == 'year'">
+          <div class="col-sm-6  flex marginTop">
+            <label class="col-sm-10 ">Select Year</label>
+            <input min-date="minDate"   data-ng-model="formData.Year" class="form-control"  createslotdateyear/>
+          </div>
+        </div>
+        <div ng-show="selectedOption == 'monthyear'">
+          <div class="col-sm-7  flex marginTop">
+            <label class="col-sm-12 padTop">Select&nbsp;Month&nbsp;&&nbsp;Year</label>
+            <input min-date="minDate"   data-ng-model="formData.MonthYear" class="form-control"  createslotdatemonthyear/>
+          </div>
+        </div>
+       </form>
+     </div>
+    
+    <div class="col-sm-48 linechart" ng-class="{noreport:!(lineChartData[0].values[0])}">
+      <nvd3-line-chart
+       data="lineChartData"
+       id="functionExample"
+       width="800"
+       height="400"
+       showXAxis="true"
+       showYAxis="true"
+       tooltips="true"
+       interactive="true"
+       height="500"
+       width="400" 
+       xAxisTickFormat = xAxisTickFormat()
+       margin="{left:50,top:50,bottom:50,right:50}"
+       noData="No Data For You!"
+       >
+       <svg></svg>
+     </nvd3-line-chart>
+    </div>
+<!--     <div class="selectionOption col-sm-offset-4">
+      <label>Choose Type</label>
+      <select ng-model="options" ng-change="changeMoth(options)">
+        <option value="0">Type Based appointment </option>
+        <option value="1">Type Based Registration</option>
+      </select>
+    </div> -->
+    <div class="pie-Chart"> 
+      <div class="floatleft col-sm-6 paddingZero">
+        <nvd3-pie-chart
+        data="piechart"
+        id="exampleId"
+        x="xFunction()"
+        y="yFunction()"
+        showLabels="true"
+        pieLabelsOutside="false"
+        showValues="true"
+        labelType="percent"
+        tooltips="true"
+        showLegend="true"
+        height:"500"
+        width:"500"
+         noData="No Data For You!"
+        >
+        <svg></svg>
+        </nvd3-pie-chart>
+      </div>
+      <div class="floatright col-sm-6 paddingZero">
+        <nvd3-multi-bar-chart
+        data="exampleData"
+        id="showControlsExample"
+        showXAxis="true"
+        showLabels="true"
+        showYAxis="true"
+        showLegend="true"
+        showControls="true"
+        stacked = "true"
+        tooltips="true"
+        objectEquality="true"
+         noData="No Data For You!"
+        >
+        <svg></svg>
+        </nvd3-multi-bar-chart>
+      </div>    
+    </div>
+  </div>
+</div>

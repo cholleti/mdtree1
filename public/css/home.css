@@ -1,0 +1,200 @@
+.container .row .mdtree-body h4{
+	font-family: 'Varela Round', sans-serif; 
+	font-weight: 300;
+	font: bold;
+	font-size: 28px;
+	color: #676867;
+	text-align: left;
+	margin-left: 15px;
+}
+.container .row .mdtree-body h4 span{
+	font-size: 30px;
+	color: #e21a58;
+
+}
+.container .row .mdtree-body{
+	float: left;
+	margin-left: 75px;
+	width: 500px;
+	margin-top: 40px;
+
+}
+.container .row .mdtree-body .buttontype1,.container .row .mdtree-body .buttontype2,.container .row .mdtree-body .buttontype3{
+	background: none;
+	font-family: 'Varela Round', sans-serif; 
+	color: #009da2;
+	margin-bottom: 20px;
+}
+.container .row .mdtree-body .buttontype1 span,.container .row .mdtree-body .buttontype2 span,.container .row .mdtree-body .buttontype3 span{
+	font-size: 16px;
+}
+.container .row .mdtree-body .buttontype2{
+	width: 150px;
+}
+.container .row .mdtree-body .roundbutton #circle span{
+	margin-top: 9px;
+	font-size: 33px;
+	color: #e21a58;
+	display: block;
+	font-family: 'Varela Round', sans-serif; 
+}
+.container .row .mdtree-body .row form button{
+	border: none;
+	background: transparent;
+	margin-left: 20px;
+	color: #676867;
+}
+.container .row .mdtree-body .row .col-sm-5 .buttons
+{
+	width: 175px;
+	height: 40px;
+}
+.container .row .mdtree-body .row .col-sm-5 .buttons:first-child{
+	margin-top: 20px;
+}
+.container .row .mdtree-body .row .divider1,.container .row .mdtree-body .row .divider2,.container .row .mdtree-body .row .divider3{
+	position: relative;
+	width: 135px;
+	height: 1px;
+	background: rgb(145, 145, 145);
+	top: -45px;
+	left: 107px;
+}
+.container .row .mdtree-body .row .divider2{
+	left: 290px;
+}
+
+.talktodocnow#circle{
+	width: 200px;
+    height: 200px;
+    -webkit-border-radius: 193px;
+    -moz-border-radius: 193px;
+    border-radius: 193px; 
+    background: #e21a58;
+    border: none;
+    color: white;
+    text-align: center;
+    line-height: 1.4em;
+    display: block;
+    position: relative;
+    top: -200px;
+    left: -30px;
+
+}
+.talktodocnow#circle span{
+	padding-top: 23px;
+	display: block;
+	font-size: 17px;
+	font-family: 'Varela Round', sans-serif; 
+	font-weight: 300;
+	
+}
+.talktodocnow#circle a{
+	color: white;
+	display: block;
+	padding: 15px 0px;
+	line-height: 1.4em;
+	font-size: 18px;
+}
+.talktodocnow#circle a i{
+	font-size: 16px;
+}
+.talktodocnow#circle a:hover{
+	text-decoration: none;
+
+}
+.container .row .mdtree-body form .form-group select,.container .row .mdtree-body form .form-group input{
+	border: none;
+	box-shadow: 0px 0px 0px 1px rgba(103,103,103,0.5);  
+}
+.container .row .mdtree-body form{
+	margin-top: 20px;
+}
+.container .row .mdtree-body .roundbutton #circle:last-child {
+	margin-left: 25%;
+}
+.container .row .mdtree-body  form .form-group{
+
+}
+.container .row .mdtree-body  form .form-group label h6{
+	color: #e11a58;
+	font-size: 21px;
+	font-weight: 500;
+	margin-top: 10px;
+	margin-bottom: 0px;
+	font-family: 'Varela Round', sans-serif; 
+}
+.container .row .mdtree-body  form .form-group:first-child label h6{
+	margin-top: 0px;
+}
+.container .row .mdtree-body .roundbutton #circle:first-child {
+	margin-left: 11%;
+	margin-right: 25%
+}
+.container .row .mdtree-body .row .buttontype1{
+	margin-left: 20px;
+} 
+.container .row .mdtree-body .row .buttontype2{
+	margin-left: 35px;
+} 
+.container .row .mdtree-body .row .buttontype3{
+	margin-left: 35px;
+} 
+.container .row .imageofright img.doctorimage{
+	width: 400px;
+	height: 441px;
+	display: block;
+	margin-right: 75px;
+	margin-top: 50px;
+}
+.container .row .imageofright {
+	height: 441px;
+}
+.container .row .membershipdetails{
+	width: 400px;
+	padding: 20px 30px;
+	margin-top: 70px;
+	font-family: 'Varela Round', sans-serif; 
+	font-size: 20px;
+	color: #676867;
+	border: 2px solid #a4a4a4;
+	background-color: #ffffff;
+	margin-right:75px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border-radius: 10px 10px 10px 10px;
+	line-height: 1.2em;
+	text-align: center;
+	/*font-size: 22px;
+	text-align: center;
+	background-color: #ffffff;
+	border: 1px solid #E8E8E8;
+	padding: 20px;
+	margin-top: 20px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border-radius: 10px 10px 10px 10px;
+	border: 2.99px solid #9d9fa2;
+	-moz-box-shadow:8px 8px 5px rgba(0,0,0,0.25);
+	-webkit-box-shadow:8px 8px 5px rgba(0,0,0,0.25);
+	box-shadow:8px 8px 5px rgba(0,0,0,0.25);*/
+}
+.container .row .membershipdetails span{
+	font-size: 24px;
+	color: #e21a58;
+}
+.container .row .membershipdetails  p{
+	font-size: 14px;
+	padding: 7px 0px;
+}
+.container .row .membershipdetails button{
+	font-size: 19px;
+	font-weight: normal;
+}
+#circle {
+    width: 50px;
+    height: 50px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px; 
+    background: transparent;
+    border: 1px solid #676867;
+}

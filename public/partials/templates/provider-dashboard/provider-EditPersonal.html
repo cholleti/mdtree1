@@ -1,0 +1,113 @@
+
+<div id="edit-personal-details-form">
+	<img src="images/edit-personal-info.png" style="display:none;" />
+
+	<form id="form_provider_registration" ng-submit="updateProfile()">
+
+		<div class="leftcolumn">
+			<label>* Category</label>
+
+			<select class="form-control"  required ng-model="providerDetails.category" ng-options="obj.key as obj.id for obj in categories.options">
+				<option value="">Select Category</option>
+			</select>
+			<label>* Specialty</label>
+			<div class="space"></div>
+			<div class="form-group " ng-switch on="providerDetails.category">
+				<div ng-switch-when="doctors">
+					<select class="form-control" required  ng-model="providerDetails.specialty " ng-options="obj.key as obj.value for obj in specialty.options">
+						<option value="">Select Specialty</option>
+					</select>
+				</div>
+				<div ng-switch-when="dentists">
+					<select class="form-control" required  ng-model="providerDetails.specialty" ng-options="obj.key as obj.value for obj in dentistslists.options">
+						<option value="">Select Specialty</option>
+					</select> 
+				</div>
+				<div ng-switch-when="chiropractors" >
+
+					<select class="form-control" required  ng-model="providerDetails.specialty " ng-options="obj.key as obj.value for obj in chiropractors.options">
+						<option value="">Select Specialty</option>
+					</select> 
+				</div>
+				<div ng-switch-when="vision">
+
+					<select class="form-control"  required  ng-model="providerDetails.specialty " ng-options="obj.key as obj.value for obj in dentistslists.options">
+						<option value="">Select Specialty</option>
+					</select>
+				</div>    
+				<div ng-switch-when="others">
+
+					<select class="form-control" required ng-model="providerDetails.specialty" ng-options="obj.key as obj.value for obj in otherSpeciality.options">
+						<option value="">Select Specialty</option>
+					</select>
+				</div>   
+   				<div ng-default>
+
+					<select class="form-control" ng-hide="providerDetails.category">
+						<option></option>
+						<option> Category Select First</option>
+					</select>
+				</div>   
+				<div class="space"></div>    
+				<label>* Title</label>
+
+				<select class="form-control"  required ng-model="providerDetails.title" ng-options="obj.key as obj.id for obj in title.options">
+					<option value=""></option>
+				</select>
+				<div class="space"></div>
+				<label for="firstname">* First Name</label><input type="text" class="form-control inputerror" ng-model="providerDetails.firstName" required/>
+				<div class="space"></div>
+				<label for="lastname">* Last Name</label><input type="text" class="form-control inputerror"ng-model="providerDetails.lastName" required/>
+				<div class="space"></div>
+				<label for="dateofbirth">* Date of Birth</label><input type="text" class="form-control inputerror" ng-model="providerDetails.dob" required/>
+				<div class="space"></div>
+				<label for="zipcode">* Zip Code</label><input type="text" class="form-control inputerror" ng-model="providerDetails.zipCode" required/>
+				<div class="space"></div>
+				<label>Gender</label>
+				
+				<input type="radio" id="gendermale" name="gender" value="male" checked="checked" ng-model="gender"/><span id="spantest" class="radio " ng-class="{selected:!boolChangeClass}" name="gender" target="gendermale" tabindex="4" ng-click="setGender('male')"></span><label for="gendermale" class="radioboxlabel">Male</label>
+				<input type="radio" id="genderfemale" name="gender" value="female" ng-model="radio" ng-model="gender"/><span class="radio"  name="gender" target="genderfemale" tabindex="5" ng-click="setGender('female')" ng-class="{selected:boolChangeClass}"></span><label for="genderfemale" class="radioboxlabel" >Female</label>		
+			</div>
+			<div class="space"></div>
+		</div>
+		<div class="rightcolumn">
+			<label for="email">* Email</label>
+			<input type="text" class="form-control inputerror" ng-model="providerDetails.email" required readonly/>
+			<div class="space"></div> 
+			<label for="website">Web Site</label>
+			<input type="text" class="form-control inputerror" ng-model="providerDetails.webSite" />
+			<div class="space"></div> 
+			<label for="emailnotification">* Email notifications to</label>
+			<input type="text" class="form-control inputerror" ng-model="providerDetails.notification" required/>
+			<div class="space"></div> 
+			<label for="cashprice">* Cash price for basic visit</label>
+			<select class="form-control"  required ng-model="providerDetails.cash" ng-options="obj.key as obj.id for obj in cashprice.options"></select>
+			<div class="space"></div> 
+			
+
+
+			<label for="cashprice" >* enhancedcare MDCONNECT Member Discount: x% - x%:</label>
+			<select class="form-control"  required ng-model="providerDetails.offer" ng-options="obj.key as obj.id for obj in offer.options" required>
+				<option value="">Select Member Discount</option>
+			</select>
+			<div class=" paddingZero" ng-show="providerDetails.offer == 'Other'">
+				<input class="inputtext" type="text"  ng-model="offersss"   />
+				<div ng-click="add(offersss)" class="btn btn-success" >Add</div>
+			</div>
+
+
+			<div class="space"></div> 
+			<div class="space"></div> 
+
+			
+
+			<label for="phonecancel">* Cancellation Phone Number</label><input type="text" class="form-control inputerror" ng-model="providerDetails.cancellationNumber" required/>
+			<div class="space"></div> 
+			<div class="spacer"></div>
+			<p class="small" >* Required field</p>
+			<input id="submit_provider_registration" type="submit" value="" tabindex="9" class="marginMedTop"/>
+		</div>
+
+		
+	</form>
+</div>

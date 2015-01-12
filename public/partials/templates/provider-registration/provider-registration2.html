@@ -1,0 +1,122 @@
+	<form id="form_provider_registration"  name="providerRegis" >
+		<div id="provider-registration-page" class="accreditation">
+			<h1 class="titleh1">Provider Sign Up</h1>
+			<span id="provider_registration_progressbar"></span>
+
+
+			<div class="leftcolumn">
+
+				<label for="school">* School</label>
+				<div class="form-group ">
+					<input type="text" class="inputtext"   data-ng-model="form.school" required name="school" ng-blur="visitedschool = true">
+				</div> 
+				<div class="space">
+					<div ng-show="providerRegis.school.$dirty &&  visitedschool" class="helpblock">
+						<span class="help-block" ng-show="providerRegis.school.$error.required">
+							School Name is required.
+						</span> 
+					</div>
+				</div>
+				<!-- <input type="text" id="school" class="input_230" name="school" tabindex="1"/> -->
+				<label for="residency">Residency</label>
+				<div class="form-group ">
+					<input type="text" class="inputtext"   data-ng-model="form.residency" >
+				</div> 
+				<div class="space"></div>
+				<!-- <input type="text" id="residency" class="input_230" name="residency" tabindex="2"/> -->
+				<label for="fellowship">Fellowship</label>
+				<div class="form-group ">
+					<input type="text" class="inputtext"   data-ng-model="form.fellowship" >
+				</div> 
+				<!-- <input type="text" id="fellowship" class="input_230" name="fellowship" tabindex="5"/> -->
+				<div class="space"></div>
+
+				<label for="Professional Affiliations">Professional Affiliations</label>
+				<div class="form-group ">
+					<input type="text" class="inputtext"   data-ng-model="form.affilliation" >
+				</div> 
+				<!-- <input type="text" id="fellowship" class="input_230" name="fellowship" tabindex="5"/> -->
+				<div class="space"></div>
+
+				<label for="languages">* Language(s)</label>
+				<!-- <select class="chzn-select" multiple required ng-model="form.languages" ng-options="obj.key as obj.id for obj in languages.options">
+					
+				</select> -->
+				<!-- <select
+				    multiple
+				    ng-model="myPets"
+				    ng-options="key as value for (key, value) in langua"
+				    chosen
+				    
+				    class="chzn-select">
+				  </select> -->
+				  <select
+				    chosen
+				    multiple
+				    allow-single-deselect="true"
+				    data-placeholder="Choose Your languages"
+				    no-results-text="'Tough luck'"
+				    ng-model="form.languages"
+				    ng-options="obj.key as obj.id for obj in languages.options"
+				    class="chzn-select"
+				    ng-required="true">
+				    <option value=""></option>
+				  </select>
+				  <span class="help-block" ng-hide="form.languages">
+												{{languageField}}</span> 
+				<!-- <span class="spanmessagemultiple">Hold the CTRL to select multiple languages</span> -->
+				<div class="space"></div>
+				
+				
+				<label for="insurances">* Insurance Accepted</label>
+				<!-- <select class="chzn-select" multiple required ng-model="form.insurance" ng-options="obj.key as obj.value for obj in insurance.options">
+					
+				</select> -->
+				<select
+					ng-required="true"
+				    chosen
+				    multiple
+				    allow-single-deselect="true"
+				    disable-search="false"
+				    data-placeholder="Choose Your insurance"
+				    no-results-text="'Tough luck'"
+				    ng-model="form.insurance"
+				    ng-options="obj.key as obj.value for obj in insurance.options"
+				    class="chzn-select"
+				    >
+				    <option value=""></option>
+				  </select>
+				  <span class="help-block" ng-hide="form.insurance">
+												{{insuranceField}}</span> 
+				<!-- <span class="spanmessagemultiple">Hold the CTRL to select multiple Insurance</span>				 -->
+				
+				<div class="space"></div>
+				<div id="prostatement">	
+					<label for="statement">Professional Statement</label>
+					<textarea name="statement" rows="5" ng-model="form.statement" class="textareaProviderReg"></textarea>
+				</div>
+				<div class="space"></div>
+
+				<label>Profile Picture</label>
+				<div class="form-group " >
+					<input type="file" ng-file-select="onFileSelect($files)" accept="image/*">
+					<img ng-src="{{imageSrc}}" width="100px;" height="100px;" ng-show="imageSrc" class="profile_picture_preview"/><br/>
+					<!-- <input type="file"> -->
+					<br />
+					<!-- <i ng-hide="imageSrc">No image choosed</i> -->
+
+
+
+				</div> 
+				<!-- <input type="text" id="picture" class="input_230" name="picture" tabindex="5"/> -->
+
+				<p class="small" >* Required field</p>
+				
+				<button  type="submit" ng-show="providerRegis.$invalid" class="savebutton"  ng-click="functionCallForMultiSelect()">SAVE</button>
+				<button   ng-hide="providerRegis.$invalid" class="savebutton"  ui-sref="salesAdmin.dashboard.providerinfo.newprovider.step3">SAVE</button>
+			</div>
+			<div class="push"></div>
+
+		</div>
+
+	</form>

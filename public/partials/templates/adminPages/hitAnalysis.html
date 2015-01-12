@@ -1,0 +1,42 @@
+
+<div class="sectionpart hitAnalysis " ng-controller="AnalysisController" >
+	<div class="col-sm-offset-3">
+		<label>Choose Your Options</label>
+		<select ng-model="options" ng-change="hitAnalysisData(options)">
+			<option value="zip">Zip Code Based</option>
+			<option value="provider">Provider Based</option>
+		</select>
+	</div>
+    
+	 <div class="floatleft col-sm-6 paddingZero"  ng-class="{noreport:(piechart[0].values.length == 0 )}">
+	 	<nvd3-multi-bar-chart
+            data="piechart"
+            id="exampleId"
+            showXAxis="true"
+            showLabels="true"
+            showYAxis="true"
+            stacked = "true"
+            tooltips="true"
+            objectEquality="true"
+            color="colorFunction2()"
+            >
+            <svg></svg>
+          </nvd3-multi-bar-chart>
+
+    </div>
+
+    <div class="floatright col-sm-6 paddingZero" ng-class="{noreport:(piechart[0].values.length == 0 )}">
+        <nvd3-multi-bar-chart
+            data="exampleData"
+            id="showControlsExample"
+            showXAxis="true"
+            showLabels="true"
+            showYAxis="true"
+            stacked = "true"
+            objectEquality="true"
+    		color="colorFunction1()"
+            >
+            <svg></svg>
+          </nvd3-multi-bar-chart>
+      </div>    
+</div>

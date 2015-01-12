@@ -1,0 +1,63 @@
+<div class="container">
+	<div class="sectionpart" ng-controller="appointment_detailscontroller">
+		<div id="maincontent">
+			<div class="appointment single-appoinment-details" >
+				<div class="appointment-progress progress-details"></div>
+				
+				<div class="appointment-booking">
+					<div class="appointment-provider-image">
+						<a ui-sref="public.doctorDetails"><img title="{{singledoctor.name}}" ng-src="{{singledoctor.image}}" width="97px;" height="167px;" ng-click="doctorBookApponimentClicked(singledoctor.email)"/></a>
+					</div>
+					<ul class="appointment-details">
+						<li class="when"><span>When:</span> Choose an appointment time</li>
+						<li><span>With:</span> {{singledoctor.name}}</li>
+						<li><span>Where:</span> {{singledoctor.address}},&nbsp;{{singledoctor.state}},&nbsp;{{singledoctor.zip}}</li>
+					</ul>
+				</div>
+				
+				<div class="weekly-viewer schedule five-days">
+			
+					<div class="schedule-header">
+						<div class="schedule-view-control">
+							<div class="schedule-previous" ng-hide="indexValue == 0"><a href="" ng-click="nextslots('prev')" ></a></div>
+							<div class="schedule-next"><a href="" ng-click="nextslots('next')"></a></div>
+						</div>
+						<ul>
+							<li ng-repeat="time in bookingdate "><b>{{time.dayShort}}</b><br />{{time.date}}</li>
+
+						</ul>
+
+					</div>
+					
+					<ol>
+						<li class="schedule-wednesday" ng-repeat="timetable in singledoctor.appointmentSchedules | limitTo:5" ng-hide="appointmentHideOrShow">
+							<div ng-repeat="time in timetable.slots">
+								<a ui-sref="public.appDetails2" ><span  ng-show="time.status == 'available' " ng-click="timeclicked(singledoctor,timetable.date,time.from,timetable.title,timetable.description)">{{time.from}}</span></a>
+								<span ng-hide="time.status == 'available' " class="status">{{time.from}}</span>
+							</div>
+							<div class="special-offer" ng-show="timetable.title"><span><p>{{timetable.title}}: {{timetable.description}}</p></span></div>
+						</li>
+						<div ng-show="appointmentHideOrShow" class="noAppointmentSlotMSg">
+							<span>There are no online appointments available for this provider at this time.<br> Call the provider’s office at {{singledoctor.phone | tel }} to book an appointment.</span>
+						</div>
+				
+						<li class="push"></li>
+					</ol>
+					<div class="table-pusher"></div>
+					
+				</div>
+				
+				<div class="push"></div>
+				
+			</div> <!-- end  Appointment-->
+			
+			<div class="push"></div>
+		</div> <!-- end maincontent -->
+		
+		
+	</div>	<!-- end wrapper -->
+
+
+	</div>
+
+</div>

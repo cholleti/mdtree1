@@ -1,0 +1,71 @@
+
+					<div id="past-summary" class="appointment-summary ">
+						<div class="left-column">
+							<span class="titleh1">Appointment Summary</span>
+							
+							
+								<div   ng-model="currentDate"  viewslotsview > </div>
+								
+							
+							
+								
+								<a href="http://direct.enhancedcaremd.com/"><img src="images/ad2.png" width="250px"></a>
+							
+						</div> <!-- end appointment summary left column -->
+								
+						<div class="right-column">
+							
+							
+							<div id="pastvisits" class="results">
+								<div class="appointment-header result">
+									<ul class="headers">
+										<li class="date">Date</li>
+										<li class="time greycolumn">Time</li>
+										<li class="provider">Provider Name</li>
+										<li class="location greycolumn">Location</li>
+										<li class="reason">Reason for Visit</li>
+									</ul>
+								</div>
+								
+								<ol>
+									<li class="result" ng-repeat="appointment in pastappointment">
+										<ul>
+											<li class="date">{{appointment.date}}</li>
+											<li class="time greycolumn" ng-hide="appointment.offer">{{appointment.time}}</li>
+											<li class="time greycolumn specialoffer" ng-show="appointment.offer">{{appointment.time}}
+												<div class="special-offer" >
+													
+													<span><p>{{appointment.offer.title}}: {{appointment.offer.description}}</p></span>
+												</div>
+											</li>
+											<li class="provider" ng-click="gotoproviderdetails(appointment.providerEmail)"><a href="">{{appointment.provider}}</a></li>
+											<li class="location greycolumn">{{appointment.location.address}}<span ng-if="appointment.location.address">,</span><br>{{appointment.location.city}}<span ng-if="appointment.location.city">,</span> {{appointment.location.state}}<span ng-if="appointment.location.state">,</span> {{appointment.location.zip}}</li>
+											<li class="reason">{{appointment.reason}}</li>
+										</ul>
+									</li>
+									<!-- <li class="result">
+										<ul>
+											<li class="date">Thursday<br>07/14/2012</li>
+											<li class="time greycolumn">1400</li>
+											<li class="provider" ng-click="gotoproviderdetails()"><a href="">Leroy, Pascal</a></li>
+											<li class="location greycolumn">22 Via Del Cielo, Suite 200, Rancho Palos Verdes, CA</li>
+											<li class="reason">Chest Pain</li>
+										</ul>
+									</li>
+									<li class="result">
+										<ul>
+											<li class="date">Thursday<br>07/20/2012</li>
+											<li class="time greycolumn">1430</li>
+											<li class="provider" ng-click="gotoproviderdetails()"><a href="">Leroy, Pascal</a></li>
+											<li class="location greycolumn">22 Via Del Cielo, Suite 200, Rancho Palos Verdes, CA</li>
+											<li class="reason">Chest Pain</li>
+										</ul>
+									</li> -->
+								</ol>
+								<div class="table-pusher"></div>
+							</div>
+							
+							
+							
+						</div> <!-- end #past-summary right column -->
+					</div>

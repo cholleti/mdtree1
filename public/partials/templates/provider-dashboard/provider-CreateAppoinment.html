@@ -1,0 +1,186 @@
+						<form id="slot-creator" ng-submit="createslots(formData.dt,formData.dtSecond,multiloctaions)">
+
+
+							<!-- <li>
+								<select class="chzn-select select_170"  required ng-model="createofslots.value" ng-options="obj.isbn as obj.id for obj in createofslots.options" ng-change="slotstype(createofslots.value)"></select>
+							</li> -->
+							<label class="col-sm-3 marginTop">I Want To :</label>
+							<li class="backbutton col-sm-offset-2" ng-class="{modifyslots:desicionValue}">
+								<a href="#" ng-click="changeClassCreate()" ng-class="{desicion:desicionValue}"><span class="button-create">Create New Slots </span></a>
+								<span class="dividersmall"></span>
+								<a href="#" ng-click="changeClassModify(loctaions.locId)" ng-class="{desicion:desicionValue}"><span class="button-modify">Modify Existing Slots</span></a>
+							</li>
+							<div class="col-sm-12 paddingZero FirstRowCreate">
+								<div class="selected-date col-sm-4 " >
+									
+									<label ng-hide="desicionValue" >Start Date: </label> 
+									<label ng-show="desicionValue">Selected Date: </label>
+									<div class="form-group " ng-show="desicionValue">
+										 
+										<input min-date="minDate"   data-ng-model="currentDate" readonly	 date-format="MM-dd-yyyy"   class="col-sm-2 paddingZero marginLeft form-control marginZero" />
+
+										
+									</div>
+									<div class="form-group " ng-hide="desicionValue">
+										 
+							              <input min-date="minDate"   data-ng-model="formData.dt" 	 date-format="MM-dd-yyyy"   class="col-sm-2 paddingZero marginLeft form-control marginZero"  createslotstartdate/>
+
+
+										</div> 
+									</div>
+									<div class="selected-date col-sm-4 paddingZero" >
+										<div ng-hide="desicionValue">
+											<label>End Date: </label> 
+											<div class="form-group ">
+												
+													<input  class="form-control col-sm-9" ng-model="formData.dtSecond" createslotstartdate  class="form-control inputerror"  /> 
+													
+												</div>
+												
+
+											</div>
+											<!-- <span ng-click="caldate(dates)">cal date</span> -->
+										</div>
+										
+										<div class="selected-location col-sm-4" ng-hide="desicionValue">
+											<label>Selected Location:</label>
+											
+											  
+											<!-- <select class="chzn-select"  ng-required="true" ng-model="loctaions.locId" ng-options="obj.locId as obj.address for obj in loctaions" ng-change="changeLocation(loctaions.locId)"></select> -->
+											<select
+										    	chosen
+											    multiple
+											    allow-single-deselect="true"
+											    data-placeholder="Choose Your Locations"
+											   
+											    ng-model="multiloctaions"
+											    ng-options="obj.locId as obj.address for obj in loctaions"
+											    ng-change="changeLocation(loctaions.locId)"
+											    ng-hide="desicionValue">
+											    <option value=""></option>
+											  </select>
+
+											<!-- <select class="" multiple required ng-model="location" ng-options="obj.address as obj.address for obj in loctaions"> -->
+										</div>
+										<div class="selected-location col-sm-4" ng-show="desicionValue">
+											<label>Selected Location:</label>
+											
+											  
+											<select class="chzn-select"  ng-required="true" ng-model="loctaions.locId" ng-options="obj.locId as obj.address for obj in loctaions" ng-change="changeLocation(loctaions.locId,currentDate)"></select>
+											<!-- <select
+										    	chosen
+											    multiple
+											    allow-single-deselect="true"
+											    data-placeholder="Choose Your loctaions"
+											   
+											    ng-model="multiloctaions"
+											    ng-options="obj.locId as obj.address for obj in loctaions"
+											    ng-change="changeLocation(loctaions.locId)"
+											    >
+											    <option value=""></option>
+											  </select>
+ -->
+											<!-- <select class="" multiple required ng-model="location" ng-options="obj.address as obj.address for obj in loctaions"> -->
+										</div>
+
+
+									</div>
+									
+									  
+									
+									<div class="col-sm-12  FirstRowCreate" ng-hide="desicionValue">
+										<label class="col-sm-2 paddingZero marginTop padTop" >Days Open</label>
+										<div class=" col-sm-offset-3">
+											<div ng-repeat="day in days" class="col-sm-1 checkboxDaySelect paddingZero">
+												<input  ng-model="userdays[day.id]" ng-checked="users.userdays[day.id]!=0" type="checkbox" ng-change="changeDateFunction()"/>
+												{{day.day}}
+											</div>
+
+										</div>
+									</div>
+
+									<div class="marginTop col-sm-12 HolidayOpen" ng-hide="desicionValue">
+										<label class="col-sm-3 paddingZero marginTop padTop ">Holidays Open:</label>
+										<!-- <select class="chzn-select marginTop padTop" multiple  ng-model="language.doctor" ng-options="obj.day as obj.day for obj in holiday"></select> -->
+										<select
+										    chosen
+										    multiple
+										    allow-single-deselect="true"
+										    data-placeholder="Choose Your Holidays"
+										    no-results-text="'Tough luck'"
+										    ng-model="holidays.us"
+										    ng-options="obj.date as obj.day for obj in holidays"
+										    ng-hide="desicionValue">
+										    <option value=""></option>
+										  </select>
+										  
+										<!-- <select class="chzn-select "  ng-required="true" ng-model="loctaions.locId" ng-options="obj.day as obj.day for obj in holiday"></select> -->
+									</div>
+									<div class="push"></div>
+									<div class="push"></div>
+									<div class="push"></div>
+									<label class=" col-sm-12">Appointment Time</label>
+									<ul id="sc-form" class="chzn-no-search col-sm-12" >
+
+										<li class="sidebyside">
+											<label>From</label>
+											<select class="chzn-select tiny-select"  required  ng-change="report(fromtiming.value)" ng-model="fromtiming.value" ng-options="obj as obj for obj in fromtiming.options"></select>
+											
+										</li>
+										<li>
+											<label>To</label>
+
+											<select class="chzn-select tiny-select"  required ng-model="totiming.value" ng-options="obj as obj for obj in totiming"></select>
+										</li>
+										<li>
+											<div class="chzn-no-arrow">
+												<label>Duration:</label>
+												<select class="chzn-select tiny-select"  required ng-model="interval.value" ng-options="obj.min as obj.min for obj in interval.options"></select>
+											</div>
+										</li>
+										<li class="">
+											<input class="btn okay-button" type="submit" value="" ng-disabled="$invalid"/	>
+										</li>
+									</ul>
+									<div class="push"></div>
+								</form>
+								<div class="col-sm-3">
+									<div  ng-repeat="date in selectedDates">
+										<input type="text" ng-model="date" readonly class="input_120 col-sm-9" >
+										<img src="images/x-active.png" class="littlebitPad marginleft" width="27px;" height="26px;" ng-click="removeDate($index)">
+									</div>
+								</div>
+								<div class="col-sm-2">
+									<div ng-repeat="locationIndex in locationarrayIndexValue track by $index">
+										<input type="text" ng-model="locationIndex" readonly class="input_100 col-sm-2" ng-hide="inputedit[$index]">
+										<input type="text" ng-model="locationarrayIndexValue[$index]"  class="input_100 col-sm-2 editable" ng-show="inputedit[$index]" >
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<div  ng-repeat="input in inputArray ">
+										<input type="text" ng-model="input.from" readonly class="input_100 col-sm-2" ng-hide="inputedit[$index]">
+										<input type="text" ng-model="input.to" readonly class="input_100 col-sm-2 col-sm-offset-2" ng-hide="inputedit[$index]">
+										<input type="text" ng-model="input.from"   class="input_100 col-sm-2 editable" ng-show="inputedit[$index]">
+										<input type="text" ng-model="input.to"    class="input_100 col-sm-2 col-sm-offset-2 editable" ng-show="inputedit[$index]">
+									</div>
+								</div>
+								<div class="col-sm-2 paddingZero">
+									<div  ng-repeat="input in inputArray ">
+										<a href="" ng-click="edittime($index)"><img src="images/pen-active.png" class="littlebitPad paddingZero" width="27px;" height="26px;"></a>
+										<a href="#" ng-click="remove($index)">
+											<img src="images/x-active.png" class="littlebitPad paddingZero" width="27px;" height="26px;"></a> 
+										</div>
+									</div>
+									<div class="col-sm-6 col-sm-offset-6 marginTop" ng-show="selectedDates[0]">
+										<img src="images/btn_cancel_active.jpg" alt="Cancel" title="Cancel" ng-click="cancelbuttonClick()" class="pointer">
+										<img src="images/btn_done_active.jpg" alt="Save" title="Save" ng-click="conformTimeSlot()" class="pointer">
+									</div>
+									<div class="col-sm-6 col-sm-offset-6 marginTop" ng-show="desicionValue">
+										<img src="images/btn_cancel_active.jpg" alt="Cancel" title="Cancel" ng-click="cancelbuttonClick()" class="pointer">
+										<img src="images/btn_done_active.jpg" alt="Save" title="Save" ng-click="updateTimeSlot()" class="pointer">
+									</div>
+						<!-- <div class="col-sm-2">
+							<div  ng-repeat="toSlotValue in toarray">
+								
+							</div>
+						</div> -->

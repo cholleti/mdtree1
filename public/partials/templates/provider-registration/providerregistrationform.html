@@ -1,0 +1,84 @@
+<div class="container">
+	<div class="sectionpart">
+
+		<div id="maincontent" ng-controller="providerFormController">
+			<div id="patient-registration-page"  class="registration-page">
+				
+				
+				<form id="form_patient_registration" style="background-image:none;" ng-submit="submitProviderform()" class="providerRegisterForm col-sm-5">
+					<span class="titleh1">Get Started</span>
+						<p>Thank you for visiting our site and wanting to learn more about our program. Please fill out the following information:</p>
+
+					<div class="col-sm-6">
+						<label for="Name" class="col-sm-2">Name *</label>
+						<div class="form-group ">
+		                    <input type="text" class="inputtext col-sm-9"   data-ng-model="form.name" required>
+		                 </div> 
+						
+						<div class="col-sm-5 padZero">
+							<label for="City" class="col-sm-2">City *</label>
+							<div class="form-group ">
+			                    <input type="text" class="inputtext citysmallinput"   data-ng-model="form.city" required>
+			                 </div> 
+						</div>
+						<div class="col-sm-6">
+							<label for="State" class="col-sm-2">State *</label>
+							<select class="form-control"  required ng-model="form.state" ng-options="obj.name as obj.name for obj in state.options">
+								<option value=""></option>
+							</select>
+						</div>
+						
+						
+
+
+						<label for="Practice" class="col-sm-2">Type of practice *</label>
+						<div class="form-group ">
+		                    <input type="text" class="inputtext"   data-ng-model="form.practice" required>
+		                 </div> 
+
+		                 <label for="Phone" class="col-sm-2">Phone *</label>
+						<div class="form-group ">
+							<phonenumber-directive  model='form.phone' required></phonenumber-directive>
+		                    <!-- <input type="text" class="inputtext"   data-ng-model="form.phone" required> -->
+		                 </div> 
+
+		                 <label for="Email" class="col-sm-2">Email *</label>
+						<div class="form-group ">
+		                    <input type="email" class="inputtext"   data-ng-model="form.email" required>
+		                 </div> 
+					</div>	
+
+					<div class="col-sm-6">
+						<label for="Message" class="col-sm-2">Message</label>
+						<textarea ng-model="form.message"></textarea>
+
+						<button class="savebutton" type="submit"  >Submit</button>
+						
+					</div>
+					
+
+
+					
+					<!-- <input id="submit_patient_registration" type="submit" value="" tabindex="11" /> -->
+					
+
+					
+                   <p>* Required Fields</p> 
+	                
+				</form>
+				
+				<!-- <a href="http://direct.enhancedcaremd.com/"><img src="images/ad.png" class="adimageProviderReg col-sm-5 "></a> -->
+				<div class="push"></div>
+					<div ng-show="alerts[0]">
+					
+			        <div class="alertmessage col-sm-offset-3">
+			          <alert ng-repeat="alert in alerts" type="{{alert.type}}" >{{alert.msg | capitalize}}.</alert>
+			        </div>
+			      	
+		      	</div>
+			</div> <!-- end patient-registration-page -->
+			
+			<div class="push"></div>
+		</div> <!-- end maincontent -->
+	</div>
+</div>		

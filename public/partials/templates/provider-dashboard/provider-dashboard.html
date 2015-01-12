@@ -1,0 +1,100 @@
+<div class="container">
+	<div class="sectionpart" ng-controller="providerDashboardController">
+	
+		<div id="maincontent">
+			
+			<div id="provider-dashboard">
+			
+				<div class="left-column">
+					<h1>Provider Dashboard</h1>
+						<div   ng-model="currentDate"  viewslotsview  ng-hide="desicionValue"> </div>
+						<div   ng-model="currentDate"  modifyslotdate  ng-show="desicionValue"> </div>
+						
+					
+					<!-- <div ng-click="dailyViewLocation(loctaions.locId,currentDate)"><calendar ng-model="currentDate" calendar-mode="mode" event-source="eventSource"
+                          range-changed="reloadSource(startTime, endTime)"
+                          event-selected="onEventSelected(event)" formatDayTitle></calendar></div> -->
+
+                     
+                     
+					<p class="marginTop">MDtree is working every day to improve the connection between patients and their providers. Email us at <a href="">support@mdtree.com</a> to let us know what we can do to serve you better.</p>
+					
+				</div> <!-- end provider-dashboard left column -->
+				
+				<div class="right-column">
+					<div class="provider-dashboard-header">
+						<nav>
+							<ul id="provider-navigator">
+								<li >
+									<div class="edit-profile" ui-sref="user.provider-edit.step1">&nbsp;</div>
+								</li>
+								<li >
+									<div class="reporting-profile" ui-sref="user.reportpage">&nbsp;</div>
+								</li>
+								<li >
+									<div class="offer-report" ui-sref="user.offerreport">&nbsp;</div>
+								</li>
+							</ul>
+							
+							<ul id="provider-navigator" class="{{variablevalue}}">
+								<li class="daily-view" ui-sref-active="active" ui-sref=".step1">
+									<a href="" ng-click="dailyView()"></a>
+								</li>
+								<li class="weekly-view" ui-sref-active="active" ui-sref=".step2" ng-click="weeklyView(0,currentDate)">
+									<a href="" ng-click="nweekly()"></a>
+								</li>
+								<li class="create-appointment-details" ui-sref-active="active" ui-sref=".step3">
+									<a href="" ng-click="ncreate()"></a>
+								</li>
+								<li class="special-offers" ui-sref-active="active" ui-sref=".step4">
+									<a href="" ng-click="noffers()"></a>
+								</li>
+								<li class="schedule-existing-patient" ui-sref-active="active" ui-sref=".step5" ng-click="scheduleExisting()"><a href="" ng-click="nexisting()"></a></li>
+							</ul>
+							
+							<form>
+								<!-- <div class="selected-date">
+									<label>Selected Date: </label> <input type="text" class="inputtext" datepicker-popup="{{format}}" ng-model="slot.dob" is-open="opened"  max-date="dt" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" ng-click="open($event)"/>
+								</div>
+								<div class="selected-location">
+									<label>Selected Location:</label>
+									
+									<select class="chzn-select"  required ng-model="locationsvalue" ng-options="obj.locId as obj.address for obj in loctaions"></select>
+									<!-- <select class="" multiple required ng-model="location" ng-options="obj.address as obj.address for obj in loctaions"> -->
+								<!-- </div> -->
+							</form>
+							
+						</nav>
+						<div class="push"></div>
+					</div>
+					
+					<div class="provider-dashboard-content">
+						
+						
+				
+						<div ui-view></div>		
+						
+						
+						
+					</div>
+					
+				</div> <!-- end provider-dashboard right column -->
+				<div ng-show="alerts[0]">
+					<div class="toppadding col-sm-offset-3 col-sm-9" >
+				        <div class="alertmessage ">
+				          <alert ng-repeat="alert in alerts" type="{{alert.type}}"  >{{alert.msg | capitalize}}.</alert>
+				        </div>
+			      	</div>
+		      	</div>
+				
+				<div class="push"></div>
+
+				
+			</div> <!-- end provider-dashboard -->
+			
+			<div class="push"></div>
+		</div> <!-- end maincontent -->
+
+	</div>
+</div>
+		

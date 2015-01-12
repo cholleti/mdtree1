@@ -1,0 +1,117 @@
+
+<div class=" sectionpart main contentHolder" ng-controller="admin_role_controller">
+
+		<form ng-submit="addToList()">
+			<div class="input-group col-lg-12">
+				<div class="nameHitAn col-lg-12">
+				 <div class="inputFields col-md-4">
+					<div class="lablesStyle">
+						<label>Email :</label>
+					</div>
+					<div class="boxstyles col-md-4">
+						<input type="email" class="nameHitAninput" data-ng-model="usernameHitAnalysis" required name="nameHitAnalysis">
+					</div>
+				 </div>	
+				 <div class="inputFields passW col-md-4"> 	
+					<div class="lablesStyle">
+						<label>Password :</label>
+					</div>
+					<div class="boxstyles col-md-4">
+						<input type="password" class="passHitAninput" data-ng-model="passHitAnalysis" required name="passHitAnalysis">
+					</div>
+				 </div>	
+				<div class="inputFields passW col-md-4"> 	
+					<div class="lablesStyle">
+						<label>Name:</label>
+					</div>
+					<div class="boxstyles col-md-4">
+						<input type="name" class="passHitAninput" data-ng-model="name" required name="passHitAnalysis">
+					</div>
+				 </div>	
+				  
+				  <div class="inputFields col-md-3 col-md-offset-3 marginTop">	
+					<div class="lablesStyle">
+						<label>Role :</label>
+					</div>
+					<div class="boxstyles col-md-4">
+						<select class="form-control" required  ng-model="role.role" ng-options="obj.role as obj.role for obj in role.options">
+							<option value="">Select Role</option>
+						</select>
+					</div>
+				 </div>	
+				 <div class="col-md-1 marginTop">
+				 	<button type="submit" class="findnowbutton btn btn-lg">Add</button>
+				 </div>	
+				</div>
+			</div>
+		</form>	
+		<div ng-show="alerts[0]" class="col-sm-offset-4 col-sm-5">
+			<div class="toppadding container" >
+		        <div class="alertmessage ">
+		          <alert ng-repeat="alert in alerts" type="{{alert.type}}" class="arrow_box">{{alert.msg | capitalize}}.</alert>
+		        </div>
+	      	</div>
+	  	</div>
+		<div class="row  listingValue valueContainer col-lg-12 col-lg-offset-1">
+			<div class="listingOp col-md-3">
+				<h1>Name</h1>
+				
+			</div>	
+			<div class="listingOp col-md-3">
+				<h1>Username</h1>
+				<span></span>
+				</div>	
+			<div class="listingOp col-md-3">
+				<h1>Role</h1>
+				<span></span>
+			</div>	
+			<div class="listingOp col-md-3">
+				<h1>Status</h1>
+				<span></span>
+			</div>			
+			<li ng-repeat="roles in adminroles" class="row">
+			<form  ng-submit="saveNewData(roles, PasswordChanging)">
+			<div class="col-md-12">	
+				<div class="listingOp col-md-3">
+					<h6 ng-hide="roles.selecting">{{roles.username}}</h6>
+					<span ng-show="roles.selecting"><input type="text" class="afterEditClick" required ng-model="roles.username">
+					</span>
+				</div>	
+				<div class="listingOp col-md-3">
+					<h6>{{roles.email}}</h6>
+					<!-- <span ng-show="roles.selecting"><input type="email" class="afterEditClick" required ng-model="roles.email">
+					</span> -->
+				</div>	
+				<div class="listingOp col-md-3">
+					<h6 ng-hide="roles.selecting">{{roles.role}}</h6>
+					<span ng-show="roles.selecting"><select  class="afterEditClick" required ng-model="roles.role" ng-options="obj as obj for obj in role.options">
+					</select>
+					</span>
+				</div>
+				<div class="listingOp col-md-3">
+					<a href="" ng-show="roles.status == 'activate'"><h6 ng-click="statusChange($index, 'deactivate')" >activate</h6></a>
+					<a href="" ng-show="roles.status == 'deactivate'"><h6   ng-click="statusChange($index, 'activate')">deactivate</h6></a>
+				</div>
+			</div>
+			<div class="editIcons col-md-12">
+				<div class="col-md-3 col-md-offset-3"> 
+				<label   ng-show="roles.selecting">Password :</label>
+				</div>
+				<div class="col-md-3">
+					<span  ng-show="roles.selecting">
+						<input class="afterEditClick" type="password" placeholder="Password" ng-model="PasswordChanging">
+					</span>
+				</div>	
+				<div class="col-md-3">
+					<a href="" ng-click="editRoleDetails($index)" ng-hide="roles.selecting" ><i class="fa fa-pencil"></i></a>
+					<a href="" ng-click="deleteDetails($index)"><i class="fa fa-trash-o"></i></a>
+					<button class="findnowbutton btn" type="submit" ng-show="roles.selecting">Save</button>
+					<button class="findnowbutton btn" ng-show="roles.selecting" ng-click="resetOldData()">Cancel</button>
+				</div>
+			</div>
+			</form>
+
+				<hr class="col-sm-12">
+			</li>			
+		</div>
+</div>

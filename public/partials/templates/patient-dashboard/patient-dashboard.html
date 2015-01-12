@@ -1,0 +1,43 @@
+
+<div class="container" ng-controller="patientdashboardcontroller">
+	<div class="sectionpart">		
+		<div id="maincontent">
+			
+			<div id="patient-dashboard">
+				<i class="fa fa-list-alt fa-2x pointer" ui-sref="user.reportpage"></i>
+				<nav >
+
+					<ul>
+						
+						
+						<li id="view-pending-summary" ui-sref-active="active" ui-sref=".step1"><a class="appointments-pendingvisits" href=""></a></li>
+						<li id="view-past-summary" ui-sref-active="active" ui-sref=".step2"><a class="appointments-pastvisits" href=""></a></li>
+						
+						<li id="view-edit-patient-profile" ui-sref-active="active" ui-sref=".step3"><a class="appointments-editprofile" href=""></a></li>
+						<li ui-sref-active="active" ui-sref=".step4" id="view-edit-patient-profile"><a   class="searchagianButton"><button class="findnowbutton" type="submit">SEARCH AGAIN</button></a></li>
+					</ul>
+
+				</nav>
+				
+				
+				<div id="patient-dashboard-content">
+					
+				
+					<div ui-view></div>
+					
+				
+				
+			</div><!-- end patient dashboard -->
+
+			
+			<div class="push"></div>
+		</div> <!-- end maincontent -->
+		<div ng-show="alerts[0]">
+			<div class="toppadding container" >
+		        <div class="alertmessage col-sm-offset-3" > 
+		          <alert ng-repeat="alert in alerts" type="{{alert.type}}"  >{{alert.msg | capitalize}}.</alert>
+		        </div>
+	      	</div>
+      	</div>
+	</div>
+</div>

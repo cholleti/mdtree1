@@ -1,0 +1,18 @@
+<div ng-controller="imageupload" class="container">
+<form ng-submit="upload()">
+  <input type="text" ng-model="email">
+  <input type="file" ng-file-select="onFileSelect($files)" required>
+  <button type="submit">Submit</button>
+</form>
+<!--   <input type="file" ng-file-select="onFileSelect($files)" multiple accept="image/*">
+  <div class="button" ng-file-select="onFileSelect($files)" data-multiple="true"></div>
+  <div ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="optional-css-class-name-or-function"
+        ng-show="dropSupported">drop files here</div>
+  <div ng-file-drop-available="dropSupported=true" 
+        ng-show="!dropSupported">HTML5 Drop File is not supported!</div> -->
+   <b>Preview:</b><br />
+   <i ng-hide="imageSrc">No image choosed</i>
+   <img ng-src="{{imageSrc}}" width="30px;" height="30px;"/><br/>
+
+
+</div>

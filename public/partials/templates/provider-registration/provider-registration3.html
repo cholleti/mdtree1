@@ -1,0 +1,142 @@
+	<form id="form_provider_registration" ng-submit="submitform()" name="providerRegis">
+
+			<div id="provider-registration-page" class="accreditation2">
+				<h1 class="titleh1">Subscription Information</h1>
+				<span id="provider_registration_progressbar"></span>
+
+
+					<div class="leftcolumn">
+
+				
+					
+						<label for="languages">* Plan Type</label>
+						<select class="chzn-select"  required ng-model="form.plan" ng-options="obj.key as obj.id for obj in plan.options">
+							<option value="">Select Plan</option>
+						</select>
+						
+						
+						<div ng-hide="planhide">
+						
+							<label for="insurances">Billing Interval</label>
+								<select class="chzn-select"  required ng-model="BillingInterval.select" ng-options="obj.id as obj.id for obj in BillingInterval.options">
+								
+							</select>
+							
+							<label>Current&nbsp;Price&nbsp;(per&nbsp;month)</label>
+							<div class="form-group ">
+		                    	<input type="text" class="inputtext"    ng-model="BillingInterval.select">
+		                	</div> 
+		                	<label></label>
+		                	<input type="radio" id="terms" name="terms" value="male" checked="checked" /><span id="spantest" class="radio " ng-class="{selected:selected}" name="gender" target="gendermale" ng-click = " selected = !selected"></span><label for="gendermale" class="radioboxlabel">Override Price</label>
+
+
+							<div class="space"></div>
+
+							<label class="col-sm-6">Current Total </label>
+							<div class="form-group col-sm-6 marginTop">
+		                    	
+								<input type="text" class="inputtext"    ng-model="BillingInterval.select">
+							
+		                	</div> 
+						</div>
+						
+					</div>
+					<div class="push"></div>
+				
+						
+
+
+				<div class="push"></div>
+				<h1 class="titleh1">Billing Information</h1>
+				<div class="leftcolumn">
+					
+					<label for="languages"> Payment Method</label>
+					<select class="chzn-select"  ng-model="payment.card"  ng-options="obj.id as obj.id for obj in payment.options">
+						<option value="">Select Bank</option>
+					</select>
+					<div class="space"></div>
+					<label for="languages">Using Existing Address</label>
+					<select class="chzn-select" ng-model="ExistingAddress.card"  ng-options="obj.id as obj.id for obj in ExistingAddress.options">
+						<option value="">Select Location</option>
+					</select>
+					<div class="space"></div>
+
+                	<label>First Name</label>
+					<div class="form-group ">
+                    	<input type="text" class="inputtext"   >
+                	</div> 
+                	<div class="space"></div>
+                	<label>Last Name</label>
+					<div class="form-group ">
+                    	<input type="text" class="inputtext"   >
+                	</div> 
+                	<div class="space"></div>
+                	<label>Card Number</label>
+					<div class="form-group ">
+                    	<input type="text" class="inputtext"   >
+                	</div> 
+                	<div class="space"></div>
+                	<label>CVV / Security Code</label>
+					<div class="form-group ">
+                    	<input type="text" class="inputtext"   >
+                	</div> 
+                	<div class="space"></div>
+                	<label for="languages">Expiration Month</label>
+					<select class="chzn-select"  ng-model="Month.card"  ng-options="obj.id as obj.id for obj in Month.options">
+						<option value="">Select Month</option>
+					</select>
+
+					<div class="space"></div>
+					<label for="languages">Expiration Year</label>
+					<select class="chzn-select" ng-model="Year.card"  ng-options="obj.id as obj.id for obj in Year.options">
+						<option value="">Select Year</option>
+					</select>
+
+					<label>Address</label>
+					<div class="form-group ">
+                    	<input type="text" class="inputtext"   >
+                	</div> 
+                	<div class="space"></div>
+                	<label></label>
+					<div class="form-group ">
+                    	<input type="text" class="inputtext" >
+                	</div> 
+
+                	<div class="space"></div>
+                	<label>City</label>
+					<div class="form-group ">
+                    	<input type="text" class="inputtext"  >
+                	</div> 
+                	<div class="space"></div>
+                	<label for="languages">State</label>
+					<select class="chzn-select" ng-model="state.card"  ng-options="obj.abbreviation as obj.name for obj in state.options">
+						<option value="">List of all States</option>
+					</select>
+
+					<label>Zip</label>
+					<div class="form-group ">
+                    	<input type="text" class="inputtext"  >
+                	</div> 
+                	<div class="space"></div>
+                	<label>Phone</label>
+					<div class="form-group ">
+                    	<input type="text" class="inputtext"  >
+                	</div> 
+                	<div class="space"></div>
+                	<label class="col-sm-6">Amount to Charge</label>
+					<div class="form-group ">
+		                    	
+						<input type="text" class="inputtext"    ng-model="BillingInterval.select">
+					
+                	</div> 
+                	<div class="space"></div>
+                	<input type="checkbox" id="terms" name="terms" value="termsaccepted" /><span class="checkbox " name="terms" target="terms" tabindex="10" ng-class="{selected:selected}" ng-click = " selected = !selected"></span><label class="terms">&nbsp;I have read and accepted the <a ui-sref="public.termsandCondition" target="_blank">terms and conditions</a>.</label>
+                	<label  class="DisplayTermMessageError help-block" ng-show="!selected">{{DisplayTermMessageError}}</label>
+
+					<div class="completeReg "  ng-show="!selected" ng-click="displayTermMessage()" >Complete Registration</div>
+                	<button type="submit" class="completeReg " ng-disabled="!selected" ng-hide="!selected">Complete Registration</button>
+				</div>
+			</div>
+			
+			<div class="push"></div>	
+		</form>

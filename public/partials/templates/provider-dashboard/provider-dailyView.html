@@ -1,0 +1,211 @@
+					<div class="daily-View col-sm-12 paddingZero" >
+						<div class="selected-date col-sm-6" ng-click="selectedDatesInCalender(dates)">
+							<label class="col-sm-5 paddingZero marginSmallTop">Selected Date: </label> 
+							<input min-date="minDate"   data-ng-model="currentDate" readonly	 date-format="MM-dd-yyyy"   class="col-sm-2 paddingZero marginLeft form-control" />
+
+						</div>
+						
+						<div class="selected-location col-sm-6">
+							<label>Selected Location:</label>
+							
+							<select class="chzn-select"  ng-required="true" ng-model="loctaions.locId" ng-options="obj.locId as obj.address for obj in loctaions" ng-change="dailyViewLocation(loctaions.locId,currentDate)"></select>
+
+							
+						</div>
+						<!-- <div class="row specialoffer">
+							<div class="special-offer " ng-show="dailyViewdata.slot.title">
+								<span ng-show="dailyViewdata.slot.title"><p class="ng-binding fav text-center ">{{dailyViewdata.slot.title}}: {{dailyViewdata.slot.description}}</p></span>
+							</div>
+
+						</div> -->
+					</div>
+					
+						<table id="daily-viewer">
+
+
+							<thead>
+								<tr class="daily-viewer-header">
+									<th scope="col" class="time"><h3>Time</h3></th>
+									<th scope="col" class="patient-name"><h3>Patient Name</h3></th>
+									<th scope="col" class="patient-sex"><h3>M/F</h3></th>
+									<th scope="col" class="purpose"><h3>Purpose</h3></th>
+									<th scope="col" class="actions"><h3>Actions</h3></th>
+								</tr>
+							</thead>
+							
+							<tbody ng-repeat="statusbooked in dailyViewdata.slot.slots">
+
+
+									<tr>
+										
+											
+											<td><p >{{statusbooked.from}} - {{statusbooked.to}}</p></td>
+
+											<td class="patient-name"><p>{{statusbooked.patient.name}}</p>
+												<a  href="" class="status" >{{statusbooked.patient.email}}
+													<span class="appointment-info" ng-show="statusbooked.status == 'booked' || statusbooked.status == 'noshow' || statusbooked.status == 'done'">
+														<b>Name:</b> {{statusbooked.patient.name}}<br />
+														<b>Purpose:</b>{{statusbooked.patient.purpose}}<br />
+														<b>Insurance:</b>{{statusbooked.patient.insurance}}<br />
+														<b>Email:</b>{{statusbooked.patient.email}}<br />
+														<b>Phone:</b> {{statusbooked.patient.phoneno}}<br>
+														<b ng-show="statusbooked.patient.offer">Offer:</b><span ng-show="statusbooked.patient.offer"> {{statusbooked.patient.offer.title}} - {{statusbooked.patient.offer.description}}</span><br>
+														
+													</span>
+												</a>
+											</td>
+											<td><p>{{statusbooked.patient.gender }}</p></td>
+											<!-- <td><p ng-hide="statusbooked.from > currentTime"> {{statusbooked.from}} {{currentTime}}</p></td> -->
+											<td><p>{{statusbooked.patient.purpose}}</p></td>
+											<td class="actions">
+												
+												<ul ng-hide="currentDateEqualtoSelectDate">
+													<li class="actions-noshow" ng-hide="statusbooked.status == 'booked' && currrentdateCompare " ng-if="!(statusbooked.status === 'noshow')"><a href=""></a></li>
+													<li class="actions-noshowenable" ng-show="statusbooked.status == 'booked' && currrentdateCompare " ng-if="!(statusbooked.status === 'noshow')">
+														<a href="" ng-click="updateStatus(dailyViewdata.slot.date,statusbooked.from,$index,'NoShow')"></a>
+													</li>
+													<li class="actions-noshowenablewithcolor"  ng-if="statusbooked.status === 'noshow'">
+														<a href="" ></a>
+													</li>
+													
+													<li class="actions-done" ng-hide="statusbooked.status == 'booked' && currrentdateCompare" ng-if="statusbooked.status !== 'done'">
+														<a href=""></a>
+													</li>
+
+													<li class="actions-doneenable" ng-show="statusbooked.status == 'booked' && currrentdateCompare" ng-if="statusbooked.status !== 'done'">
+														<a href="" ng-click="updateStatus(dailyViewdata.slot.date,statusbooked.from,$index,'Done')"></a>
+													</li>
+													<li class="actions-doneenablewithcolor"  ng-if="statusbooked.status === 'done'">
+														<a href="" ></a>
+													</li>
+													<!-- <li class="actions-done" ng-hide="statusbooked.status == 'booked'">
+														<a href=""></a>
+													</li>
+													<li class="actions-done" ng-hide="statusbooked.status == 'booked'">
+														<a href=""></a>
+													</li> -->
+													<li class="actions-cancel" ng-hide="statusbooked.status == 'booked' && prevdateCompare" >
+														<a href=""></a>
+													</li>
+
+													<li class="actions-cancelenable" ng-show="statusbooked.status == 'booked' && prevdateCompare">
+														<a href="" ng-show="buttonenable" ng-click="buttonenable = !buttonenable" ></a>
+													</li>
+													<li class="actions-cancelclicked" ng-hide="buttonenable" >
+
+														
+										              <a  href="" class="dropdown-toggle" ></a>
+										              <ul class="cancelbuttonenable  arrow_box_logout arrow_box" ng-hide="buttonenable">
+										                <li>Reason for Cancelling:</li>
+										                <select class="chzn-select"  ng-required="true" ng-model="reason.select" ng-options="obj.reason as obj.reason for obj in reason.options"  ng-click="preventClose($event)">
+										                </select>
+										                <div class="col-md-12 paddingZero" ng-show="reason.select == 'Other reason'">
+													        <input class="inputtext" type="text" name="NewValue" ng-model="newValue" placeholder="please reason"/>
+													        <div ng-click="add(newValue)" class="btn btn-success">Add</div>
+													    </div>
+										                <!-- <li class="dividerclass">|</li>
+										                <li ><a ui-sref="user.patient-dashboard.step1" ng-show="usertype">Dashboard</a>
+										                <a ui-sref="user.provider-dashboard.step1" ng-hide="usertype">Dashboard</a></li> -->
+										                <div ng-click="buttonenable = !buttonenable"><button class="btn-default col-sm-6" ng-click="updateStatus(dailyViewdata.slot.date,statusbooked.from,$index,'Cancel',reason.select)">Cancel Appointment</button></div>
+										                <button class="btn-default col-sm-6" ng-click="buttonenable = !buttonenable" >Don't Cancel</button>
+										              </ul>
+											            
+													</li>
+												</ul>
+
+												<ul ng-show="currentDateEqualtoSelectDate">
+													<li class="actions-noshow" ng-hide="statusbooked.status == 'booked' && !statusbooked.timebase" ng-if="statusbooked.status !== 'noshow'"><a href=""></a></li>
+													<li class="actions-noshowenable" ng-show="statusbooked.status == 'booked' && !statusbooked.timebase"  ng-if="statusbooked.status !== 'noshow'">
+														<a href="" ng-click="updateStatus(dailyViewdata.slot.date,statusbooked.from,$index,'NoShow')"></a>
+													</li>
+													<li class="actions-noshowenablewithcolor"  ng-if="statusbooked.status === 'noshow'">
+														<a href="" ></a>
+													</li>
+													<li class="actions-done" ng-hide="statusbooked.status == 'booked' && !statusbooked.timebase" ng-if="statusbooked.status !== 'done'">
+														<a href=""></a>
+													</li>
+
+													<li class="actions-doneenable" ng-show="statusbooked.status == 'booked' && !statusbooked.timebase" ng-if="statusbooked.status !== 'done'">
+														<a href="" ng-click="updateStatus(dailyViewdata.slot.date,statusbooked.from,$index,'Done')"></a>
+													</li>
+													<li class="actions-doneenablewithcolor"  ng-if="statusbooked.status === 'done'">
+														<a href="" ></a>
+													</li>
+													<!-- <li class="actions-done" ng-hide="statusbooked.status == 'booked'">
+														<a href=""></a>
+													</li>
+													<li class="actions-done" ng-hide="statusbooked.status == 'booked'">
+														<a href=""></a>
+													</li> -->
+													<li class="actions-cancel" ng-hide="statusbooked.status == 'booked'   && statusbooked.timebase" >
+														<a href=""></a>
+													</li>
+
+													<li class="actions-cancelenable" ng-show="statusbooked.status == 'booked' &&  statusbooked.timebase">
+														<a href="" ng-show="buttonenable" ng-click="buttonenable = !buttonenable" ></a>
+													</li>
+													<li class="actions-cancelclicked" ng-hide="buttonenable" >
+
+														
+										              <a  href="" class="dropdown-toggle" ></a>
+										              <ul class="cancelbuttonenable  arrow_box_logout arrow_box" ng-hide="buttonenable">
+										                <li>Reason for Cancelling:</li>
+										                <select class="chzn-select"  ng-required="true" ng-model="reason.select" ng-options="obj.reason as obj.reason for obj in reason.options"  ng-click="preventClose($event)">
+										                </select>
+										                <div class="col-md-12 paddingZero" ng-show="reason.select == 'Other reason'">
+													        <input class="inputtext" type="text" name="NewValue" ng-model="newValue" placeholder="please reason"/>
+													        <div ng-click="add(newValue)" class="btn btn-success">Add</div>
+													    </div>
+										                <!-- <li class="dividerclass">|</li>
+										                <li ><a ui-sref="user.patient-dashboard.step1" ng-show="usertype">Dashboard</a>
+										                <a ui-sref="user.provider-dashboard.step1" ng-hide="usertype">Dashboard</a></li> -->
+										                <div ng-click="buttonenable = !buttonenable"><button class="btn-default col-sm-6" ng-click="updateStatus(dailyViewdata.slot.date,statusbooked.from,$index,'Cancel',reason.select)">Cancel Appointment</button></div>
+										                <button class="btn-default col-sm-6" ng-click="buttonenable = !buttonenable" >Don't Cancel</button>
+										              </ul>
+											            
+													</li>
+												</ul>
+											</td>
+										
+									</tr>
+							<!-- 	<a  href="" class="status" ng-show="timeslot.status == 'booked'">{{timeslot.time}}
+									<span class="appointment-info" ng-show="timeslot.status == 'booked'">
+										<b>Name:</b> Williams, Jackie<br />
+										<b>Purpose:</b> Nausea and breathing<br />
+										<b>Insurance:</b> Paying out of pocket<br />
+										<b>Email:</b> jwax@mail.com<br />
+										<b>Gender:</b> Female
+									</span>
+								</a> -->
+								<!-- <tr>
+									<td><p>09:30 AM -<br>10:00 AM</p></td>
+									<td class="patient-name"><p>Colin Erskine</p></td>
+									<td><p>M</p></td>
+									<td><p>Trouble Sleeping</p></td>
+									<td class="actions">
+
+											<ul>
+												<li class="actions-noshow"><a href=""></a></li>
+												<li class="actions-done"><a href=""></a></li>
+												<li class="actions-cancel"><a href=""></a></li>
+											</ul>
+
+									</td>
+								</tr>
+								
+								<tr>
+									<td><p>10:00 AM -<br>10:30 AM</p></td>
+									<td class="patient-name"><p><span>-Open-</span></p></td>
+									<td></td>
+									<td></td>
+									<td class="actions">
+										<ul>
+											<li class="actions-noshow"><a href=""></a></li>
+											<li class="actions-done"><a href=""></a></li>
+											<li class="actions-cancel"><a href=""></a></li>
+										</ul>
+									</td>
+								</tr> -->
+							</tbody>
+
+						</table>

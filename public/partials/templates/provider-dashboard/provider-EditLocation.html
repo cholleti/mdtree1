@@ -1,0 +1,72 @@
+
+<div id="edit-location-details-form">
+	<img src="images/edit-location-info.png" style="display:none;"/>
+	<form id="form_provider_registration" name="locationvalueedit" ng-submit="updateLoctaion(providerLocation)" >
+		
+		<nav id="location-selecter">
+			<div class="selected-location">
+				<label>Select a location:</label>
+				<select class="form-control"  required ng-model="locationsValues.locations" ng-options="obj.locId as obj.address for obj in locationsValues.options" ng-change="getSpecificLocation(locationsValues.locations)"></select>
+			</div>
+			
+		</nav>
+
+		<div id="location_details">
+			<div class="leftcolumn">
+				<label for="practicename">Practice Name</label><input type="text" class="form-control inputerror" ng-model="providerLocation.practiceName" required/>
+				<div class="space"></div>
+				<label for="address1">*Address</label><input type="text" class="form-control inputerror" ng-model="providerLocation.address" required/>
+				<div class="space"></div> 
+				<label for="city">* City</label>
+				<input type="text" class="form-control inputerror" ng-model="providerLocation.city" required/>
+				<div class="space"></div> 
+				<div style="clear:both">
+					<label for"state">* State</label>
+
+					<select class="form-control"  required ng-model="providerLocation.state" ng-options="obj.abbreviation as obj.name for obj in state.options">
+						<option value="">Select State</option>
+					</select>
+					<div class="space"></div> 
+				</div>
+				<label for="zipcode">* Zip Code</label>
+				
+				<div class="form-group ">
+	                <input type="text" name = "Zipcode" class="inputtext"   data-ng-model="providerLocation.zip" required ng-maxlength="5"  numbers-only="numbers-only"  ng-blur="visitedZipcode = true" ng-pattern="/^[0-9]{5}$/"  />
+	            </div> 
+				<div class="space">
+					<div ng-show="locationvalueedit.Zipcode.$dirty && visitedZipcode" class="helpblock">
+						<span class="help-block" ng-show="locationvalueedit.Zipcode.$error.required">
+							Zip Code is required.</span> 
+							<span  class="help-block" ng-show="locationvalueedit.Zipcode.$error.maxlength">MaxLength is 5</span>
+							<span class="help-block" ng-show="locationvalueedit.Zipcode.$error.pattern">Not a valid Zip!</span>
+						</span>
+					</div>
+				</div>
+			</div>
+			
+			<div class="rightcolumn">
+				
+				<label for="phone1">* Phone 1</label>
+				<input type="text" class="form-control inputerror" ng-model="providerLocation.phone1"   name = "phonenumber" ng-pattern="/^[0-9]{10}$/" ng-blur="visitedPhonenum = true" numbers-only="numbers-only" required ng-maxlength="10"/>
+				
+				
+				<div class="space">
+					
+				</div>
+				<label for="phone2">Phone 2</label>
+				
+				<input type="text" class="form-control inputerror" ng-model="providerLocation.phone2" name = "phonenumberTwo" ng-pattern="/^[0-9]{10}$/" ng-blur="visitedPhonenumber = true" numbers-only="numbers-only"  ng-maxlength="10"/>
+				<div class="space">
+					
+				</div>
+				<label for="fax">Fax</label><input type="text" class="form-control inputerror" ng-model="providerLocation.fax"/>
+				
+				<div class="spacer"></div>
+				<p class="small" >* Required field</p>
+				<input id="submit_provider_registration" type="submit" value="" tabindex="9" class="marginMedTop" ng-disabled="locationvalueedit.$invalid"/>
+			</div>
+		</div>
+	</form>
+</div>
+
+

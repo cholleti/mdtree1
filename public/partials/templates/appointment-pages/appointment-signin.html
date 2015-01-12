@@ -1,0 +1,228 @@
+<div class="container" ng-controller="LoginCtrl">
+	<div class="sectionpart">
+		<div id="maincontent">
+			<div class="appointment signinProgress">
+				<div class="appointment-progress progress-signin"></div>
+				
+				<div class="appointment-usercheck">
+					<p>You must first Sign Up with MDtree to book an appointment.</p>
+					<a id="new-user-button" href=""><img title="I am a new user" src="images/sign-up.png" ng-click="changetoNewUser()"></a>
+					<a id="existing-user-button" href=""><img title="I am a returning user" src="images/am-register-with-mdtree.png" ng-click="changetoOldUser()" ></a>
+					
+					<div id="signin-or-register">
+						<div id="existing-user" ng-show="existingUser">
+
+							<div class="sign-in">
+								<form id="appointment-login" ng-show="login" ng-submit="SearchLogin('passValue')">
+									<ul>
+										<li>
+											<div class="form-group ">
+												<label>Login</label>
+							                    <input type="email" class="inputtext" placeholder="UserName"  data-ng-model="username" required>
+						                  	</div> 
+										 
+										</li>
+										<li>
+											<div class="form-group ">
+												<label>Password</label>
+							                    <input type="password" class="inputtext" placeholder="Password"  data-ng-model="password" required>
+						                  	</div> 
+						                </li>
+										<li class="">
+											<a id="appointment-forgot-pass-link" href="">Forgot Password</a><br>
+											<!-- <input class="login-button" type="submit" value=" "></input> -->
+											<button type="submit" class="loginbutton">LOGIN  </button>
+										</li>
+									</ul>
+								</form>
+								
+								<form id="appointment-forgot-pass" class="forgot-password" ng-hide="true">
+									<ul>
+										<li><label>Email</label> <input type="text" class="input_170" name="email"  tabindex="1" /></li>
+										<li><label>Zip Code</label> <input type="text" class="input_170" name="zipcode"  tabindex="2" /></input></li>
+										<li class="">
+											<input id="appointment-password-reset-button" class="reset-password-button"  value=" "></input>
+
+										</li>
+									</ul>
+								</form>
+								
+								<div id="appointment-password-sent" ng-hide="true">
+									<p>Your password request has been accepted.<br /> Please <b>check your email</b> for instructions.</p>
+								</div>
+							</div>
+						</div>
+						
+						<div id="new-user" ng-show="newUser">
+
+							<form id="form_patient_registration" style="background-image:none;"  class="col-sm-7" name="patientreg" ng-submit="submitform('processWay')" ng-controller="patientreg">
+							
+							<label for="firstname">* First Name</label>
+							<div class="form-group ">
+			                    <input type="text" class="inputtext"   data-ng-model="firstName" required ng-blur="visitedfirstName = true" name="firstName">
+			                 </div> 
+			                <div class="space">
+								<div ng-show="patientreg.firstName.$dirty &&  visitedfirstName" class="helpblock">
+									<span class="help-block" ng-show="patientreg.firstName.$error.required">
+										Your First Name is required.
+									</span> 
+								</div>
+							</div>
+							<label for="lastname">* Last Name</label>
+							<div class="form-group ">
+			                    <input type="text" class="inputtext"   data-ng-model="lastName" required  ng-blur="visitedlastName = true" name="lastName">
+			                 </div> 
+			                <div class="space">
+								<div ng-show="patientreg.firstName.$dirty &&  visitedlastName" class="helpblock">
+									<span class="help-block" ng-show="patientreg.lastName.$error.required">
+										Your Last Name is required.
+									</span> 
+								</div>
+							</div>
+
+							<label for="zipcode">* Zip Code</label>
+							<div class="form-group ">
+			                    <input type="text" class="inputtext"   data-ng-model="zipCode" required ng-maxlength="5"  numbers-only="numbers-only"  ng-blur="visitedZipcode = true" ng-pattern="/^[0-9]{5}$/" ng-maxlength="5" name = "Zipcode"/>
+			                 </div> 
+							<div class="space">
+								<div ng-show="patientreg.Zipcode.$dirty &&  visitedZipcode" class="helpblock">
+									<span class="help-block" ng-show="patientreg.Zipcode.$error.required">
+										Zip Code is required.</span> 
+										<span  class="help-block" ng-show="patientreg.Zipcode.$error.maxlength">MaxLength is 5</span>
+										<span class="help-block" ng-show="patientreg.Zipcode.$error.pattern">Not a valid Zip!</span>
+									</span>
+								</div>
+							</div>
+
+
+							<label for="dateofbirth" class="gender">Gender</label>
+							<div class="genderValueSelect">
+							<span id="spantest" class="radio " ng-class="{selected:!boolChangeClass}" name="gender" target="gendermale" tabindex="4" ng-click="setGender('male')  ">Male</span>
+							<span for="gendermale" class="radioboxlabel"></span>
+
+							<span class="radio"  name="gender" target="genderfemale" tabindex="5" ng-click="setGender('female') " ng-class="{selected:boolChangeClass}">&nbsp;&nbsp;Female</span>
+							<span for="gendermale" class="radioboxlabel"></span>
+							</div>
+
+
+							<label for="dateofbirth">* Date of Birth</label>
+							<div class="form-group ">
+			                   
+			                     <input id="dp" type="text" ng-model="dob" name="mDate" class="inputtext "  my-datepicker required/>
+			                    
+			                 </div> 
+			                 <div class="space">
+			                 </div>
+			                <label for="email">* Email</label>
+
+			                <div class="form-group ">
+								<input type="email" class="inputtext "   data-ng-model="email" required ng-blur="visitedEmail = true ;focus=false;"  name = "email" ng-focus="focus=true"  >
+							</div> 
+							
+							<div class="space">
+								<div ng-show="patientreg.email.$dirty &&  visitedEmail && !focus" class="helpblock">
+									<span class="help-block" ng-show="patientreg.email.$error.required">
+										Email is required.</span> 
+										<span ng-hide="focus"><span  class="help-block" ng-show="patientreg.email.$error.email">This is not a valid email</span></span>
+									</span>
+								</div>
+							</div>
+
+							<label for="email">* Phone Number</label>
+
+							<div class="form-group ">
+			                   
+			                    <phonenumber-directive  model='phone' required></phonenumber-directive>
+			                 </div> 
+			                 <div class="space"></div>
+			                <label for="password">* Create a Password</label>
+							<div class="form-group ">
+			                    <input type="password" class="inputtext"   data-ng-model="password"  required name="password" ng-blur="visitedPassword = true" ng-minlength="6">
+			                 </div> 
+			                 <div class="space">
+								<div ng-show="patientreg.password.$dirty &&  visitedPassword" class="helpblock">
+									<span class="help-block" ng-show="patientreg.password.$error.required">
+		                                   Password is required</span> 
+		                            <span  class="help-block" ng-show="patientreg.password.$error.minlength">too short,Min length 6</span>
+								</div>
+							</div>
+
+
+							<label for="repassword">* Re-type Password</label>
+							<div class="form-group ">
+			                    <input type="password" class="inputtext"   data-ng-model="repassword"  required name="confirmpassword" ng-blur="visitedConPassword = true" ng-minlength="6">
+			                </div> 
+			                <div class="space">
+								<div ng-show="patientreg.confirmpassword.$dirty &&  visitedConPassword" class="helpblock">
+									<span class="help-block" ng-show="patientreg.confirmpassword.$error.required">
+		                                   Confirm Password is required</span> 
+		                            <span  class="help-block" ng-show="password != repassword">Password not match</span>
+		                            <span  class="help-block" ng-show="patientreg.confirmpassword.$error.minlength">too short,Min length 6</span>
+								</div>
+							</div>
+
+
+							<label for="selecttype">* Question</label>
+		                    <div class="form-group ">
+		                    	<select class="inputtext selecttype" required ng-model="questions.select" ng-options="obj.id as obj.id for obj in questions.options" required>
+		                    		<option VALUE="">Select Security Question</option>
+		                    </select>
+		                    </div> 
+
+
+
+		                    <div class="space"></div>
+		                    <label for="selecttype">* Answer</label>
+		                    <div class="form-group ">
+		                    	<input type="password" class="inputtext"   data-ng-model="answer"  required ng-blur="visitedanswer = true" name="answer">
+		                    </div>
+		                    
+							<div class="space">
+								<div ng-show="patientreg.answer.$dirty &&  visitedanswer" class="helpblock">
+									<span class="help-block" ng-show="patientreg.answer.$error.required">
+										Security answer is required.
+									</span>
+								</div>
+							</div>
+
+							<div class="">
+								<input type="checkbox" id="terms" name="terms" value="termsaccepted" />
+								<span class="checkbox col-sm-4 paddingZero" name="terms" target="terms" tabindex="10" ng-class="{selected:selected}" ng-click = " selected = !selected"></span><span class="terms col-sm-4 paddingZero">&nbsp;I have read and accepted the <a ui-sref="public.termsandCondition" target="_blank">terms and conditions</a>.</span>
+							</div>
+							
+							<label for="selecttype" class="DisplayTermMessageError help-block">{{DisplayTermMessageError}}</label>
+							<button class="savebutton" type="submit" ng-disabled="!selected"  ng-hide="!selected">SAVE</button>
+							<div class="savebutton"  ng-show="!selected" ng-click="displayTermMessage()" >SAVE</div>
+							<div ng-show="alerts[0]" >
+								<div >
+							        <div class="alertmessage ">
+							          <alert ng-repeat="alert in alerts" type="{{alert.type}}"  >{{alert.msg}}.</alert>
+							        </div>
+						      	</div>
+					      	</div>
+						</form>
+							
+						</div>
+					</div>
+					
+					<!-- <div id="sign-in-button" href=""></div> -->
+				</div>
+				
+			
+
+				
+			</div> <!-- end sign-in -->
+			<div ng-show="alerts[0].msg">
+				
+		        <div class="alertmessage ">
+		          <alert ng-repeat="alert in alerts" type="{{alert.type}}"  >{{alert.msg | capitalize}}.</alert>
+		        </div>
+	      
+	      	</div>
+			<div class="push"></div>
+		</div> <!-- end maincontent -->
+		
+		
+	</div>	<!-- end wrapper -->
+	</div>
+</div>

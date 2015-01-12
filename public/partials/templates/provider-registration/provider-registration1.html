@@ -1,0 +1,333 @@
+		<form id="form_provider_registration"  name="providerregis" >
+			<div id="provider-registration-page"  class="registration-page">
+				<h1 class="titleh1">Provider Sign Up</h1>
+				<span id="provider_registration_progressbar"></span>
+
+
+
+				<div class="leftcolumn">
+
+					<label>* Category</label>
+					<select class="form-control"  required ng-model="form.category" ng-options="obj.key as obj.id for obj in categories.options">
+						<option value="">Select Category</option>
+					</select>
+					
+					<label>Specialty</label>
+					<div class="form-group " ng-switch on="form.category">
+						<div ng-switch-when="doctors">
+							<select class="form-control" required  ng-model="form.specialty" ng-options="obj.key as obj.value for obj in specialty.options">
+								<option value="">Select Specialty</option>
+							</select>
+						</div>
+						<div ng-switch-when="dentists">
+							<select class="form-control" required  ng-model="form.specialty" ng-options="obj.key as obj.value for obj in dentistslists.options">
+								<option value="">Select Specialty</option>
+							</select> 
+						</div>
+						<div ng-switch-when="chiropractors" >
+
+							<select class="form-control" required  ng-model="form.specialty" ng-options="obj.key as obj.value for obj in chiropractors.options">
+								<option value="">Select Specialty</option>
+							</select> 
+						</div>
+						<div ng-switch-when="vision">
+
+							<select class="form-control"  required  ng-model="form.specialty" ng-options="obj.key as obj.value for obj in Vision.options">
+								<option value="">Select Specialty</option>
+							</select>
+						</div>    
+						<div ng-switch-when="others">
+
+							<select class="form-control" required  ng-model="form.specialty" ng-options="obj.key as obj.value for obj in otherSpeciality.options">
+								<option value="">Select Specialty</option>
+							</select>
+						</div>    
+						<div ng-default>
+
+							<select class="form-control" ng-hide="form.category">
+								<option></option>
+								<option> Category Select First</option>
+							</select>
+						</div>           
+					</div>
+					
+					<!-- <select class="form-control"  required ng-model="form.specialty" ng-options="obj.id as obj.id for obj in specialty.options">
+						<option value="">Choose Specialty</option>
+					</select> -->
+
+					<label>* Title</label>
+					<select class="form-control"  required ng-model="form.title" ng-options="obj.key as obj.id for obj in title.options">
+						<option value=""></option>
+					</select>
+
+					<label for="firstname">* First Name</label>
+					<div class="form-group ">
+						<input type="text" class=" inputtext"   data-ng-model="form.firstName" required ng-blur="visitedfirstName = true"  name = "firstName">
+					</div> 
+					<div class="space">
+						<div ng-show="providerregis.firstName.$dirty &&  visitedfirstName" class="helpblock">
+							<span class="help-block" ng-show="providerregis.firstName.$error.required">
+								Your First Name is required.
+							</span> 
+						</div>
+					</div>
+
+					<label for="lastname">* Last Name </label>
+					<div class="form-group ">
+						<input type="text" class="inputtext"   data-ng-model="form.lastName" required ng-blur="visitedlastName = true"  name = "lastName">
+					</div> 
+					<div class="space">
+						<div ng-show="providerregis.lastName.$dirty &&  visitedlastName" class="helpblock">
+							<span class="help-block" ng-show="providerregis.lastName.$error.required">
+								Your LastName is required.
+							</span>
+						</div>
+					</div>
+
+					<label for="dateofbirth">* Date of Birth</label> 
+					<div class="form-group ">
+						<!-- <input id="dp" type="text" ng-model="form.dob" name="mDate" my-datepicker required/> -->
+						<input id="dp" type="text" ng-model="form.dob" name="mDate" class="inputtext datepicker"  my-datepicker ng-required readonly/>
+						<!-- <datetimepicker max-date="dob"   data-ng-model="form.dob" 	 date-format="MM-dd-yyyy" required></datetimepicker>  -->
+					</div> 
+					
+					<div class="space"></div>
+					<label for="zipcode">* Zip Code</label>
+					<div class="form-group ">
+						<input type="text" class="inputtext"   data-ng-model="form.zipCode" required ng-blur="visitedZipcode = true"  name = "Zipcode"   ng-maxlength="5"  numbers-only="numbers-only"  ng-pattern="/^[0-9]{5}$/"/>
+
+					</div> 
+					
+
+					<div class="space">
+						<div ng-show="providerregis.Zipcode.$dirty &&  visitedZipcode" class="helpblock">
+							<span class="help-block" ng-show="providerregis.Zipcode.$error.required">
+								Zip Code is required.</span> 
+								<span  class="help-block" ng-show="providerregis.Zipcode.$error.maxlength">MaxLength is 5</span>
+								<span class="help-block" ng-show="providerregis.Zipcode.$error.pattern">Not a valid Zip!</span>
+							</span>
+						</div>
+					</div>
+
+
+					<label >Gender</label>
+
+					<input type="radio" id="gendermale" name="gender" value="male" checked="checked" ng-model="gender"/><span id="spantest" class="radio " ng-class="{selected:!boolChangeClass}" name="gender" target="gendermale" tabindex="4" ng-click="setGender('male')  "></span><label for="gendermale" class="radioboxlabel">Male</label>
+					<input type="radio" id="genderfemale" name="gender" value="female" ng-model="radio" ng-model="gender"/><span class="radio"  name="gender" target="genderfemale" tabindex="5" ng-click="setGender('female') " ng-class="{selected:boolChangeClass}"></span><label for="genderfemale" class="radioboxlabel" >Female</label>
+
+					<div class="space"></div>
+
+				</div>
+				<div class="rightcolumn registerpage1">
+					<label for="email">* Email</label>
+					<div class="form-group ">
+						<input type="email" class="inputtext"   data-ng-model="form.email" required ng-blur="visitedEmail = true ;focus=false;CheckEmailAddrress(form.email)"  name = "email" ng-focus="focus=true"  >
+					</div> 
+					
+					<div class="space">
+
+						<div ng-show="providerregis.email.$dirty &&  visitedEmail && !focus" class="helpblock">
+							<span class="help-block" ng-show="providerregis.email.$error.required">
+								Email is required.</span> 
+								<span ng-hide="focus"><span  class="help-block" ng-show="providerregis.email.$error.email">This is not a valid email</span></span>
+							</span>
+							<span class="help-block" ng-show="!focus">
+								{{errorMailAlready}}</span> 
+							</div>	
+						</div>
+						<label for="website"> Web Site</label>
+						<div class="form-group ">
+							<input type="text" class="inputtext"   data-ng-model="webSite"   name = "website"  >
+						</div> 
+						<div class="space"> </div>
+						<label for="password">* Password</label>
+						<div class="form-group ">
+							<input type="password" class="inputtext"   data-ng-model="form.password" required name="password" ng-blur="visitedPassword = true" ng-minlength="6">
+						</div> 
+						<div class="space">
+							<div ng-show="providerregis.password.$dirty &&  visitedPassword" class="helpblock">
+								<span class="help-block" ng-show="providerregis.password.$error.required">
+									Password is required</span> 
+									<span  class="help-block" ng-show="providerregis.password.$error.minlength">Too short, should be at least 6 characters long.</span>
+								</div>
+							</div>
+
+							<label for="repassword">* Re-type Password</label>
+							<div class="form-group ">
+								<input type="password" class="inputtext"   data-ng-model="repassword" required name="confirmpassword" ng-blur="visitedConPassword = true" ng-minlength="6" ng-focus="visitedConPassword = false">
+							</div> 
+							<div class="space">
+								<div ng-show="providerregis.confirmpassword.$dirty &&  visitedConPassword" class="helpblock">
+									<span class="help-block" ng-show="providerregis.confirmpassword.$error.required">
+										Confirm Password is required</span> 
+										<div ng-hide="providerregis.confirmpassword.$error.required">
+											<span  class="help-block" ng-show="form.password != repassword " >Password not match</span>
+										</div>
+										<div ng-hide="form.password != repassword"><span  class="help-block"  ng-show="providerregis.confirmpassword.$error.minlength" >too short,Min length 6</span></div>
+									</div>
+								</div>
+								<label for="selecttype">* Security Questions</label>
+
+								<select class="form-control"  required ng-model="form.question" ng-options="obj.key as obj.id for obj in questions.options">
+									<option value="">Select questions</option>
+								</select>
+								
+								
+								<label for="selecttype">* Answer</label>
+								<div class="form-group ">
+									<input type="password" class="inputtext"   data-ng-model="form.answer"  required ng-blur="visitedanswer = true" name="answer">
+								</div>
+								<div class="space">
+									<div ng-show="providerregis.answer.$dirty &&  visitedanswer" class="helpblock">
+										<span class="help-block" ng-show="providerregis.answer.$error.required">
+											Security answer is required.
+										</span>
+									</div>
+								</div>
+
+								<label for="emailnotification">* Email notifications to</label>
+								<div class="form-group ">
+									<input type="email" class="inputtext"   data-ng-model="form.notification" required ng-blur="visitedNotficEmail = true ;form.cash = 'NoAble'" name="NotificEmail">
+								</div> 
+								<div class="space">
+									<div ng-show="providerregis.NotificEmail.$dirty &&  visitedNotficEmail" class="helpblock">
+										<span class="help-block" ng-show="providerregis.NotificEmail.$error.required">
+											Email is required.</span> 
+											<span  class="help-block" ng-show="providerregis.NotificEmail.$error.email">This is not a valid email</span>
+										</span>
+									</div>
+								</div>
+								<label for="phonecancel">* Cancellation Phone Number</label>
+								<div class="form-group ">
+									<!-- <input type="text" class="inputtext"   data-ng-model="form.cancellationNumber" required  ng-blur="visitedphoneNumber = true" ng-pattern="/^[0-9]{10}$/" name="phoneNumber" > -->
+									<phonenumber-directive  model='form.cancellationNumber'></phonenumber-directive>
+								</div> 
+								<div class="space">
+									<div ng-show="providerregis.phoneNumber.$dirty &&  visitedphoneNumber" class="helpblock">
+										<span class="help-block" ng-show="providerregis.phoneNumber.$error.required">
+											Phone Number is required.</span> 
+											<span ng-show="providerregis.phoneNumber.$error.required"><span  class="help-block" ng-show="providerregis.phoneNumber.$error.pattern">Invalid phone number</span></span>
+										</span>
+
+									</span>
+								</div>
+							</div>
+							<label for="cashprice" ng-model="cash">* Cash for basic visit</label>
+							<select class="form-control"  required ng-model="form.cash" ng-options="obj.key as obj.id for obj in cashprice.options"></select>
+
+							
+							<label for="cashprice" ng-model="cash">* enhancedcare MDCONNECT Member Discount: x% - x%:</label>
+							<select class="form-control"  required ng-model="form.offer" ng-options="obj.key as obj.id for obj in offer.options" required>
+								<option value="">Select Member Discount</option>
+							</select>
+							<div class="col-md-4 paddingZero" ng-show="form.offer == 'Other'">
+								<input class="inputtext" type="text" name="NewValue" ng-model="newValue" />
+								<div ng-click="add(newValue)" class="btn btn-success">Add</div>
+							</div>
+							
+						</div>
+
+						<div class="spacer"></div>
+						<h1 class="titleh1">Location Details</h1>
+						<div id="location_details" ng-repeat="location in locations" class="location_details" data-ng-form="subForm">
+
+							<div id="location" class="location-box" class="col-sm-3">
+
+								<h2>Location {{$index +1}}
+								</h2>
+								<a href="" class="locationdetails deleteclinic pull-right" ng-click="deleteclinic($index)" ng-hide="$index == 0">Delete clinic</a>
+
+								<label for="practicename">* Practice Name</label>
+								<div class="form-group ">
+									<input type="text" class="inputtext"   data-ng-model="location.practiceName" required ng-blur="visitedpractice = true" name="Practice">
+								</div> 
+								<div class="space">
+									<div ng-show="subForm.Practice.$dirty &&  visitedpractice" class="helpblock">
+										<span class="help-block" ng-show="subForm.Practice.$error.required">
+											Practice Name is required.
+										</span>
+									</div>
+								</div>
+								<label for="address1">*Address</label>
+								<div class="form-group ">
+									<input type="text" class="inputtext"   data-ng-model="location.address" required ng-blur="visitedaddress = true" name="address">
+								</div> 
+								<div class="space">
+									<div ng-show="subForm.address.$dirty &&  visitedaddress" class="helpblock">
+										<span class="help-block" ng-show="subForm.address.$error.required">
+											Address is required.
+										</span>
+									</div>
+								</div>
+
+								<label for="city">* City</label>
+								<div class="form-group ">
+									<input type="text" class="inputtext"   data-ng-model="location.city" required ng-blur="visitedcity = true" name="city" >
+								</div> 
+								<div class="space">
+									<div ng-show="subForm.city.$dirty &&  visitedcity" class="helpblock">
+										<span class="help-block" ng-show="subForm.city.$error.required">
+											City is required.
+										</span>
+									</div>
+								</div>
+								<div style="clear:both">
+									<label for"state" ng-model="state">* State</label>
+									<select class="form-control"  required ng-model="location.state" ng-options="obj.abbreviation as obj.name for obj in state.options">
+										<option value="">Choose State</option>
+									</select>
+								</div>
+
+								
+								<label for="zip">* Zip</label>
+								<div class="form-group ">
+									<input type="text" class="inputtext"   data-ng-model="location.zip" required ng-blur="visitedzipcode = true" ng-pattern="/^[0-9]{5}$/" name="zip" numbers-only="numbers-only">
+								</div> 
+								<div class="space">
+									<div ng-show="subForm.zip.$dirty &&  visitedzipcode" class="helpblock">
+										<span class="help-block" ng-show="subForm.zip.$error.required">
+											Zip Code is required.</span> 
+											<span class="help-block" ng-show="subForm.zip.$error.pattern">Not a valid Zip!</span>
+										</span>
+									</div>
+								</div>
+								<label for="phone1">* Phone 1</label>
+								<div class="form-group ">
+									<phonenumber-directive  model='location.phone1' ></phonenumber-directive>
+									<!-- <input type="text" class="inputtext"   data-ng-model="location.phone1" required  ng-blur="visitedphone = true" ng-pattern="/^[0-9]{10}$/" name="phone"> -->
+								</div> 
+								<div class="space">
+									<div ng-show="subForm.phone.$dirty &&  visitedphone" class="helpblock">
+										<span class="help-block" ng-show="subForm.phone.$error.required">
+											Phone Number is required.</span> 
+											<span  class="help-block" ng-show="subForm.phone.$error.pattern">Invalid phone number</span>
+										</span>
+
+									</span>
+								</div>
+							</div>
+
+							<label for="phone2">Phone 2</label>
+							<div class="form-group ">
+								<input type="text" class="inputtext"   data-ng-model="location.phone2"  >
+							</div> 
+							<div class="space"></div>
+							<label for="fax">Fax</label>
+							<div class="form-group ">
+								<input type="text" class="inputtext"   data-ng-model="location.fax" >
+							</div> 
+
+							<a href="" class="locationdetails addclinic" ng-click="addclinic()"  ng-show="addclinicShow == $index">Add another location</a>
+						</div>
+
+					</div>
+
+					<div class="spacer"></div>
+					<p class="small" >* Required field</p>
+					<!-- 				<button ng-disabled="providerregis.$invalid" ui-sref="admin.provider-registration.step2"  class="savebutton">SAVE</button> -->
+
+					<button  type="submit" ng-show="providerregis.$invalid" class="savebutton"  >SAVE</button>
+					<button   ng-hide="providerregis.$invalid || errorMailAlready || form.password != repassword " class="savebutton"  ui-sref="salesAdmin.dashboard.providerinfo.newprovider.step2" >SAVE</button>
+					<!-- <button   ng-hide="providerregis.$invalid || errorMailAlready || form.password != repassword " class="savebutton"  ui-sref="admin.dashboard.providerinfo.newprovider.step2" >SAVE</button> -->
+				</div>
+			</form>

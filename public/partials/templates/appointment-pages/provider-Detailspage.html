@@ -1,0 +1,126 @@
+<div class="container" >
+	<div class="sectionpart">
+		
+
+		<div id="maincontent" ng-controller="doctorDetailsController">
+			<div id="provider-dashboard" class="provider-profile">
+				<div class="background">
+					<div class="profiletemp ">
+						<ul class="provider-brief">
+							<!-- <li class="profile-google-flag"></li> -->
+							<li class="profile-image"><img title="{{doctordetails.firstName}}" ng-src="{{doctordetails.image}}" width="97px;"
+							height="167px;"/></li>
+							<li class="profile-name"><span class="titleh1"><a href="">{{doctordetails.name}}</a></h1></li>
+							<li class="profile-rating"><img title="5 star rating" src="images/stars-5.png" /></li>
+							<li class="profile-address">{{doctordetails.primarylocation.address}}</li>
+							<li class="profile-address">{{doctordetails.primarylocation.city}}, {{doctordetails.primarylocation.state}}, {{doctordetails.primarylocation.zip}}</li>
+							<li class="profile-price">Price for basic visit: <span class="fav">  $$$$</span>
+								<span class="sidenote">
+									Price Range:{{doctordetails.cash}}<br>
+
+								"Please note that basic pricing may not include X-rays, labs or other necessary services required during your visit."
+							
+								</span>
+							</li>
+							<li class="profile-address">Enhancedcare MDCONNECT Member Discount: {{offerInsystem}}</li>
+							<li class="profile-web-url"><a href="" ng-click="openNewTab(doctordetails.webSite)"><strong>{{doctordetails.webSite}}</strong></a></li>
+							<li class="profile-bookbutton"><a ui-sref="public.appDetails" ng-click="doctorBookApponimentClicked(doctordetails.email)"></a></li>
+						</ul>
+						<ul class="provider-moreinfo">
+							<br>
+							<li class="profile-school"><strong>School:</strong>{{doctordetails.school}}</li>
+							<li class="profile-residency"><strong>Residency:</strong> {{doctordetails.residency}}</li>
+							<li class="profile-fellowships"><strong>Fellowships:</strong>{{doctordetails.fellowship}}</li>
+							<li class="profile-fellowships"><strong>Professional Affiliations:</strong>{{doctordetails.affilliation}}</li>
+							<li class="profile-professional-statements"><p><strong>Professional Statement:</strong>{{doctordetails.statement}}</li>
+							<li class="profile-languages"><strong>Languages Spoken:</strong>
+								<ul ng-repeat="language in SelectedLangJson">
+									<li>{{language}}</li>
+								</ul>				
+							</li>
+						</ul>
+					</div>
+
+					<div class="PatientReviews marginTop">
+						<span class="titleh1 marginTop">&nbsp;<br>Patient Reviews</span>
+						<p class=" marginTop">The staff was so friendly and {{doctordetails.name}} was extremely thorough. Will definitely be back.</p>
+					</div>
+				</div>
+				<div class="access-information">
+
+					<div id="map_canvas" style="width:;height:219px" class="marginTop google-map"  ></div>
+					<ul>
+						<li class="specialty"><strong>Specialty:</strong>&nbsp;&nbsp;{{SelectedSpeciality}}</li>
+						<li class="insurance-coverage" ng-class="{minheight:heightMin}"><strong>Insurances Accepted:</strong>
+							<ul ng-repeat="insurance in Selectedinsurance">
+								<li >{{insurance}}</li>
+							</ul>
+						</li>
+						<li class="fav pointer " ng-click="heightMin = !heightMin" ng-show="heightMin && Selectedinsurance[9]"><u>&nbsp;&nbsp;&nbsp;&nbsp;<span class="underline">more...</span></u></li>
+						<li class="fav pointer " ng-click="heightMin = !heightMin" ng-hide="heightMin"><u>&nbsp;&nbsp;&nbsp;&nbsp;<span class="underline">less...</span></u></li>
+					</ul>
+				</div>
+				<div class="access-information">
+
+					<div class="schedule-info" ng-repeat="location in doctordetails.locations">
+						<a class="profile-google-flag pointer" target="_blank" ng-href="{{url}}" initialize><span ng-click="initialize(location.address + ','+ location.city +','+ location.state ,$index)">{{$index + 1 }}</span></a>
+						<!-- <a class="profile-google-flag" target="_blank" ng-href="{{url}}" ng-mousedown="openTab(location.address,location.city,location.state,location.zip})"><span>{{$index + 1 }}</span></a> -->
+						<span class="schedule-address" >
+							<h3> Location {{index + 1}}
+								<p>
+									<b>Phone:</b> <span class="fav">{{location.phone1 | phonenumber }}</span><br>  
+									<b>Address:</b>
+									{{location.address}}
+									{{location.city}},
+									{{location.state}}
+									&nbsp;{{location.zip}}
+								</p>
+							</h3>
+						</span>
+					
+					<div class="schedule seven-days profilepageSchedule">
+						
+						<div class="schedule-header">
+							<div class="schedule-view-control ">
+								<div class="schedule-previous" ng-hide="indexValue == 0"><a href="" ng-click="nextslots('prev')" ></a></div>
+								<div class="schedule-next"><a href="" ng-click="nextslots('next')"></a></div>
+							</div>
+							<ul>
+								<li ng-repeat="time in bookingdate "><b>{{time.dayShort}}</b><br />{{time.date}}</li>
+
+							</ul>
+							
+						</div>
+						
+						<ol >
+
+							<li class="schedule-thursday" ng-repeat="timeslots in location.appointmentSchedules | limitTo:7" ng-hide="appointmentHideOrShow">
+								
+								<div ng-repeat="time in timeslots.slots">
+
+									<a ui-sref="public.appDetails2" ><span  ng-show="time.status == 'available' " ng-click="timeclicked(doctordetails,timeslots.date,time.from,timeslots.title,timeslots.description,location)">{{time.from}}</span></a>
+									<span ng-hide="time.status == 'available' " class="status">{{time.from}}</span>
+									<div class="special-offer" ng-show="timeslots.title"><span><p>{{timeslots.title}}: {{timeslots.description}}</p></span></div>
+									<!-- <li ><span ng-show="timeslots.title">Offer:</span> <p ng-show="timeslots.title">{{timeslots.offer}} - {{timeslots.description}} </p></li> -->
+
+								</div>
+
+								<!-- <span><a >more...</a></span> -->
+							</li>
+							<div ng-show="appointmentHideOrShow">
+								<span>There are no online appointments available for this provider at this time.<br> Call the provider’s office at {{doctordetails.phone | tel  }} to book an appointment.</span>
+							</div>
+
+
+						</ol>
+						<div class="table-pusher"></div>
+					</div>
+				</div> 
+			</div>
+				
+			</div>  <!-- end provider profile -->
+			
+			<div class="push"></div>
+		</div> <!-- end maincontent -->
+	</div>
+</div>

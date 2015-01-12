@@ -1,0 +1,110 @@
+
+<div class="sectionpart">
+	<div ng-controller="checkingcontroller">
+		<div ng-class="{searchoptions : ProviderAvaliable }" class="col-sm-offset-5">
+			<input type="text" ng-model="providerEmailAdminEdit" ng-focus="errormsg = ''">
+			<button class="btn btn-primary" ng-click="searchproviderFunction(providerEmailAdminEdit)">Search</button>
+		</div>
+	</div>
+	<div ng-controller="providerProfileEditController">
+		<span class="help-block col-sm-offset-3"  ng-hide="ProviderAvaliable">{{errormsg}}</span>
+	<div id="edit-provider-profile"  ng-show="ProviderAvaliable">
+		
+		<h1>Edit Profile</h1>
+		<br />
+
+		<div class="profile-content" >
+			<div class="left-floating-sidebar navhover">
+				<div id="edit-provider-image" class="profile-image"><img title="Leroy Catscal" ng-src="{{providerimage.image}}" width="97px;"height="167px;"/></div>
+				<div id="provider-name"><h2>{{providerimage.title}} {{providerimage.firstName}} {{providerimage.lastName}}</h2></div>
+				<div id="change-photo" class="">
+					<p><a href="" ng-click="changePhoto()" ng-show="changePhotoHide">Change Photo</a></p>
+					<form  id="change-photo-form" ng-hide="changePhotoHide" ng-submit="imageupload()">
+						<div class="form-attempt">
+							<h2 >Change Photo</h2>
+
+							<input class="input_170" type="text" value="Choose a file below" readonly="readonly" />
+							<p class="form-hint">Please select a file.</p>
+
+							<input type="file" ng-file-select="onFileSelect($files)" required accept="image/*"><input class="mini-btn" type="submit" value="Save"></input><button class="cancelbtn mini-btn btn" ng-click="changePhoto()">Cancel</button>
+						</div>
+						<span class="form-thanks"><h2>Photo Updated</h2></p></span>
+					</form>
+				</div>
+				<div id="change-password"><p><a href="" ng-click="changepassword()" ng-show="changePasswordHide">Change Password</a></p>
+					<form id="change-password-form" ng-hide="changePasswordHide" ng-submit="changeproviderPassword()">
+						<div class="form-attempt">
+							<h2>Change Password?</h2>
+							<label>Current Password</label><input type="password" class="form-control inputerror" ng-model="oldpassword" required  /><br />
+							<label>New Password</label><input type="password" class="form-control inputerror" ng-model="newpassword" required /><br />
+							<label>Repeat New Password</label><input type="password" class="form-control inputerror" ng-model="repassword"required /><br />
+							<p class="form-hint">Password must be some kind of criteria.<br /> Please fill in all 3 fields!</p>
+							<button class="cancelbtn mini-btn  ">Save</button>
+							<button class="cancelbtn mini-btn " ng-click="changepassword()">Cancel</button>
+						</div>
+						<span class="form-thanks"><h2>Thank you!</h2> <p>Your password has been changed.</p></span>
+					</form>
+				</div>
+				<div id="change-patient-password"><p><a href="" ng-click="getChangeSecurityQus()">Change Security </a></p>
+						<form id="change-patient-password-form" ng-show="ChangeSecurity" ng-submit="QusChangeSecurity()">
+							<div class="form-attempt">
+								<div ng-show="Securityalerts[0]">
+									<div class="toppadding container" >
+								        <div class="alertmessage ">
+								          <alert ng-repeat="alert in Securityalerts" type="{{alert.type}}" >{{alert.msg | capitalize}}.</alert>
+								        </div>
+							      	</div>
+						      	</div>
+								<h2>Change Security?</h2>
+								<label>Questions</label>
+								<select class="inputtext selecttype" required ng-model="questions.select" ng-options="obj.key as obj.id for obj in questions.options" required>
+			                    		<option VALUE="">Select Security Question</option>
+			                    </select>
+								
+								<br />
+								<label>Answer</label>
+								<input type="text" class="inputtext"   data-ng-model="Securityanswer"  required  name="answer" required>
+								
+								<br />
+								<button class="cancelbtn mini-btn " type="submit" >Save</button>
+								<span class="cancelbtn mini-btn " ng-click="ChangeSecurity  = !ChangeSecurity">Cancel</span>
+								
+							</div>
+						</form>
+					</div>
+					
+			</div>
+			
+			<div id="checkingDetails">
+				<nav id="edit-provider-profile-nav" class="navhover">
+					<ul>
+						<li id="edit-personal-details" ui-sref-active="active" ui-sref="salesAdmin.dashboard.providerinfo.editprovider.step1"><a href=""></a></li>
+						<li id="edit-location-details" ui-sref-active="active" ui-sref="salesAdmin.dashboard.providerinfo.editprovider.step2" ng-click="getLoctaionDetails()"><a href=""></a></li>
+						<li id="edit-accreditation-details" ui-sref-active="active" ui-sref="salesAdmin.dashboard.providerinfo.editprovider.step3" ng-click="accreditationDetails()"><a href=""></a></li>
+					</ul>
+				</nav>
+			
+				<div id="edit-profile-forms">
+					
+					<div ui-view></div>
+				</div>
+			
+			</div>
+
+		<div class="push"></div>
+		<div ng-show="alerts[0]">
+						
+		        <div class="alertmessage col-sm-offset-3">
+		          <alert ng-repeat="alert in alerts" type="{{alert.type}}"  >{{alert.msg | capitalize}}.</alert>
+		        </div>
+		      	
+	      	</div>
+
+	</div>
+	
+	<div class="push"></div>
+	</div>
+</div>
+
+		
+		

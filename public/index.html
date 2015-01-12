@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mdtreeApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MDTREE home Page</title>  
+    <link type="text/css" href="css/jquery-ui.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/chosen.css" />
+    <link rel="stylesheet" type="text/css" href="css/chosen-spinner.css" />
+    <link rel="stylesheet" href="css/pikaday.css">
+    <link rel="stylesheet" href="css/anaysis.css">
+    <link rel="stylesheet" href="css/site.css"> 
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/mdtree.css" rel="stylesheet">
+    <link href="css/mdtreedesign.css" rel="stylesheet">
+    <link href="css/home.css" rel="stylesheet">
+    <link href="css/admindashboard.css" rel="stylesheet">
+    <link href="css/calendar.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <link href="css/staticPage.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- <link href="css/font-awesome.min.css" rel="stylesheet"> -->
+  
+     <link href="css/custome.css" rel="stylesheet">
+     <link rel="stylesheet" href="css/nv.d3.css" />
+     <link rel="stylesheet" href="css/adminrole.css" />
+
+
+  
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="jsrespond.min.js"></script>
+    <![endif]-->
+
+ 
+
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=AIzaSyAIDSL6Ga2pgUuecZyS_kU33JVJfsQirpY"
+            type="text/javascript"></script>
+
+  <script type="text/javascript" src="/js/lib/jQuery.js"></script>
+  <script type="text/javascript" src="/js/jquery-ui.js"></script>
+  <script type="text/javascript" src="/js/lib/angular.js"></script>
+  <script type="text/javascript" src="/js/lib/angular-route.js"></script>
+  <script src="/js/lib/angular-ui-router.min.js" type="text/javascript"></script>
+  <script type="text/javascript" src="/js/lib/angular-cookies.js"></script>
+  <script type="text/javascript" src="/js/routingConfig.js"></script>
+  <script type="text/javascript" src="/js/app.js"></script>
+  <script type="text/javascript" src="/js/lib/date.js"></script>
+  <script type="text/javascript" src="/js/service.js"></script>
+  <script type="text/javascript" src="/js/MenuController.js"></script>
+  <script type="text/javascript" src="/js/AuthController.js"></script>
+  <script type="text/javascript" src="/js/directive.js"></script>
+  <script type="text/javascript" src="/js/lib/underscore-min.js"></script>
+  <script type="text/javascript" src="/js/lib/ui-bootstrap-tpls-0.11.0.js"></script>
+  <script type="text/javascript" src="/js/searchcontroller.js"></script>
+  <script type="text/javascript" src="/js/appointment_detailscontroller.js"></script>
+  <script type="text/javascript" src="/js/forget_password_controller.js"></script>
+  <script type="text/javascript" src="/js/paitentRegisterController.js"></script>
+  <script type="text/javascript" src="/js/providerRegisterController.js"></script>
+  <script type="text/javascript" src="/js/mdTreeController.js"></script>
+  <script type="text/javascript" src="/js/providerDashboardController.js"></script>
+  <script type="text/javascript" src="/js/doctor-DetailsController.js"></script>
+  <script type="text/javascript" src="/js/providerFormController.js"></script>
+  <script type="text/javascript" src="/js/imageupload.js"></script>
+  <script type="text/javascript" src="/js/patientdashboardcontroller.js"></script>
+  <script type="text/javascript" src="/js/providerProfileEditController.js"></script>
+  <script type="text/javascript" src="/js/tempPasswordController.js"></script>
+  <script type="text/javascript" src="/js/AnalysisController.js"></script>
+  <script type="text/javascript" src="/js/admin_role_controller.js"></script>
+  <script type="text/javascript" src="/js/dashboardReportctrl.js"></script>
+  <script type="text/javascript" src="/js/reportAllctrl.js"></script>
+  <script type="text/javascript" src="/js/OfferReportctrl.js"></script>
+  <script type="text/javascript" src="/js/lib/calendar.js"></script>
+  
+  <script src="/js/lib/angular-file-upload-shim.min.js"></script> 
+  <script src="/js/lib/angular-file-upload.min.js"></script> 
+  <script type="text/javascript" src="/js/cal.js"></script>
+  <script src="/js/lib/chosen.jquery.js"></script>
+
+  <script src="/js/lib/chosen.js"></script>
+  <script src="/js/lib/index.js"></script>
+    <script src="js/lib/d3.js"></script>
+    <script src="js/lib/nv.d3.js"></script>
+    <script src="js/lib/angularjs-nvd3-directives.min.js"></script>
+  <!-- // <script src="http://zhaber.github.io/datetimepicker/datetimepicker-tpls-0.11.js"></script> -->
+    <script src="/js/lib/datepicker.js"></script>
+  <!-- <link href="http://zhaber.github.io/datetimepicker/datetimepicker.css" type="text/css" rel="stylesheet">   -->
+  <script src="/js/upload.js"></script> 
+
+  </head>
+  <body ng-controller="mdTreeController">
+    <div class="TopHeader" >
+      <div class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container">
+          <div class="navbar-collapse collapse"> 
+
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <header >
+      <div class="navbar  navbar-static-top" role="navigation" ng-controller="NavCtrl">
+      <div class="container">
+        <div class="navbar-collapse collapse">
+          <a ui-sref="public.home"><img src="images/mdtree-logo.png" class="md-logo"></a>
+          <ul class="nav navbar-nav navbar-right headerone">
+            <div class="header-bg" data-access-level='accessLevels.anon'></div>
+            <div class="header-bg-small" data-access-level='accessLevels.user' ></div>
+            <!-- <div class="header-bg-big" data-access-level='accessLevels.user' ></div> -->
+            <li class="FirstChild" data-access-level="accessLevels.public">
+              <a href=""></a></li>
+
+
+
+            <li ng-click="signupclick()" data-access-level='accessLevels.anon' ><a href="" ng-hide="signup" ng-click="signup = !signup">Sign Up</a></li>
+
+            <li  ng-click="signupclick()" ui-sref="public.home" data-access-level='accessLevels.anon'><a  href="" ng-show="signup" ng-click="signup = !signup">Home</a></li>
+            <li class="divider" data-access-level='accessLevels.anon'>|</li>
+            <li class="dropdown "   ng-class="{open:dialogopen}" ng-controller="LoginCtrl" data-access-level='accessLevels.anon'>
+              <a  href="" class="dropdown-toggle"  >Log In</a>
+              <ul class="dropdown-menu arrow_box">
+                <form  ng-submit="login()">
+                  <li class="form-group ">
+                    <label>Login</label> 
+                      <input type="text" class="inputtext"  ng-model="username" required ng-click="preventClose($event)">
+                  </li> 
+                  
+                  <li class="form-group ">
+                    <label>Password</label> 
+                      <input type="password" class="inputtext"  ng-model="password" required ng-click="preventClose($event)">
+                  </li> 
+                  <button id="usernav-close-button" class="close-box-button"></button>
+                  <a id="utilities-forgot-pass-link" ui-sref="anon.forgetpassword">Forgot Password</a><br>
+                  <button class="loginbutton" type="submit">LOGIN </button>
+                </form>
+              </ul>
+            </li>
+            <!-- <li class="dropdown "  data-access-level='accessLevels.admin' style="width:80px;">
+              <a  href="" class="dropdown-toggle"  >{{userdisplayname}}</a>
+              <ul class="dropdown-menu arrow_box_logout arrow_box">
+                <li data-ng-click="logout()"> <a href="">Logout</a></li>
+                <li class="dividerclass">|</li>
+                <button id="usernav-close-button" class="close-box-button"></button>
+              </ul>
+            </li> -->
+
+            <li class="dropdown "  data-access-level='accessLevels.user' style="width:80px;">
+              <a  href="" class="dropdown-toggle"  >{{userdisplayname | capitalize}}</a>
+              <ul class="dropdown-menu arrow_box_logout arrow_box">
+                <li data-ng-click="logout()"><a href="" >Logout</a> 
+                  <!-- <a href="" ng-show="user.type === 'admin'" class="LogoutCenter">Logout</a> -->
+                </li>
+                <li class="dividerclass" >|</li>
+                <li ng-hide="user.type === 'admin' || user.type === 'salesAdmin' || user.type === 'salesManagerAdmin'">
+                  <a ui-sref="user.patient-dashboard.step1" ng-show="usertype">Dashboard</a>
+                  <a dropdown-toggle ui-sref="user.provider-dashboard.step1" ng-hide="usertype" class="dropDownfix">Dashboard</a>
+                </li>
+                <li ng-show="user.type === 'admin' || user.type === 'salesAdmin' || user.type === 'salesManagerAdmin'">
+                  <a ui-sref="salesAdmin.dashboard.providerinfo.newprovider.step1" >Dashboard</a>
+                  <!-- <a dropdown-toggle ui-sref="user.provider-dashboard.step1" class="dropDownfix">Dashboard</a> -->
+                </li>
+                <button id="usernav-close-button" class="close-box-button"></button>
+              </ul>
+            </li>
+            <!-- <li class="divider" data-access-level='accessLevels.admin'>|</li> -->
+            <!-- <li data-access-level='accessLevels.admin'><a ui-sref="admin.provider-registration.step1">Register Provider</a></li> -->
+            <li class="divider">|</li>
+
+            <li ><a href="" ><img alt="facebook link" src="images/facebook.png"></a></li>
+            
+            <li><a href=""><img alt="twitter link" src="images/twitter.png"></a></li>
+            
+            <li><a href=""><img alt="linkedlin link" src="images/linkedin-icon.png"></a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right ">
+            <li ><a ui-sref="public.footer.howitsWork">How It Works</a>
+              <div class="selectedarrow"><div class="arrow-curve"><div class="arrow-down"></div></div></div></li>
+            <li class="navdivider">|</li>
+            <li ><a ui-sref="public.footer.howtoSave" >How To Save On Healthcare</a>
+              <div class="selectedarrow"><div class="arrow-curve"><div class="arrow-down"></div></div></div></li>
+            <li class="navdivider">|</li>
+            <li ><a ui-sref="public.footer.Providers">Providers</a>
+              <div class="selectedarrow"><div class="arrow-curve3"><div class="arrow-down"></div></div></div></li>
+            <li class="navdivider">|</li>
+            <li ><a ui-sref="public.footer.aboutus">About Us</a>
+              <div class="selectedarrow"><div class="arrow-curve4"><div class="arrow-down"></div></div></div></li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    </header> 
+<ui-view autoscroll="false" > 
+  
+</ui-view> 
+
+
+<div id="footer" class="container">
+    <nav>
+      <ul class="nav-social">
+        <li><a href=""><img alt="facebook link" src="images/facebook.png"></a></li>
+        <li><a href=""><img alt="twitter link" src="images/twitter.png"></a></li>
+      </ul>
+      <ul class="nav-pages">
+        <li><a href="">Home</a></li>
+        <li><a ui-sref="public.footer.aboutus">About</a></li>
+        <li><a ui-sref="public.footer.team">Team</a></li>
+        <li><a ui-sref="public.footer.contact">Contact</a></li>
+        <li><a ui-sref="public.footer.mdtreetv">MdtreeTV</a></li>
+      </ul>
+      <ul class="nav-privacy">
+        <li><a ui-sref="public.footer.termsofuse">Terms of Use</a></li>
+        <li><a ui-sref="public.footer.privacypolicy">Privacy Policy</a></li>
+        <li>&copy; 2014 MDtree, Inc.</li>
+      </ul>
+    </nav>
+  </div>
+
+  </body>
+</html>

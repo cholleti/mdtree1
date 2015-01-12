@@ -1,0 +1,141 @@
+				<div id="patient-profile" class="appointment-summary ">
+					
+						<div class="left-column">
+							<div id="change-patient-password"><p><a href="" ng-click="ChangePassword = !ChangePassword; ChangeSecurity = false">Change Password</a></p>
+								<form id="change-patient-password-form" ng-show="ChangePassword" name="passwordchange" ng-submit="passwordchangefn(oldpassword,password)">
+									<div class="form-attempt">
+										<div ng-show="passwordalerts[0]">
+											<div class="toppadding container" >
+										        <div class="alertmessage ">
+										          <alert ng-repeat="alert in passwordalerts" type="{{alert.type}}" >{{alert.msg | capitalize}}.</alert>
+										        </div>
+									      	</div>
+								      	</div>
+										<h2>Change Password?</h2>
+										<label>Current Password</label>
+										<input type="password" class="form-control inputerror" ng-model="oldpassword" ng-minlength="6" required name="oldpassword" ng-blur="visitedoldPassword = true"/><br />
+										<div class="space">
+											<div ng-show="passwordchange.oldpassword.$dirty &&  visitedoldPassword" class="helpblock">
+												<span class="help-block" ng-show="passwordchange.oldpassword.$error.required">
+					                                   Current Password is required</span> 
+					                            <span  class="help-block" ng-show="passwordchange.oldpassword.$error.minlength">too short,Min length 6</span>
+											</div>
+										</div>
+										<label>New Password</label>
+										<input type="password" class="form-control inputerror" ng-model="password" ng-minlength="6" required ng-blur="visitedPassword = true" name="password"/><br />
+										<div class="space">
+											<div ng-show="passwordchange.password.$dirty &&  visitedPassword" class="helpblock">
+												<span class="help-block" ng-show="passwordchange.password.$error.required">
+					                                   Password is required</span> 
+					                            <span  class="help-block" ng-show="passwordchange.password.$error.minlength">too short,Min length 6</span>
+											</div>
+										</div>
+
+										<label>Repeat New Password</label>
+										<input type="password" class="form-control inputerror" ng-model="repassword" ng-minlength="6" required ng-blur="visitedConPassword = true" name="confirmpassword"/><br />
+							
+						                <div class="space">
+											<div ng-show="passwordchange.confirmpassword.$dirty &&  visitedConPassword" class="helpblock">
+												<span class="help-block" ng-show="passwordchange.confirmpassword.$error.required">
+					                                   Confirm Password is required</span> 
+					                            <span  class="help-block" ng-show="password != repassword">Password not match</span>
+					                            <span  class="help-block" ng-show="passwordchange.confirmpassword.$error.minlength">too short,Min length 6</span>
+											</div>
+										</div>
+
+										<!-- <p class="form-hint">Password must be some kind of criteria.<br /> Please fill in all 3 fields!</p> -->
+										<!-- <input class="mini-btn" type="submit"  ng-disabled="passwordchange.$invalid || password != repassword"></input> -->
+										<input class="mini-btn" type="submit" value="Submit"  ng-disabled="passwordchange.$invalid || password != repassword"></input>
+										<button class="cancelbtn mini-btn" ng-click="ChangePassword = !ChangePassword ">Cancel</button>
+									</div>
+									<span class="form-thanks"><h2>Thank you!</h2> <p>Your password has been changed.</p></span>
+								</form>
+							</div>
+								<div id="change-patient-password"><p><a href="" ng-click="ChangeSecurity = !ChangeSecurity; ChangePassword = false ; getChangeSecurityQus()">Security Questions</a></p>
+								<form id="change-patient-password-form" ng-show="ChangeSecurity" ng-submit="ChangeSecurityQus()">
+									<div class="form-attempt">
+										<div ng-show="Securityalerts[0]">
+											<div class="toppadding container" >
+										        <div class="alertmessage ">
+										          <alert ng-repeat="alert in Securityalerts" type="{{alert.type}}" >{{alert.msg | capitalize}}.</alert>
+										        </div>
+									      	</div>
+								      	</div>
+										<h2>Change Security?</h2>
+										<label>Questions</label>
+										<select class="inputtext selecttype" required ng-model="questions.select" ng-options="obj.key as obj.id for obj in questions.options" required>
+					                    		<option VALUE="">Select Security Question</option>
+					                    </select>
+										<!-- <input type="text" class="form-control inputerror" /> -->
+										<br />
+										<label>Answer</label>
+										<input type="text" class="inputtext"   data-ng-model="Securityanswer"  required ng-blur="visitedanswer = true" name="answer" required>
+										<!-- <input type="text" class="form-control inputerror" /> -->
+										<br />
+										<input class="mini-btn" type="submit" value="Save"></input>
+										<button class="cancelbtn mini-btn" ng-click="ChangeSecurity = !ChangeSecurity">Cancel</button>
+									</div>
+									
+								</form>
+								
+							</div>
+							
+						</div>
+						<div class="right-column">
+
+							<div id="patient" class="results">
+								<div class="appointment-header result">
+									<h3>View Details Below</h3>
+								</div>
+								
+								<div id="edit-patient-profile">
+									<form id="form_patient_registration" style="background-image:none;" ng-submit="paitentUpdateProfile(boolChangeClass)">
+										<label for="firstname">* First Name</label>
+										 <div class="form-group ">
+											<input type="text" id="firstname" name="firstname" tabindex="1" ng-model="patient.username" class="inputtext" required/>
+										</div>
+										<label for="lastname">* Last Name</label>
+										 <div class="form-group ">
+											<input type="text" id="lastname" name="lastname" tabindex="2" ng-model="patient.lastName" class="inputtext" required/>
+										</div>
+										<label class="genderlabel">Gender</label>
+										
+										<input type="radio" id="gendermale" name="gender" value="male" checked="checked" ng-model="gender"/><span id="spantest" class="radio " ng-class="{selected:!boolChangeClass}" name="gender" target="gendermale" tabindex="4" ng-click="boolChangeClass = !boolChangeClass"></span><label for="gendermale" class="radioboxlabel">Male</label>
+										<input type="radio" id="genderfemale" name="gender" value="female" ng-model="radio" ng-model="gender"/><span class="radio"  name="gender" target="genderfemale" tabindex="5" ng-click="boolChangeClass = !boolChangeClass" ng-class="{selected:boolChangeClass}"></span><label for="genderfemale" class="radioboxlabel" >Female</label>
+										
+										<label for="dateofbirth">* Date of Birth</label>
+										<!-- <input type="text" readonly="readonly" id="dateofbirth" name="dateofbirth" tabindex="5" ng-model="patient.dob"/> -->
+										 <div class="form-group ">
+										<input id="dp" type="text" ng-model="patient.dob" name="mDate" my-datepicker required class="inputtext"/>
+										</div>
+										<label for="zipcode">* Zip Code</label>
+										 <div class="form-group ">
+
+										 	<input type="text" id="zipcode" name="zipcode" tabindex="6" ng-model="patient.zipCode" class="inputtext" required/>
+										 </div>
+										<label for="email">* Email</label>
+										 <div class="form-group ">
+										 	<input type="text" id="email" name="email" tabindex="7" ng-model="patient.email" readonly class="inputtext" required/>
+										 </div>
+										<label for="email">* Phone</label>
+										 <div class="form-group ">
+										 	
+										 	<phonenumber-directive  model='patient.phone' ng-requied="true"></phonenumber-directive>
+										 </div>
+										<div class="diplayInline">
+											<input type="checkbox" id="terms" name="terms" value="termsaccepted" /><span class="checkbox " name="terms" target="terms" tabindex="10" ng-class="{selected:selected}" ng-click = " selected = !selected"></span><label class="terms">&nbsp;I have read and accepted the <a href="">terms and conditions</a>.</label>
+										</div>
+										<label for="selecttype" class="DisplayTermMessageError help-block" ng-show="!selected">{{DisplayTermMessageError}}</label>
+										<button class="savebutton" type="submit" ng-disabled="!selected"  ng-hide="!selected">SAVE</button>
+										<div class="savebutton"  ng-show="!selected" ng-click="displayTermMessage()" >SAVE</div>
+										<!-- <input id="submit_patient_registration" type="submit" value="" tabindex="9" /> -->
+									</form>
+									<div class="push"></div>
+								</div>
+								
+							</div>
+								
+
+							
+						</div> <!-- end #edit-profile right column -->
+					</div>

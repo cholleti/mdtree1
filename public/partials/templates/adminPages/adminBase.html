@@ -1,0 +1,24 @@
+<div class="container ">
+	<div class="sectionpart">
+		<div id="maincontent" >
+			<div class="row">
+				<div id="admin-dashboard" ng-controller="adminController">
+					<nav>
+						<ul>
+							<li  ui-sref-active="active" ui-sref="admin.dashboard.hitanalysis" id="hit-analysis-image" ng-class="{active: $state.includes('admin.dashboard.hitanalysis')}" data-access-level='accessLevels.admin'><a  href="" class="hit-analysis"></a></li>
+
+							<li  ui-sref-active="active" ui-sref="admin.dashboard.reportAll" id="reporting-image" ng-class="{active: $state.includes('admin.dashboard.reportAll')}"><a  href="" class="reporting" data-access-level='accessLevels.admin'></a></li>
+							
+							<li  ui-sref-active="active" ui-sref="admin.dashboard.converting" id="converting-image" ng-class="{active: $state.includes('admin.dashboard.converting')}"><a  href="" class="converting" data-access-level='accessLevels.admin'></a></li>
+
+							<li ui-sref="salesAdmin.dashboard.providerinfo.newprovider.step1" id="provider-info" ng-class="{active: $state.includes('salesAdmin.dashboard.providerinfo')}" data-access-level='accessLevels.salesAdmin'><a   href="" class="provider-info"></a></li>
+
+							<li ui-sref="salesManagerAdmin.dashboard.adminRoles" id="admin-role" ng-class="{active: $state.includes('salesManagerAdmin.dashboard.adminRoles')}"><a   href="" class="admin-role" data-access-level='accessLevels.salesManagerAdmin'></a></li>
+						</ul>
+					</nav>
+					<div ui-view></div>
+				</div>	
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,63 @@
+<div class="container" ng-controller="appointment_detailscontroller">
+	<div class="sectionpart">
+
+	<div id="maincontent">
+			<div class="appointment">
+				<div class="appointment-progress progress-details"></div>
+				<div ng-hide="errormsgwhenAppointment">
+					<div class="titleh1 help-block" ng-show="userid.type == 'provider' ">Provider not allowed to book appointment</div> 
+					<div class="titleh1 help-block" ng-show="userid.type == 'admin' ">Admin not allowed to book appointment</div>
+				</div>
+				<div ng-show="errormsgwhenAppointment">
+					<div class="titleh1 help-block" >{{errormsgwhenAppointment}}</div>
+					<button class="btn btn-primary" ui-sref="public.search" >Search Again</button>
+				</div>
+				<div class="appointment-booking">
+					<div class="appointment-provider-image">
+						<a ui-sref="public.doctorDetails"><img title="{{doctordetails.name}}" ng-click="doctorBookApponimentClicked(doctordetails.email)" ng-src="{{doctordetails.image}}" width="97px;"
+						height="167px;"/></a>
+					</div>
+					<ul class="appointment-details">
+						
+						<!-- <li class="when"><span>When:</span> {{daytimedetails.day}}, {{daytimedetails.date}}<br>at {{daytimedetails.time}}</li> -->
+						<li ><span >When:</span>{{daytimedetails.date}} at {{daytimedetails.time}}</li>
+						<li><span>With:</span> {{doctordetails.name}}</li>
+						<li ng-show="locationDetailsInfo"><span>Where:</span> {{locationDetails.address }},&nbsp;{{locationDetails.city }}<p>{{locationDetails.state}}, {{locationDetails.zip}}</p></li>
+						<li ng-hide="locationDetailsInfo"><span>Where:</span> {{doctordetails.address }},&nbsp;{{doctordetails.state}},&nbsp;{{doctordetails.zip}}</li>
+						<li ><span ng-show="daytimedetails.offer">Offer:</span> <p ng-show="daytimedetails.offer">{{daytimedetails.offer}} - {{daytimedetails.desc}} </p></li>
+						
+					</ul>
+				</div>
+				
+				<div class="appointment-patientinfo">
+					<form id="appointment" ng-submit="personaldetails();">
+						<h1>What is the reason for your visit?</h1>
+						<!-- <select  class="chzn-select" tabindex="1" ng-model = "reason.select" ng-options="obj.reason as obj.reason for obj in reasons.options">
+						</select> -->
+
+						<select class="form-control" required ng-model="reasons.select" ng-options="obj.reason as obj.reason for obj in reasons.options">
+							<option value="">Choose Reason</option>
+                    	</select>
+                  
+						<!-- <select class="form-control" required ng-model="specialty.doctor" ng-options="obj.id as obj.id for obj in specialty.options"></select> -->
+
+						
+						<h2>Personal Message to provider</h2>
+						<textarea ng-model="Personalmessage"></textarea>
+							
+						<!-- <input id="next-btn" type="submit" value=" " tabindex="2"  /> -->
+						<button class="btn buttonsubmit" type="submit" ng-disabled="userid.type == 'provider' || userid.type == 'admin' || errormsgwhenAppointment">NEXT</button>
+					</form>
+					
+				</div>
+				<div class="push"></div>
+			</div> <!-- end appointment -->
+			
+			<div class="push"></div>
+		</div> <!-- end maincontent -->
+		
+		
+	</div>	<!-- end wrapper -->
+	</div>
+
+</div>

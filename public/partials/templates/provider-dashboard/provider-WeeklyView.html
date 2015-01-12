@@ -1,0 +1,58 @@
+<div class="daily-View col-sm-12 paddingZero" >
+	<div class="selected-date col-sm-6" ng-click="selectedDatesInCalender(dates)">
+		<label class="col-sm-5 paddingZero marginSmallTop marginSmallTop">Selected Date: </label> 
+		<input min-date="minDate"   data-ng-model="currentDate" readonly	 date-format="MM-dd-yyyy"   class="col-sm-2 paddingZero marginLeft form-control" />
+	</div>
+	
+	<div class="selected-location col-sm-6">
+		<label>Selected Location:</label>
+		
+		<select class="chzn-select"  ng-required="true" ng-model="loctaions.locId" ng-options="obj.locId as obj.address for obj in loctaions" ng-change="weeklyView()"></select>
+
+		
+	</div>
+</div>					
+
+
+<div class="weekly-viewer schedule seven-days">
+	
+
+
+	<div class="schedule-header">
+		<div class="schedule-view-control">
+			<div class="schedule-previous" ><a href="" ng-click="nextslots('prev')" ></a></div>
+			<div class="schedule-next"><a href="" ng-click="nextslots('next')"></a></div>
+		</div>
+
+		<ul>
+			<li ng-repeat="weekday in weeklyArray"><b>{{weekday.day}}</b>{{weekday.date}}</li>
+		</ul>
+	</div>
+	
+	<ol>
+		<li class="schedule-wednesday" ng-repeat="appointment in weeklyArray ">
+			<div ng-repeat="timeslot in appointment.slots">
+				<a href="" ng-hide="timeslot.status == 'booked'" class="status">{{timeslot.from}}</a>
+				<a  href=""  ng-show="timeslot.status == 'booked'" ng-click="clickeventOccurinWeeklyView($index,$parent.$index,appointment.slots)">{{timeslot.from}}
+					<span class="appointment-info " ng-show="timeslot.status == 'booked'" ng-class="{cssfileClick : timeslot.calculateValue}">
+						<b>Name:</b>{{timeslot.patient.name}}<br />
+						<b>Purpose:</b> {{timeslot.patient.purpose}}<br />
+						<b>Insurance:</b>{{timeslot.patient.insurance}}<br />
+						<b>Email:</b> {{timeslot.patient.email}}<br />
+						<b>Gender:</b>{{timeslot.patient.gender}}<br>
+						<b ng-show="timeslot.patient.offer">Offer:</b><span ng-show="timeslot.patient.offer"> {{timeslot.patient.offer.title}} - {{timeslot.patient.offer.description}}</span><br>
+					</span>
+				</a>
+
+			</div><br />
+			<!-- <div class="special-offer" ng-show="appointment.title">
+				<span><p class="ng-binding">{{appointment.title}}: {{appointment.description}}</p></span>
+			</div> -->
+			
+		</li>
+		
+		<li class="push"></li>
+	</ol>
+	
+	<div class="table-pusher"></div>
+</div>

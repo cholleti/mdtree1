@@ -1,0 +1,17 @@
+
+<div class="sectionpart">
+	<div  ng-controller="providerController" class="providerRegister">
+
+		<form id="form_provider_registration"  name="providerReg" novalidate="">	
+			
+			<div ui-view></div>
+			<div ng-show="alerts[0]">
+				
+				<div class="alertmessage ">
+					<alert ng-repeat="alert in alerts" type="{{alert.type }}" >{{alert.msg | capitalize}}.</alert>
+				</div>
+				
+			</div>
+		</form>
+	</div>
+</div>

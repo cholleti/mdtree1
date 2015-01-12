@@ -1,0 +1,57 @@
+
+<div class="sectionpart converting" ng-controller="convertingController">
+
+		<div class="input-group col-sm-offset-4">
+	        <input type="text" class="form-control" placeholder="Choose Your Csv File" ng-model="csvFile.name">
+	        <button class=" btn btn-primary input-group-addon">Choose Your File</button>
+	    </div>
+
+
+		<input type="file" ng-file-select="onFileSelect($files)" required accept=".tsv" ng-model="converrtingFile" class="col-sm-offset-4" />
+		<span class="help-block" ng-show="errorOccur">{{errorMsgToUserepub}}</span>
+		<div ng-show="processValue">
+			<div class="col-sm-2 col-sm-offset-4">Uploading File</div>
+            <div class="percent col-sm-2 col-sm-offset-4" >{{processValue}}%</div>
+            <div class="progress-bar col-sm-2 col-sm-offset-4">
+                <div class="uploaded" ng-style="{'width': processValue+'%'}"></div>
+            </div>
+        </div>
+        <div ng-show="processValue == 100">
+			<div class="col-sm-7 col-sm-offset-5 marginTop">Waiting For server Responce</div> 
+        </div>
+        <div ng-show="gettedserverResponce">
+			<div class="overallDetails">
+				<div class="col-sm-4 col-sm-offset-8">Total Number of Publisher:{{dumpfile.falied.length + dumpfile.err.length + dumpfile.success.length}}</div> 
+		    	<div class="col-sm-4 col-sm-offset-8">Success:{{dumpfile.success.length}}</div> 
+		    	<div class="col-sm-4 col-sm-offset-8">Failed:{{dumpfile.falied.length + dumpfile.err.length}}</div> 
+			</div>
+			<div class="failureUploaded col-sm-6 col-sm-offset-3">
+				<h4>Failure when inserted</h4>
+				<li ng-repeat="failureprovider in dumpfile.falied">
+					<span>{{failureprovider.provider}}</span>
+					<span>{{failureprovider.messsage}}</span>
+					<span>{{successprovider.unicode}}</span>
+					
+					<span><i class="fa fa-times"></i></span>
+				</li>
+				<li ng-repeat="errorprovider in dumpfile.err">
+					<span>{{errorprovider.provider}}</span>
+					<span>{{errorprovider.messsage.output.payload.message}}</span>
+					<span>{{successprovider.unicode}}</span>
+					<span><i class="fa fa-times"></i></span>
+				</li>
+			</div>
+			<div class="successfullyUploaded col-sm-6 col-sm-offset-3">
+				<h4>Successfully inserted</h4>
+				<li ng-repeat="successprovider in dumpfile.success">
+					<span>{{successprovider.provider}}</span>
+					<span>{{successprovider.messsage}}</span>
+					<span>{{successprovider.unicode}}</span>
+					
+					<span><i class="fa fa-check"></i></span>
+				</li>
+			</div>
+			
+		</div>
+	
+</div>

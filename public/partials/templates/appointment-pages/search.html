@@ -1,0 +1,221 @@
+<div class="container searchcontainer">
+	<div class="sectionpart">
+		<div id="maincontent" ng-controller="searchcontroller">
+			<div class="col-sm-8 row">
+				<!-- <div id="map_canvas" style="width:100%;height:400px" class="marginTop" ></div> -->
+				<!-- <div id="map-canvas" style="width:100%;height:400px" class="marginTop" ></div> -->
+				<div class="col-sm-6 paddingZero">
+					<div class="resultshead">
+						<h2>Specialty: <span>{{specialtyValue}}</span></h2>
+					</div>
+				</div>
+				<div class="col-sm-6 paddingZero scheduleDate">
+					<div class="schedule-header seven-days">
+						<div class="schedule-view-control">
+							<div class="schedule-previous" ng-hide="indexValue == 0"><a href="" ng-click="nextslots('prev')"></a></div>
+							<div class="schedule-next"><a href="" ng-click="nextslots('next')"></a></div>
+						</div>
+						<ul>
+							<li ng-repeat="time in bookingdate"><b>{{time.dayShort}}</b><br />{{time.date}}</li>
+						</ul>
+					</div>
+				</div>
+					<li>
+						<div ng-show="showMessage" class="row showMessage text-center">
+							<p class="padTop">Currently there are no Physicians available with the selected search criteria. 
+							Please keep looking for the Physicians.</p>
+						</div>
+					</li>
+					<li class="query-result" ng-repeat="doctor in doctordetails.providers">
+
+						<div class="backgroundtype">
+							<div class="profile colorbackground{{doctor.plan | lowercase}}">
+								<ul class="provider-brief">
+									<a class="profile-google-flag profile-google-flag{{doctor.plan | lowercase}}"  href="" ng-click="initialize('map',$index)"><span  ng-class="{doubleValue: $index > 8 }">{{$index + 1 }}</span></a>
+									<li class="profile-image">
+										<a  ui-sref="public.doctorDetails">
+										<img title="{{doctor.name}}" ng-src="{{doctor.image}}" ng-click="doctorBookApponimentClicked(doctor.email)" class="searchdoctorimage" ng-hide="doctor.plan == 'free'"/>
+										<img title="{{doctor.name}}" src="./userimage/nopic.jpeg" ng-click="doctorBookApponimentClicked(doctor.email)" class="searchdoctorimage" ng-show="doctor.plan == 'free'"/>
+										</a>
+										<a  ui-sref="public.doctorDetails" ng-click="doctorBookApponimentClicked(doctor.email)"><img src="images/view-profile.png" class="viewallimage"></a>
+									</li>
+									
+									<li class="profile-name titleh2"><h1><a ui-sref="public.doctorDetails" ng-click="doctorBookApponimentClicked(doctor.email)">{{doctor.name}}</a></h1></li>
+									<li class="profile-rating"><img title="{{doctor.rating}} star rating" ng-src="images/stars-{{doctor.rating}}.png"  /></li>
+									<li class="profile-address">{{doctor.address}}</li>
+									<li class="profile-address">{{doctor.city}}, {{doctor.state}}, {{doctor.zip}}</li>
+									<li class="profile-price">Price for basic visit:<span>  $$$$</span>
+										<span class="sidenote">
+											Price Range: {{doctor.cash}}<br>
+
+										"Please note that basic pricing may not include X-rays, labs or other necessary services required during your visit."
+									
+										</span>
+									</li>
+									<li class="profile-offerStemt"><span>enhancedcareMD Member Discount: {{doctor.offerStmt}}</span></li>
+									<li class="profile-web-url"><a href="" ng-click="openNewTab(doctor.website)">{{doctor.website}}</a></li>
+									<li class="profile-bookbutton"><a ui-sref="public.appDetails" ng-click="doctorBookApponimentClicked(doctor.email)"></a></li>
+								</ul>
+							</div>
+							
+							<div class="schedule seven-days colorbackground{{doctor.plan | lowercase}}" >
+								
+								<ol>
+									
+									<div ng-hide="{{appointmentHideOrShow[$index]}}">
+										<li class="schedule-wednesday" ng-repeat="timetable in doctor.appointmentSchedules" >
+
+											<div class="searchtimeslot" ng-class="{searchtimeslotwithspecial:timetable.title}" ng-repeat="time in timetable.slots | limitTo:4" >
+												<a ui-sref="public.appDetails2" ><span  ng-show="time.status == 'available' " ng-click="timeclicked(doctor,timetable.date,time.from,timetable.title,timetable.description)">{{time.from}}</span></a>
+												<span ng-hide="time.status == 'available' " class="status">{{time.from}}</span>
+											</div>
+											<div class="divider"></div>
+											<span ng-show="timetable.slots[4]">
+												<a ui-sref="public.appDetails" ng-click="doctorBookApponimentClicked(doctor.email)">more...</a>
+											</span>
+											<div class="special-offer" ng-show="timetable.title"><span><p>{{timetable.title}}: {{timetable.description}}</p></span></div>
+											
+										</li>
+
+									</div>
+									<div ng-show="{{appointmentHideOrShow[$index]}}">
+										<span class="noAppointmentSlotMSg">There are no online appointments available for this provider at this time. <br> Call the provider’s office at {{doctor.phone | tel }} to book an appointment.</span>
+									</div>
+									
+								</ol>
+								
+							</div>
+						</div>
+
+						<div class="table-pusher"></div>
+					</li>
+				
+
+			</div>
+			
+			<div id="search-control" class="col-sm-3">
+				<div class="col-sm-48" >
+					<img src="images/map-verify.png"  class="col-sm-4 paddingZero model_map">
+					<button class=" btn paddingZero SearchProviderAgain btn-primary btn-sm " ng-click="MapViewOption = !MapViewOption">
+						<span ng-hide="MapViewOption" ng-click="initialize()">Map for Providers</span>
+						<span ng-show="MapViewOption">Hide Map</span></button>
+				</div> 
+				<!-- <div ng-show="MapViewOption"> -->
+				<div id="map_canvas" style="width:120%;height:400px" class="marginTop" ng-click="initialize()" ng-show="MapViewOption"></div>
+					<!-- <div id="map-canvas" style="width:100%;height:400px" class="marginTop" ng-show="MapViewOption"></div> -->
+					<!-- <div id="map_canvas" style="width:100%;height:400px" class="marginTop" ></div> -->
+				<!-- </div> -->
+				<!-- <img src="images/map-verify.png" ng-show="MapViewOption" width="300px" class="marginTop"> -->
+				<button  class="marginTop findnowbutton SearchProviderAgain" ng-class="{active: SearchAgainOption}" ng-click="SearchAgainOption = !SearchAgainOption">Search Provider Again&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-up" ng-show="SearchAgainOption"></i><i class="fa fa-arrow-down" ng-hide="SearchAgainOption"></i></button>
+				
+				<form id="search" ng-submit="searchoperation()" ng-show="SearchAgainOption" class="marginTop"> 
+					<label>Category</label>
+					<div class="form-group ">
+						<select class="form-control"  required ng-model="categories.type" ng-options="obj.key as obj.id for obj in categories.options">
+						</select>
+					</div>
+					<label>Specialty</label>
+					<div class="form-group " ng-switch on="categories.type">
+						<div ng-switch-when="doctors">
+                          <select class="form-control" required  ng-model="specialty.doctor" ng-options="obj.key as obj.value for obj in specialty.options">
+                            <option value="">Choose a specialty</option>
+                          </select>
+                        </div>
+
+                        <div ng-switch-when="dentists">
+                          <select class="form-control" required  ng-model="specialty.doctor" ng-options="obj.key as obj.value for obj in dentistslists.options">
+                            <option value="">Choose a specialty</option>
+                          </select> 
+                        </div>
+                        <div ng-switch-when="chiropractors" >
+
+                          <select class="form-control" required  ng-model="specialty.doctor" ng-options="obj.key as obj.value for obj in chiropractors.options">
+                            <option value="">Choose a specialty</option></select> 
+                        </div>
+                        <div ng-switch-when="vision">
+
+                          <select class="form-control"  required  ng-model="specialty.doctor" ng-options="obj.key as obj.value for obj in Vision.options">
+                            <option value="">Choose a specialty</option></select>
+                        </div>    
+                        <div ng-switch-when="others">
+
+                          <select class="form-control" required  ng-model="specialty.doctor" ng-options="obj.key as obj.value for obj in otherSpeciality.options">
+                            <option value="">Choose a specialty</option></select>
+                        </div>    
+        
+                        </select>
+						<div ng-default>
+
+							<select class="form-control" ng-hide="categories.type">
+								<option></option>
+								<option> Category Select First</option>
+							</select>
+						</div>         
+					</div>
+					
+					<label>Zip Code</label>
+					<div class="form-group ">
+						<input type="text" class="inputtext" placeholder="Zip Code or City & State"  data-ng-model="zipcode">
+					</div> 
+					
+					<div class="form-group ">
+						<label>Insurance (optional)</label>
+						<select class="form-control" required ng-model="insurance.type" ng-options="obj.key as obj.value for obj in insurance.options">
+						</select>
+					</div>
+
+					<div id="advanaced-search-options" ng-show="advanceSearchoptions">
+						<div class="form-group ">
+							<label>Gender</label>
+							<select class="form-control"  ng-model="gender.doctor" ng-options="obj.gender as obj.gender for obj in gender.options">
+								<option value="">Any</option>
+							</select>
+						</div>
+						<div class="form-group ">
+							<label>Language(s)</label>
+							<!-- <select class="form-control"  ng-model="language.doctor" ng-options="obj.lang as obj.lang for obj in language.options">
+						</select> -->
+						<!-- <select class="chzn-select" multiple  ng-model="language.doctor" ng-options="obj.key as obj.id for obj in language.options">
+							<option value="">Select Language(s)</option>
+						</select> -->
+						<select
+						    chosen
+						    multiple
+						    allow-single-deselect="true"
+						    data-placeholder="Choose Your insurance"
+						    no-results-text="'Tough luck'"
+						    ng-model="language.doctor"
+						    ng-options="obj.key as obj.id for obj in language.options"
+						    class="chzn-select">
+						    <option value=""></option>
+						  </select>
+
+					</div>
+					<label>Provider Name</label>
+					<div class="form-group ">
+						<input type="text" class="inputtext" placeholder="Provider Name"  data-ng-model="providername">
+					</div> 
+
+				</div>
+
+				<a id="advanced-search-button" ng-class="{active: advanceSearchoptions}" ng-click="advanceSearchoptions = !advanceSearchoptions">Advanced Search</a>
+				<!-- <input  value=" " id="findnow" /> -->
+				<button class="findnowbutton" type="submit">Search Again</button>
+
+			</form>
+			<div class="advertisment">
+				<a href="http://direct.enhancedcaremd.com/" target="_blank"><img src="images/adsearch.png" width="300px;" class="marginbigTop"></a>
+				<a href="http://direct.enhancedcaremd.com/" target="_blank"><img src="images/ad.png" width="300px;" class="marginbigTop"></a>
+			</div>
+
+				
+			</div>  
+
+
+			<div class="push"></div>
+		</div> <!-- end maincontent -->
+		
+		
+	</div>	<!-- end wrapper -->
+</div>
+</div>

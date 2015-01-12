@@ -1,0 +1,24 @@
+<div class="container">
+	<div class="sectionpart">
+		<div id="maincontent" ng-controller="SearchCompleteController">
+			<div class="appointment scheduled-appointment">
+				<div class="appointment-progress progress-scheduled"></div>
+				<div ng-show="alerts[0]">
+					<div class="toppadding container" >
+				        <div class="alertmessage col-sm-offset-3">
+				          <alert ng-repeat="alert in alerts" type="{{alert.type}}"  >{{alert.msg | capitalize}}.</alert>
+				        </div>
+			      	</div>
+		      	</div>
+				<h1 ng-hide="ErrorAppointment">Appointment Scheduled!</h1>
+				<p ng-hide="ErrorAppointment">You will receive an email from MDtree shortly.
+				<h1 ng-show="ErrorAppointment">{{ErrorAppointment}}</h1>
+				<!-- <a id="okay-button" ui-sref="home"></a> -->
+				<button ui-sref="public.search" class="okbutton btn" ng-show="ErrorAppointment">Search Again</button>
+				<button ui-sref="user.patient-dashboard.step1" class="okbutton btn" ng-hide="ErrorAppointment">OK</button>
+			</div>
+			
+			<div class="push"></div>
+		</div> <!-- end maincontent -->
+	</div>
+</div>	

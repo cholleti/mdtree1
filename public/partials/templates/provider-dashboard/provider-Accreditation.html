@@ -1,0 +1,69 @@
+				
+<div id="edit-accreditation-details-form">
+	<img src="images/edit-accreditation-info.png" style="display:none" />
+	
+	<form id="form_provider_registration" ng-submit="updateaccreditation()">
+
+		<div class="leftcolumn">
+
+			<label for="school">* Medical/Dental School</label><input type="text" class="form-control inputerror" ng-model="providerAccreditation.school"/>
+			<div class="space"></div>
+			<label for="residency">Residency</label>
+			<input type="text" class="form-control inputerror" ng-model="providerAccreditation.residency"/>
+			<div class="space"></div>
+			<label for="fellowship">Fellowship</label>
+			<input type="text" class="form-control inputerror" ng-model="providerAccreditation.fellowship"/>
+			<div class="space"></div>
+			<label for="fellowship">Professional Affiliations</label>
+			<input type="text" class="form-control inputerror" ng-model="providerAccreditation.affilliation"/>
+			<div class="space"></div>
+
+			<label for="languages">* Language(s)</label>
+			<select
+			    chosen
+			    multiple
+			    allow-single-deselect="true"
+			    data-placeholder="Choose Your languages"
+			    no-results-text="'Tough luck'"
+			    ng-model="providerAccreditation.languages"
+			    ng-options="obj.key as obj.id for obj in languages.options"
+			    >
+			    <option value=""></option>
+			  </select>
+
+			<div class="space"></div>
+			
+			
+			<div>
+				<label for="insurances">Insurance Accepted</label>
+
+
+			<select
+		    chosen
+		    multiple
+		    allow-single-deselect="true"
+		    data-placeholder="Choose Your insurance"
+		    no-results-text="'Tough luck'"
+		    ng-model="providerAccreditation.insurance"
+		    ng-options="obj.key as obj.value for obj in insurance.options"
+		    >
+		    <option value=""></option>
+		  </select>
+			</div>
+			<div class="space"></div>
+		</div>
+		<div class="rightcolumn">
+			<div id="prostatement">	
+				<label for="statement">Professional Statement</label>
+				<textarea name="statement" rows="5" ng-model="providerAccreditation.statement"></textarea>
+			</div>
+			
+			<div class="space"></div>
+			
+		
+			
+			<p class="small" >* Required field</p>
+			<input id="submit_provider_registration" type="submit" value="" tabindex="9" class="marginMedTop"/>
+		</div>
+	</form>
+</div>

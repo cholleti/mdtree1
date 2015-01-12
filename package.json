@@ -1,0 +1,30 @@
+{
+  "name": "mdtree",
+  "version": "0.0.1",
+  "description": "mdtree - a online appointment management system for Doctors and Patients.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Arockiasamy Mohanraj",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^0.7.8",
+    "bell": "^1.1.0",
+    "boom": "^2.4.2",
+    "enum": "^0.2.6",
+    "hapi": "^6.0.2",
+    "hapi-auth-cookie": "^1.3.0",
+    "hapi-auth-jwt": "git://github.com/aromka/hapi-auth-jwt",
+    "hoek": "^2.3.0",
+    "joi": "^4.6.1",
+    "jsonwebtoken": "^0.4.1",
+    "mongoose": "~3.8.7",
+    "swig": "^1.4.2",
+    "underscore": "^1.7.0"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+}

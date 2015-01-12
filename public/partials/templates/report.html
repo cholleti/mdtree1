@@ -1,0 +1,149 @@
+	<div class="container">
+		<div class="sectionpart">
+			<div id="maincontent">
+				<div ng-controller="dashboardReportctrl" class="reportcontrol">
+
+				<h1 class="col-sm-8 title"><strong>Booked Appointment Report</strong></h1>
+				<h4 class="col-sm-4">Number Of Appointments: {{appointment.total}}<span ng-hide="appointment.values[0]">0</span></h4>
+				<nav>
+					<ul class="flex padTop">
+						<li   ng-class="{active: selectedOption === 'date'}" >
+							<a  href="" class="date-Base"  ng-click="changeView('date')"></a>
+						</li>
+
+						<li   ng-class="{active: selectedOption === 'month'}">
+							<a  href="" class="Month-Base" ng-click="changeView('month')"></a>
+						</li>
+						
+						<li   ng-class="{active: selectedOption == 'year'}">
+							<a  href="" class="Year-Base" ng-click="changeView('year')"></a>
+						</li>
+
+						<li   ng-class="{active: selectedOption === 'monthyear'}" >
+							<a   href="" class="MonthYear-Base"  ng-click="changeView('monthyear')"></a>
+						</li>
+					</ul>
+				</nav>
+				<div class="reportBody">
+
+
+					<!-- <form class="col-sm-6 marginTop">
+				          <p>Choose Your Options</p>
+				  
+				        <input id="349" type="radio" value="1" name="question1" ng-model="selectedOption" ng-change="changeMonth()" class="marginTop">
+				        <label for="349" class="marginTop">&nbsp;&nbsp;Date&nbsp;&nbsp;</label>
+				       
+				        <input id="350" type="radio" value="2" name="question1" ng-model="selectedOption" ng-change="changeMonth()" class="marginTop">
+				        <label for="350" class="marginTop">&nbsp;&nbsp;Month&nbsp;&nbsp;</label>
+
+				        <input id="351" type="radio" value="3" name="question1" ng-model="selectedOption" ng-change="changeMonth()" class="marginTop">
+				        <label for="351" class="marginTop">&nbsp;&nbsp;Year &nbsp;&nbsp;</label>
+
+				        <input id="352" type="radio" value="4" name="question1" ng-model="selectedOption" ng-change="changeMonth()" class="marginTop">
+				        <label for="352" class="marginTop">&nbsp;&nbsp;Month & Year&nbsp;&nbsp;</label>
+
+				     </form> -->
+				     <form class="col-sm-12 " ng-class="{{selectedOption}}">
+				     	<div ng-show="selectedOption == 'date'" >
+				     		
+				     		<div class="col-sm-4 flex marginTop">
+				     			<label class="col-sm-9 padTop">Start Date</label>
+					     		<input min-date="minDate"   data-ng-model="formData.form" class="form-control"  createslotdateenddate />
+					     	</div>
+					     	
+					     	<div class="col-sm-4 flex marginTop">
+					     		<label class="col-sm-8 padTop">End Date</label>
+					     		<input min-date="minDate"   data-ng-model="formData.to" class="form-control"  createslotdateenddate 
+					     		ng-change="dateChange()"/>
+					     	</div>
+				     	</div>
+				     	<div ng-show="selectedOption == 'month'">
+				     		<div class="col-sm-5  flex marginTop">
+				     			<label class="col-sm-10 padTop">Select Month</label>
+				     			<input min-date="minDate"   data-ng-model="formData.Month" class="form-control"  createslotdatemonth/>
+				     		</div>
+				     	</div>
+				     	<div ng-show="selectedOption == 'year'">
+				     		<div class="col-sm-4  flex marginTop">
+				     			<label class="col-sm-10 padTop">Select Year</label>
+				     			<input min-date="minDate"   data-ng-model="formData.Year" class="form-control"  createslotdateyear/>
+				     		</div>
+				     	</div>
+				     	<div ng-show="selectedOption == 'monthyear'">
+				     		<div class="col-sm-5  flex marginTop">
+				     			<label class="col-sm-12 padTop">Select&nbsp;Month&nbsp;&&nbsp;Year</label>
+				     			<input min-date="minDate"   data-ng-model="formData.MonthYear" class="form-control"  createslotdatemonthyear/>
+				     		</div>
+				     	</div>
+			     		<div class="col-sm-4  flex marginTop paddingZero" ng-if="providerreport">
+			     			<label >Name</label>
+			     			<div class="col-sm-6 flex">
+				     			
+				     			<input type="text" class="form-control " ng-model="nameFilter.name">
+			     			</div>
+			     			<div class="col-sm-6">
+				     			<select class="form-control" required  ng-model="statusSelected.form" ng-options="obj.status as obj.name  for obj in availableGenres">
+				     				
+	   								<option value="">Select Status</option>
+	   							</select>
+   							</div>
+			     		</div>
+				     </form>
+					<div class="row marginFullZero marginTop">
+						<h1 class="text-center col-sm-12 padTop" ng-show="noAppointments">
+							<strong class="col-sm-12">No Appointment Booked For Given Date</strong> 
+						</h1>
+						 <ul class="nav navbar-nav col-sm-12 text-center headerul" ng-show="appointment.values[0]">
+			                <li class="col-sm-4" ng-show="providerreport"><strong>Patient Name</strong></li>
+			                <li class="col-sm-4" ng-show="paitentreport"><strong>Provider Name</strong></li>
+			                <li class="col-sm-2"><strong>Date</strong></li>
+			                <li class="col-sm-2"><strong>Time</strong></li>
+			                <li class="col-sm-3" ng-class="{col-sm-4:paitentreport}"><strong>Location</strong></li>
+			                <li class="col-sm-1" ng-show="providerreport"><strong>Status</strong></li>
+			            </ul>
+			            <ul class="nav navbar-nav col-sm-12 text-center bookedhistroy" ng-repeat="booked in appointment.values  " ng-show="providerreport" >
+			            	<div ng-repeat="book in booked.slot | filter:nameFilter.name" ng-if="book.status == statusSelected.form" >
+			            		 <div ng-hide="book.cancelled && book.status == 'available'">
+					                <li class="col-sm-4">{{book.patient.name}}&nbsp;&nbsp;<span>{{book.patient.email}}</span></li>
+					                <li class="col-sm-2">{{booked.date}}</li>
+					                <li class="col-sm-2">{{book.from}}</li>
+					                <li class="col-sm-3">{{booked.locValue.address}}</li>
+					                <li class="col-sm-1 fav">{{book.status}}</li>
+					           	</div>
+					                 <div ng-show="book.cancelled">
+						                 <li class="col-sm-4">{{book.cancelled.name}}&nbsp;&nbsp;<span>{{book.cancelled.email}}</span></li>
+						                <li class="col-sm-2">{{booked.date}}</li>
+						                <li class="col-sm-2">{{book.from}}</li>
+						                <li class="col-sm-3">{{booked.locValue.address}}</li>
+						                 <li class="col-sm-1 fav">cancelled</li>
+					                 </div>
+			                </div>
+			                <div ng-repeat="book in booked.slot | filter:nameFilter.name"  ng-hide="statusSelected.form" >
+			                	<div ng-hide="book.cancelled && book.status == 'available'">
+					                <li class="col-sm-4">{{book.patient.name}}&nbsp;&nbsp;<span>{{book.patient.email}}</span></li>
+					                <li class="col-sm-2">{{booked.date}}</li>
+					                <li class="col-sm-2">{{book.from}}</li>
+					                <li class="col-sm-3">{{booked.locValue.address}}</li>
+					                <li class="col-sm-1 fav">{{book.status}}</li>
+					             </div>
+					                 <div ng-show="book.cancelled">
+						                 <li class="col-sm-4">{{book.cancelled.name}}&nbsp;&nbsp;<span>{{book.cancelled.email}}</span></li>
+						                <li class="col-sm-2">{{booked.date}}</li>
+						                <li class="col-sm-2">{{book.from}}</li>
+						                <li class="col-sm-3">{{booked.locValue.address}}</li>
+						                 <li class="col-sm-1 fav">cancelled</li>
+					                 </div>
+			                </div>
+			            </ul>
+			            <ul class="nav navbar-nav col-sm-12 text-center bookedhistroy" ng-repeat="booked in appointment.values" ng-show="paitentreport">
+			                <li class="col-sm-4">{{booked.prov}}</li>
+			                <li class="col-sm-2">{{booked.date}}</li>
+			                <li class="col-sm-2">{{booked.time}}</li>
+			                <li class="col-sm-4">{{booked.loc.address}}<span ng-show="booked.loc.city">,</span> {{booked.loc.city}}<span ng-show="booked.loc.state">,</span> {{booked.loc.state}}<span ng-show="booked.loc.zip">,</span> {{booked.loc.zip}}</li>
+			            </ul>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>

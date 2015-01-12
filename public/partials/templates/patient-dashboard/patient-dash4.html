@@ -1,0 +1,122 @@
+<div id="pending-summary" class="appointment-summary searchAgainDashboard">
+		<div class="left-column">
+			<span class="titleh1">Appointment Summary</span>
+			
+			
+			<div   ng-model="currentDate"  viewslotsview > </div>
+				
+			
+			
+			<a href="http://direct.enhancedcaremd.com/"><img src="images/ad2.png" width="250px"></a>
+			
+		</div> <!-- end appointment summary left column -->
+			
+		<div class="right-column">
+		
+			<div id="pendingvisits" class="results">
+				<div class="appointment-header result">
+					<h3>Search Again</h3>
+				</div>
+				<form id="search" ng-submit="searchoperation(zipcode)"  class="marginTop col-sm-offset-4"> 
+					<label>Category</label>
+					<div class="form-group ">
+						<select class="form-control"  required ng-model="categories.type" ng-options="obj.key as obj.id for obj in categories.options">
+							<option value="">Choose Category</option>
+						</select>
+					</div>
+					<label>Specialty</label>
+					<div class="form-group " ng-switch on="categories.type">
+						<div ng-switch-when="doctors">
+                          <select class="form-control" required  ng-model="specialty.doctor" ng-options="obj.key as obj.value for obj in specialty.options">
+                            <option value="">Choose a specialty</option>
+                          </select>
+                        </div>
+
+                        <div ng-switch-when="dentists">
+                          <select class="form-control" required  ng-model="specialty.doctor" ng-options="obj.key as obj.value for obj in dentistslists.options">
+                            <option value="">Choose a specialty</option>
+                          </select> 
+                        </div>
+                        <div ng-switch-when="chiropractors" >
+
+                          <select class="form-control" required  ng-model="specialty.doctor" ng-options="obj.key as obj.value for obj in chiropractors.options">
+                            <option value="">Choose a specialty</option></select> 
+                        </div>
+                        <div ng-switch-when="vision">
+
+                          <select class="form-control"  required  ng-model="specialty.doctor" ng-options="obj.key as obj.value for obj in Vision.options">
+                            <option value="">Choose a specialty</option></select>
+                        </div>    
+                        <div ng-switch-when="others">
+
+                          <select class="form-control" required  ng-model="specialty.doctor" ng-options="obj.key as obj.value for obj in otherSpeciality.options">
+                            <option value="">Choose a specialty</option></select>
+                        </div>    
+        
+                        </select>
+						<div ng-default>
+
+							<select class="form-control" ng-hide="categories.type">
+								<option></option>
+								<option> Category Select First</option>
+							</select>
+						</div>         
+					</div>
+					
+					<label>Zip Code</label>
+					<div class="form-group ">
+						<input type="text" class="inputtext" placeholder="Zip Code or City & State"  data-ng-model="zipcode">
+					</div> 
+					<div class="form-group ">
+						<label>Insurance (optional)</label>
+						<select class="form-control" required ng-model="insurance.type" ng-options="obj.key as obj.value for obj in insurance.options">
+						</select>
+					</div>
+
+					<div id="advanaced-search-options" >
+						<div ng-show="advanceSearchoptions">
+						<div class="form-group ">
+							<label>Gender</label>
+							<select class="form-control"  ng-model="gender.doctor" ng-options="obj.gender as obj.gender for obj in gender.options">
+								<option value="">Any</option>
+							</select>
+						</div>
+						<div class="form-group ">
+							<label>Language(s)</label>
+
+						<select
+						    chosen
+						    multiple
+						    allow-single-deselect="true"
+						    data-placeholder="Choose Your insurance"
+						    no-results-text="'Tough luck'"
+						    ng-model="language.doctor"
+						    ng-options="obj.key as obj.id for obj in language.options"
+						    class="chzn-select">
+						    <option value=""></option>
+						  </select>
+
+					</div>
+					<label>Provider Name</label>
+					<div class="form-group ">
+						<input type="text" class="inputtext" placeholder="Provider Name"  data-ng-model="providername">
+					</div> 
+					</div>
+				</div>
+
+				<!-- <a id="advanced-search-button" ng-class="{active: advanceSearchoptions}" ng-click="advanceSearchoptions = !advanceSearchoptions">Advanced Search</a> -->
+				<!-- <input  value=" " id="findnow" /> -->
+				<button class="findnowbutton" type="submit">Search Again</button>
+
+			</form>
+				
+				<div class="table-pusher"></div>
+			</div>
+			
+			
+			
+		</div> <!-- end #pending-summary right column -->
+	</div>
+</div>
+
+<div class="push"></div>

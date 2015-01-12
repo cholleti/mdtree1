@@ -1,0 +1,56 @@
+<div class="container" ng-controller="appointment_detailscontroller">
+	<div class="sectionpart">
+
+	<div id="maincontent">
+			<div class="appointment verify-appointment">
+				<div class="appointment-progress progress-verify"></div>
+				
+				<div class="appointment-booking">
+					<div class="appointment-provider-image">
+						<a ui-sref="public.doctorDetails"><img title="{{doctordetails.name}}" ng-src="{{doctordetails.image}}" width="97px;"
+						height="167px;" ng-click="doctorBookApponimentClicked(doctordetails.email)"/></a>
+					</div>
+					<ul class="appointment-details">
+						<li><span>Patient:</span>{{daytimedetails.user.patient.username }} {{daytimedetails.user.patient.lastName }}</li>
+						<!-- <li class="when"><span>When:</span>{{daytimedetails.day}},{{daytimedetails.date}}<br>at {{daytimedetails.time}}</li -->
+						<li><span>When:</span>{{daytimedetails.date}} at {{daytimedetails.time}}</li>
+						<li><span>With:</span>{{doctordetails.name }}</li>
+						<li><span>Reason:</span> {{reason.visitreason}}</li>
+						<li><span>Insurance:</span> {{getinsuranceValue}}</li>
+
+						<li ng-show="locationDetails"><span>Where:</span>{{locationDetails.address}}, {{locationDetails.city }}, {{locationDetails.state}}, {{locationDetails.zip}}</li>
+						<li ng-hide="locationDetails"><span>Where:</span> {{doctordetails.address }}, {{doctordetails.state}}, {{doctordetails.zip}}</li> 
+						<li ng-show="daytimedetails.offer"><span>Special Offer:</span> {{daytimedetails.offer}} - {{daytimedetails.desc}} </li> 
+						<li><span>Enhancedcare MDCONNECT Member Discount:</span>{{doctordetails.offerStmt}}{{userInfo}}</li>
+						<li><span>Phone Number:</span><div ng-hide="PhoneEdit">{{daytimedetails.user.patient.phone | tel}}</div>
+							<div ng-show="PhoneEdit" class="col-sm-8">
+								
+								<phonenumber-directive  model='daytimedetails.user.patient.phone'></phonenumber-directive>
+								<button class="btn btn-primary col-sm-4 btn-xs marginTop" ng-click="updateUserPhone()">Save</button><button class="btn btn-primary col-sm-4 col-sm-offset-2 btn-xs marginTop" ng-click="CancelupdateUserPhone()">Cancel</button>
+							</div>
+						</li>
+						<li ng-show="NumberConfrm"><span>Is this the phone number where the provider can contact the patient?</span><button class="btn btn-primary col-sm-2 btn-xs marginTop" ng-click="phoneNumberConfrm()">Yes</button><button class="btn btn-primary col-sm-2 col-sm-offset-2 btn-xs marginTop" ng-click="phoneNumberNotConfrm()">No</button></li>
+
+						<li ><span class="errorMsgForPhone help-block marginTop">{{errorMsgForPhone}}</span></li>
+						<a id="book-appointment-button" href="" ng-click="bookAppoinmentcomplete()" ng-hide="NumberConfrm"></a>
+						<a id="book-appointment-button" href="" ng-click="displayErrorMsg()" ng-show="NumberConfrm"></a>
+					</ul>
+				</div>
+				
+				<div id="map_canvas" style="width:35%;height:400px" class="pull-right marginTop"  ng-hide="locationDetails"></div>
+				<div id="map_canvas" style="width:35%;height:400px" class="pull-right marginTop"  ng-show="locationDetails" ng-controller="googlemap"></div>
+				</div>
+				
+				<div class="push"></div>
+				<div >
+				
+				</div>
+			</div> <!-- end verify-appointment -->
+			
+			<div class="push"></div>
+		</div> <!-- end maincontent -->
+		
+		
+	</div>	<!-- end wrapper -->
+	</div>
+</div>

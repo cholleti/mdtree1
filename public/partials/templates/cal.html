@@ -1,0 +1,38 @@
+<!-- <div ng-controller="DatePickrCntrl" >
+	<div class="container">
+		
+		    <div class="input-group col-sm-4">
+		     <input type="text" class="form-control" datepicker-popup="{{format}}" 
+		            name="dt" ng-model="formData.dt" is-open="datepickers.dt" 
+		            datepicker-options="dateOptions" ng-required="true" 
+		            close-text="Close" />
+		      <span class="input-group-btn">
+		        <button class="btn btn-default" ng-click="open($event,'dt')">
+		            <i class="glyphicon glyphicon-calendar"></i></button>
+		      </span>
+		    </div>      
+
+		 
+		    <div class="input-group col-sm-4">
+		     <input type="text" class="form-control" datepicker-popup="{{format}}" 
+		            name="dtSecond" ng-model="formData.dtSecond" 
+		            is-open="datepickers.dtSecond" datepicker-options="dateOptions" 
+		            ng-required="true" close-text="Close" />
+		      <span class="input-group-btn">
+		        <button class="btn btn-default" ng-click="open($event,'dtSecond')">
+		            <i class="glyphicon glyphicon-calendar"></i></button>
+		      </span>
+		    </div>  
+		    <button ng-click="createslots(formData.dt,formData.dtSecond)">Cal Date</button>   
+	</div>
+
+</div>
+
+ -->
+<div ng-controller="googlemapcontroller">
+  <div id="panel" >
+      <input id="address" type="textbox" value="madurai, india">
+      <input type="button" id="geocode" value="Geocode" onclick="codeAddress()">
+   </div>
+    <div id="map-canvas" style="width:50%;height:400px"></div>
+</div>

@@ -1,0 +1,136 @@
+.main{
+	padding-right: 0px;	
+	background-color: white;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border-radius: 10px 10px 10px 10px;
+	/* border: 2.99px solid #9d9fa2; */
+	-moz-box-shadow: 3px 3px 5px rgba(0,0,0,0.25);
+	-webkit-box-shadow: 3px 3px 5px rgba(0,0,0,0.25);
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.25);
+}
+.contentHolder  {
+	background: #f7f7eb;
+    min-height: 500px;
+    width: 103.1%;
+	margin-left: -20px;
+}
+ .contentHolder  .nameHitAn {
+	margin-top: 20px;
+}
+.contentHolder .inputFields {
+	padding-left: 0px; 
+	padding-right:0px;
+}
+.contentHolder  .boxstyles input, .boxstyles select, .afterEditClick {
+	width: 185px;
+	height: 38px;
+	padding: 0px 10px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	border-radius: 5px 5px 5px 5px;
+	-webkit-box-shadow: inset 1px 1px 15px 5px #F5F5F7;
+	box-shadow: inset 1px 1px 15px 5px #F5F5F7;
+	font-size: 14px;
+}
+.contentHolder .passW {
+ 	margin-left: -20px;
+}
+ .contentHolder h6{
+ 	
+ 	text-align: center;
+
+ }
+.contentHolder .lablesStyle label {
+	clear: both;
+	float: left;
+	text-align: left;
+	display: block;
+	/*width: 80px;*/
+	margin-right: 2px;
+	margin-bottom: 20px;
+	color: #5c5c5c;
+	margin-top: 6px;
+}
+.contentHolder .listingValue {
+	padding-right: 0px;	
+	background-color: white;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border-radius: 10px 10px 10px 10px;
+	/*outline: 2px solid #5b5a5a;	*/
+	padding-left: 0px;
+}
+.contentHolder .valueContainer {
+	background: white;
+	margin-top: 50px;
+    min-height: 100px;
+    width: 80%;
+}
+.contentHolder  .listingOp {
+	padding-left: 0px;
+	padding-right: 0px;
+
+	margin: 10px 0px;
+	padding: 0px 10px;
+}
+.contentHolder  li .listingOp {
+	background: none !important;
+	margin: 20px 0px;
+	border: non;
+	border: none;
+}
+.contentHolder  li hr{
+	margin: 0px;
+}
+.contentHolder  .listingValue h1 , .listingValue .listingOp span {
+	height: 40px;
+	
+	text-align: center;
+	
+}
+.contentHolder  .input-group select.form-control {
+	width: 156px;
+}
+.contentHolder .listingValue h1 {	
+	padding-top: 10px;
+	font-size: 20px;
+	color: white;
+	border-radius: 10px;
+	background-color: #9A9A9A;
+	border: 1px solid #5b5a5a;
+}
+
+.contentHolder .listingValue .listingOp span {	
+	margin-top: 20px;
+	background-color:white; 	
+}
+.editIcons {
+	padding-right: 0px;
+}
+.afterEditClickUsername {
+	width: 175px;
+	margin-left: 18px;
+}
+.editIcons .fa-pencil {
+	float: right;
+	position: absolute;
+	margin-left:  125px;
+	margin-top: -35px;
+}
+.listingOp input, .listingOp select, .editIcons input {
+	height: 25px;
+}
+.editIcons span, .editIcons  label {
+	float: right;
+}
+.editIcons  label {
+	padding-top: 5px;
+}
+.editIcons .findnowbutton {
+	width: 70px;
+	height: 30px;
+	margin-bottom: 5px;
+}
+.editIcons .fa-trash-o {
+	position: absolute;
+	margin-top: -34px;
+	margin-left: 152px;
+}

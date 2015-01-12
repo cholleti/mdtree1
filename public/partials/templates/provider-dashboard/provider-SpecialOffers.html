@@ -1,0 +1,55 @@
+<div class="daily-View col-sm-12 paddingZero" >
+	<div class="selected-date col-sm-6" ng-click="selectedDatesInCalender(dates)">
+		<label class="col-sm-5 paddingZero marginSmallTop marginSmallTop">Selected Date: </label> 
+		<input min-date="minDate"   data-ng-model="currentDate" readonly	 date-format="MM-dd-yyyy"   class="col-sm-2 paddingZero marginLeft form-control" />
+	</div>
+	
+	<div class="selected-location col-sm-6 paddingZero">
+	<label>Selected Location:</label>
+		
+		
+		  
+		<!-- <select class="chzn-select"  ng-required="true" ng-model="loctaions.locId" ng-options="obj.locId as obj.address for obj in loctaions" ng-change="changeLocation(loctaions.locId)"></select> -->
+		<select
+	    	chosen
+		    multiple
+		    allow-single-deselect="true"
+		    data-placeholder="Choose Your Locations"
+		   
+		    ng-model="multiloctaions"
+		    ng-options="obj.locId as obj.address for obj in loctaions"
+		    ng-change="changeLocation(loctaions.locId)"
+		    ng-hide="desicionValue">
+		    <option value=""></option>
+		  </select>
+
+		<!-- <select class="" multiple required ng-model="location" ng-options="obj.address as obj.address for obj in loctaions"> -->
+
+
+		
+	</div>
+				
+
+<div id="tab-special-offers">
+	<form ng-submit="SpecialOffers(form,multiloctaions)">
+		<ul>
+			<li>
+				<label for="offer-startdate">Start Date</label>
+				<input   ng-model="form.startDate"  enablefuturedate required class="form-control inputerror"/> 
+				<!-- <input type="text" class="form-control inputerror" ng-model="form.startDate"/> -->
+			</li>
+			<li>
+				<label for="offer-enddate">End Date</label>
+				<input   ng-model="form.endDate"  enablefuturedate required class="form-control inputerror"/> 
+				<!-- <input type="text" class="form-control inputerror" ng-model="form.endDate"//> -->
+			</li>
+			<li><label for="offer-enddate">Offer Title</label><input type="text" class="form-control inputerror" ng-model="form.title" required/></li>
+			<li><label for="offer-enddate">Offer Description</label><textarea ng-model="form.description" required/></textarea></li>
+			<li>
+				<!-- <input id="submit-special-offer" type="submit" /> -->
+				<button class="btn loginbutton forgetpassword" type="submit">CREATE OFFER</button>
+				
+			</li>
+		</ul>
+	</form>
+</div>

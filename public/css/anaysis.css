@@ -1,0 +1,32 @@
+#admin-dashboard .hitAnalysis,#admin-dashboard .reportAll{
+	height: 1120px;
+	background: #f7f7eb;
+	padding: 20px;
+	border-radius: 0px 10px 10px 10px;
+	-webkit-border-radius: 0px 10px 10px 10px;	
+}
+#admin-dashboard .reportAll{
+	height: inherit;
+}
+#admin-dashboard .floatleft,#admin-dashboard .floatright{
+	height: 500px;
+	border:1px solid rgb(145, 145, 145);
+	border-radius: 10px; 
+}
+#admin-dashboard .floatleft{
+	border-right:none;
+	-webkit-border-radius: 10px 0 0 10px;
+	border-radius: 10px 0 0 10px;
+}
+#admin-dashboard .floatright{
+	-webkit-border-radius: 0 10px 10px 0;
+	border-radius: 0 10px 10px 0;
+}
+
+#admin-dashboard .hitAnalysis select{
+	margin: 20px 0px;
+	padding: 20px;
+}
+#admin-dashboard .hitAnalysis .noreport .nv-multiBarWithLegend{
+	display: none;
+}

@@ -1,0 +1,86 @@
+	<div class="container">
+		<div class="sectionpart">
+			<div id="maincontent">
+				<div ng-controller="OfferReportctrl" class="reportcontrol">
+
+				<h1 class="col-sm-8 title"><strong>Special Offer Report</strong></h1>
+				<!-- <h4 class="col-sm-4">Number Of Appointments: {{appointment.total}}<span ng-hide="appointment.values[0]">0</span></h4> -->
+				<nav>
+					<ul class="flex padTop">
+						<li   ng-class="{active: selectedOption === 'date'}" >
+							<a  href="" class="date-Base"  ng-click="changeView('date')"></a>
+						</li>
+
+						<li   ng-class="{active: selectedOption === 'month'}">
+							<a  href="" class="Month-Base" ng-click="changeView('month')"></a>
+						</li>
+						
+						<li   ng-class="{active: selectedOption == 'year'}">
+							<a  href="" class="Year-Base" ng-click="changeView('year')"></a>
+						</li>
+
+						<li   ng-class="{active: selectedOption === 'monthyear'}" >
+							<a   href="" class="MonthYear-Base"  ng-click="changeView('monthyear')"></a>
+						</li>
+					</ul>
+				</nav>
+				<div class="reportBody">
+				     <form class="col-sm-12 " ng-class="{{selectedOption}}">
+				     	<div ng-show="selectedOption == 'date'" >
+				     		
+				     		<div class="col-sm-4 flex marginTop">
+				     			<label class="col-sm-9 padTop">Start Date</label>
+					     		<input min-date="minDate"   data-ng-model="formData.form" class="form-control"  createslotdateenddate />
+					     	</div>
+					     	
+					     	<div class="col-sm-4 flex marginTop">
+					     		<label class="col-sm-8 padTop">End Date</label>
+					     		<input min-date="minDate"   data-ng-model="formData.to" class="form-control"  createslotdateenddate 
+					     		ng-change="dateChange()"/>
+					     	</div>
+				     	</div>
+				     	<div ng-show="selectedOption == 'month'">
+				     		<div class="col-sm-5  flex marginTop">
+				     			<label class="col-sm-10 padTop">Select Month</label>
+				     			<input min-date="minDate"   data-ng-model="formData.Month" class="form-control"  createslotdatemonth/>
+				     		</div>
+				     	</div>
+				     	<div ng-show="selectedOption == 'year'">
+				     		<div class="col-sm-4  flex marginTop">
+				     			<label class="col-sm-10 padTop">Select Year</label>
+				     			<input min-date="minDate"   data-ng-model="formData.Year" class="form-control"  createslotdateyear/>
+				     		</div>
+				     	</div>
+				     	<div ng-show="selectedOption == 'monthyear'">
+				     		<div class="col-sm-5  flex marginTop">
+				     			<label class="col-sm-12 padTop">Select&nbsp;Month&nbsp;&&nbsp;Year</label>
+				     			<input min-date="minDate"   data-ng-model="formData.MonthYear" class="form-control"  createslotdatemonthyear/>
+				     		</div>
+				     	</div>
+				     </form>
+					<div class="row marginFullZero marginTop">
+						<h1 class="text-center col-sm-12 padTop" ng-show="!offerDetails[0]">
+							<strong class="col-sm-12">No Appointment Booked For Given Date</strong> 
+						</h1>
+						 <ul class="nav navbar-nav col-sm-12 text-center headerul" ng-show="offerDetails[0]">
+			                <li class="col-sm-2" ><strong>Title</strong></li>
+			                <li class="col-sm-3" ><strong>Description</strong></li>
+			                <li class="col-sm-2"><strong>From Date</strong></li>
+			                <li class="col-sm-2"><strong>To Date</strong></li>
+			                <li class="col-sm-2" ><strong>CreatedAt</strong></li>
+			                <li class="col-sm-1" ><strong>#Appts</strong></li>
+			            </ul>
+			            <ul class="nav navbar-nav col-sm-12 text-center bookedhistroy" ng-repeat="offer in offerDetails" >
+			                <li class="col-sm-2" >{{offer.title}}</li>
+			                <li class="col-sm-3" >{{offer.description}}</li>
+			                <li class="col-sm-2">{{offer.fromDate}}</li>
+			                <li class="col-sm-2">{{offer.toDate}}</li>
+			                <li class="col-sm-2" >{{offer.createdAt}}</li>
+			                <li class="col-sm-1" >{{offer.appointment}}</li>
+			            </ul>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>

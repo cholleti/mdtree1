@@ -1,0 +1,1857 @@
+/**{
+	color: #4b4830;
+}*/
+
+/*html{
+	overflow-y:scroll;
+}*/
+
+html, body{
+	height: 100%;
+	line-height:1.2em;
+}
+
+h1, h2, h3, h4, h5, h6{
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	margin-bottom:10px;
+}
+h2, h3, h4, h5, h6{
+	font-size: 16px;
+	margin-top:10px;
+}
+h5, h6{
+	font-weight:normal;
+}
+em{
+	font-style:italic;
+}
+small{
+	font-size: 10px;
+}
+small a{
+	font-weight:normal;
+}
+a:hover{
+	color:#e21a58;
+}
+blockquote{
+	margin:20px 20px 20px 0;
+	font-style: italic;
+	border-left: 2px solid #4A9D94;
+	padding: 10px 10px 10px 25px;
+}
+li{
+	font-family: Arial, Helvetica, sans-serif;
+}
+strong, b{font-family: Arial, Helvetica, sans-serif; font-weight:bold;}
+
+i{font-style:italic;}
+a{
+	color: #4a9d94;
+	text-decoration:underline;
+	font-weight: bold;
+}
+h1{
+	font-size:1.3em;
+	margin-bottom:.8em;
+	font-weight:bold;
+}
+a h1, h1 a, .caretabs li a{
+	text-decoration:none;
+}
+
+p{
+	color: #4b4830;
+	margin-bottom:15px;
+	line-height:1.4em;
+}
+li, ul{
+	list-style:none;
+}
+li ul{
+	margin-top:3px;
+}
+body{
+	background:url(../images/linepattern.jpg);
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:.9em;
+	color: #4b4830;
+}
+
+#wrapper{
+	width:1080px;
+	padding-bottom: 60px;
+	margin: 0 auto;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	background: white;
+	box-shadow: 5px 11px 10px #BFBFBF;
+}
+
+#header{
+	position:relative;
+	margin-top:44px;
+	padding-top:1px;
+}
+
+#headerrightcorner{
+	/* this completes the shadow at the top right side*/
+	position: absolute;
+	right: 0;
+	width: 34px;
+	height: 35px;
+	top: -29px;
+	border-radius: 0 18px 0;
+	background: transparent;
+	box-shadow: 5px 7px 10px #BFBFBF;
+	z-index: -22;
+}
+.utilities-hover-box{
+	text-align:right;
+	background: #f7f7eb;
+	border:1px solid #d5d5d5;
+	border-radius: 10px;
+	padding:8px 8px 13px 8px;
+	position:absolute;
+	top:56px;
+	right:65px;
+	
+}
+.utilities-hover-box form{
+	clear:both;
+}
+#utilities-password-sent, #appointment-password-sent{
+	text-align:center;
+	margin:15px;
+}
+.sign-in{
+	text-align:right;
+}
+.sign-in p{
+	margin:0;
+	font-weight:normal;
+}
+
+.sign-in li{
+	margin-left:20px;
+	margin-right:30px;
+	margin-bottom:8px;
+}
+.sign-in li:last-child{
+	text-align:left;
+}.sign-in label{
+	margin-left:-80px;
+}
+
+a#utlities-login-link.active{
+	color: #e21a58;
+}
+
+#login-box{
+	display:none;
+}
+#close-button{
+	width:21px;
+	height:21px;
+	float:right;
+	background:url(../images/x-button.png) no-repeat;
+	margin-bottom:5px;
+}
+
+#utilities-forgot-pass-link{
+	font-size:13px;
+	font-weight:normal;
+}
+input.login-button{
+	background: url(../images/login-button.png) no-repeat;
+	height:31px;
+	width:83px;
+	border:0;
+	margin-top:5px;
+	margin-left: 40px;
+}
+input.reset-password-button{
+	background: url(../images/get-new-password-button.png) no-repeat;
+	height:31px;
+	width:170px;
+	border:0;
+	margin-top:5px;
+}
+#forgot-password-box{
+	display:none;
+}
+#utilities-pointer{
+	background: url(../images/utilities-pointer.png) no-repeat;
+	width: 16px;
+	height: 9px;
+	position:absolute;
+	top: -9px;
+	right: 107px;
+}
+#forgot-password-box{
+
+}
+/* home page */
+
+.homepage #maincontent{
+	
+}
+
+.homepage #header{
+	background:transparent url(../images/home-header-shadow.png) center bottom no-repeat;
+	height:195px;
+	text-align: center;
+}
+.homepage #logo{
+	padding:0;
+	float:none;
+	margin: 40px 0 0 0;
+	display:inline;
+}
+.home-caretabs{
+	padding:40px 0 10px 6px;
+	height:44px;
+}
+.home-caretabs li{
+	float:left;
+	padding-right:6px;
+	display:block;
+	background: url(../images/home-carebutton.png) no-repeat;
+}
+.home-caretabs li a{
+	height:44px;
+	width:135px;
+	display:block;
+}
+.home-caretabs .doctors{
+	background: url(../images/home-caretab-doctors.png) no-repeat;
+}
+.home-caretabs .dentists{
+	background: url(../images/home-caretab-dentists.png) no-repeat;
+}
+.home-caretabs .wellness{
+	background: url(../images/home-caretab-wellness.png) no-repeat;
+}
+.home-caretabs .urgent{
+	background: url(../images/home-caretab-urgent.png) no-repeat;
+}
+.home-caretabs li:hover{
+	
+}
+.home-caretabs li.active{
+	background: url(../images/home-carebutton-active.png) no-repeat;
+}
+
+.homepage #search input#findnow {
+	background: url(../images/home-findnow.png) no-repeat;
+	width:135px;
+	height: 41px;
+	border: none;
+	display: block;
+	margin: 0 auto;
+}
+
+
+#utilities{
+	background: transparent url(../images/headerbg.png) 0 15px no-repeat;
+	width:100%;
+	height:47px;
+	top: -46px;
+	position: absolute;
+}
+#usernav{
+	float:right; clear:both;
+	margin: 22px 153px 0 0;
+	font-weight: bold;
+	font-size:.9em;
+}
+#usernav li{
+	display:inline;
+	padding: 0 10px;
+	height:10px;
+}
+#usernav li:first-child{
+	border-right:1px solid #676767;
+}
+#usernav a{
+	color: #616161;
+	text-decoration:none;
+}
+#usernav a:hover, #usernav a:active{
+	color: #e21a58;
+}
+#headercontent{
+	background: url(../images/md_dots.png) bottom repeat-x;
+	margin:0 auto;
+	height:123px;
+	width:961px;
+}
+#headerwrap{
+	width:965px;
+}
+
+#logo{
+	padding-top: 5px;
+	display:block; float:left;
+	margin-left:25px;
+}
+
+.caretabs{
+	float:left;
+	margin-top:60px;
+	margin-left:125px;
+}
+.caretabs li{
+	float:left;
+	padding: 17px 0;
+	margin: 0 10px 0 0;
+	display:block;
+	background: url(../images/carebutton.png) no-repeat;
+	width:84px;
+	height:38px;
+	text-align:center;
+}
+.caretabs li a{
+	height:11px;
+	display:block;
+	font-weight:bold;
+	color: #9e9e9e;
+}
+.caretabs .doctors{
+	background: url(../images/caretab-doctors.png) no-repeat;
+}
+.caretabs .dentists{
+	background: url(../images/caretab-dentists.png) no-repeat;
+}
+.caretabs .wellness{
+	background: url(../images/caretab-wellness.png) no-repeat;
+}
+.caretabs .urgent{
+	background: url(../images/caretab-urgent.png) no-repeat;
+}
+.caretabs li:hover{
+	
+}
+.caretabs li.active{
+	background: url(../images/caretab-active-care.png) center top no-repeat;
+}
+.caretabs li.active a{
+	color: #009d92;
+}
+.social{
+	float:right;
+	margin-top:75px;
+}
+.social li{
+	display:inline;
+	margin-left:10px
+}
+
+#maincontent{
+	width:965px;
+	padding: 20px 9px;
+	margin:0 auto;
+}
+#footer{
+	height:4em;
+	width:1087px;
+	padding-top:0px;
+	padding-bottom:8px;
+	font-size:.9em;	
+	color:#656565;
+	clear:both;
+	margin-top: 20px;
+
+}
+.push{
+	height: 4em;
+	clear:both;
+	height:10px;
+	width:100%;
+}
+#footer a{
+	color:#656565;
+	font-weight:normal;
+	text-decoration:none;
+}
+#footer nav{
+	margin: 0 auto;
+	background: white;
+	height:40px;
+	width:1100px;
+	display:block;
+	padding: 13px 24px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border-radius: 10px 10px 10px 10px;
+}
+#footer ul, #footer li{
+	float:left;
+}
+#footer .nav-social{
+	margin-right:37px
+}
+#footer .nav-social li{
+	margin-right:15px;
+	margin-top: -5px;
+}
+/*#footer .nav-pages, #footer .nav-privacy{
+	margin-top:5px;
+}*/
+#footer .nav-pages li{
+	margin-right:37px;	
+}
+
+#footer .nav-privacy{
+	float:right;	
+}
+#footer .nav-privacy li{
+	padding:0 8px;
+}
+#footer .nav-privacy li:first-child{
+	border-right: 1px solid #656565;
+}
+#welcome{
+	background: url(../images/md_dots.png) repeat-x;
+	padding: 45px 0 45px;
+	margin-top: 45px;
+	text-align: center;
+	line-height: 1.3em;
+}
+#activearrow{
+	background: url(../images/home-activearrow.png) no-repeat;
+	width: 23px;
+	height: 16px;
+	float: left;
+	margin-top: -45px;
+	margin-left: 63px;
+}
+
+#search-control{
+	float:left;
+	margin-bottom:10px;
+}
+#search-control label, #search label{
+	display: block;
+	margin-left: 10px;
+	margin-bottom: 2px;
+	font-weight: bold;
+	font-size: .8em;
+	text-transform: uppercase;
+}
+
+#searchwindow{
+	margin:0 auto;
+	width:570px;
+}
+#search{
+	width:265px;
+	padding-left:20px;
+	float:left;
+}
+.homepage #search{
+	background: url(../images/linepattern.jpg);
+	width:100%;
+	text-align: center;
+	padding: 45px 0;
+	box-shadow: 3px 3px 10px #BFBFBF inset;
+	border-radius: 10px;
+}
+
+.homepage #search p{
+	margin:0;
+	padding-bottom: 10px;
+}
+
+#advanced-search-button{
+	background: url(../images/advanced-search-btn.png) left top no-repeat;
+	width:229px;
+	height:31px;
+	display:block;
+	clear:both;
+	text-decoration:none;
+	font-weight:normal;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:.8em;
+	color:#5e5e5e;
+	margin: 5px 0;
+	cursor: pointer;
+}
+#advanced-search-button.active{
+	background: url(../images/advanced-search-btn.png) left bottom no-repeat;
+}
+.advanced-box{
+	float:left;
+	margin-right:9px;
+}
+
+#search input#findnow {
+	background: url(../images/findnow.png) no-repeat;
+	width:100px;
+	height: 30px;
+	border: none;
+}
+#patient-dashboard nav li a .findnowbutton{
+	width: 132px;
+	height: 28px;
+
+}
+#googlemap{
+	float:right;
+	margin-left:70px;
+}
+
+
+/*** QUERY RESULTS ***/
+
+
+
+
+/*** PROFILE ***/
+
+/**** CALENDAR *****/
+
+
+
+/**** PATIENT DASHBOARD ****/
+.left-column{
+	float:left;
+	width:265px;
+}
+.left-column h1{
+	padding: 5px 0 7px;
+}
+.right-column{
+	float:right;
+	width:677px;
+
+}
+
+#patient-dashboard .left-column{
+	/*
+	margin-left:-285px;
+	margin-top:-49px;
+	*/
+}
+#patient-dashboard{
+	margin-bottom:10px;
+	position:relative
+}
+#patient-dashboard .results{
+	background: #f7f7eb;
+	border:1px solid #d5d5d5;
+	border-radius: 10px;          -moz-border-radius: 10px;
+	margin-top:50px;
+	background: white url(../images/appointmentsummary_bg.png) 112px 0 repeat-y;
+}
+
+#patient-dashboard nav{
+	height: 49px;
+	position: absolute;
+	z-index: 23;
+	left: 338px;
+	top:1px;
+}
+#patient-dashboard nav li{
+	width:152px;
+	height:49px;
+	float:left;
+}
+#patient-dashboard nav li.active{
+	border:1px solid #d5d5d5;
+	border-bottom:0;
+	border-radius: 10px 10px 0 0;       -moz-border-radius: 10px 10px 0 0;
+	background: #f7f7eb;
+}
+#patient-dashboard nav li a{
+	height:28px;
+	width:132px;
+	display:block;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+#patient-dashboard h3{
+	margin: 8px 0 0 20px;
+	padding:5px;
+	font-size: 100%;
+	float: left;
+}
+
+#edit-patient-profile{
+	padding: 30px;
+}
+
+
+.appointment-summary{
+	display:block;
+	clear:both;
+}
+
+.appointments-editprofile{
+	background: url(../images/appointments-editprofile.png) top center no-repeat;
+}
+.appointments-pendingvisits{
+	background: url(../images/appointments-pendingvisits.png) top center no-repeat;
+}
+.appointments-pastvisits{
+	background: url(../images/appointments-pastvisits-active.png) top center no-repeat;
+}
+.active .appointments-editprofile{
+	background: url(../images/appointments-editprofile.png) bottom center no-repeat;
+}
+.active .appointments-pendingvisits{
+	background: url(../images/appointments-pendingvisits.png) bottom center no-repeat;
+}
+.active .appointments-pastvisits{
+	background: url(../images/appointments-pastvisits-active.png) bottom center no-repeat;
+}
+a#searchagain{
+	background:url(../images/searchagain.png) 0 0 no-repeat;
+	width:132px;
+	height:28px;
+	display:block;
+	clear:left;
+}
+.appointment-header .headers{
+	margin-top:8px;
+}
+#patient-dashboard nav .active a{
+	margin-top:9px;
+	margin-left:9px;
+}
+#patient-dashboard nav .active{
+	width:150px;
+}
+
+.noshow{ display:none;}
+.appointment-header li{
+	display:block;
+}
+#patient-dashboard .results{
+	border-radius:10px;
+	background: white url(../images/appointmentsummary_bg.png) 112px 0 repeat-y;
+	margin-bottom:17px;
+}
+.results .appointment-header{
+	background:#f7f7eb;
+	border-radius:10px 10px 0 0;       -moz-border-radius: 10px 10px 0 0;
+	border-bottom:1px solid #d5d5d5;
+	height:39px;
+	font-weight:bold;
+	padding:0;
+}
+
+#patient-profile .results{
+	background:white;
+}
+#patient-profile #change-patient-password a{
+	color: #e21a58;
+	text-decoration:underline;
+}
+#patient-profile #change-patient-password a:hover{
+	color: #4A9D94;
+	text-decoration:underline;
+}
+.results ol{
+	border-top:4px solid white;
+	border-bottom:4px solid white;
+}
+.results ol li.push{
+	height:1px;
+}
+
+.result ul{
+	float:left;
+
+}
+.result li{
+	display:block;
+	float:left;
+	padding:5px;
+	text-align:center;
+}
+.result .greycolumn{
+}
+.result .date{
+	width:102px;
+}
+.result .provider{
+	width: 151px;
+}
+.result .time{
+	width: 90px;
+}
+.result .location{
+	width:162px;
+}
+.result .reason{
+	width: 151px;
+}
+
+/**** PROVIDER DASHBOARD ***/
+
+#provider-dashboard .right-column{
+	background: transparent;
+}
+#provider-dashboard{
+	margin-bottom:10px;
+}
+.provider-dashboard-header nav .edit-profile,.provider-dashboard-header nav .reporting-profile ,.provider-dashboard-header nav .offer-report{
+	cursor: pointer;
+	width: 132px;
+	height: 28px;
+	display: block;
+	margin-bottom:12px;
+}
+.provider-dashboard-header nav .edit-profile{
+	background: url(../images/appointments-editprofile.png) no-repeat;
+}
+.provider-dashboard-header nav .reporting-profile{
+	background: url(../images/dashboard-report.png) no-repeat;
+}
+.provider-dashboard-header nav .offer-report{
+	background: url(../images/offer-report.png) no-repeat;
+}
+#provider-navigator {
+	width:677px;
+	height: 28px;
+	margin-bottom:20px;
+}
+
+#provider-navigator .daily-view.active {
+	background: url(../images/dailyview.png) no-repeat;
+}
+#provider-navigator .daily-view{
+	background: url(../images/dailyview.png) no-repeat left -28px;
+} 
+#provider-navigator .weekly-view.active {
+	background: url(../images/weekly-view.png) no-repeat;
+}
+#provider-navigator .weekly-view {
+	background: url(../images/weekly-view.png) no-repeat left -28px;;
+}
+#provider-navigator .create-appointment-details.active {
+	background: url(../images/create-appointment.png) no-repeat;
+}
+#provider-navigator .create-appointment-details {
+	background: url(../images/create-appointment.png) no-repeat left -28px;;
+}
+#provider-navigator .special-offers.active {
+	background: url(../images/special-offers.png) no-repeat;
+}
+#provider-navigator .special-offers {
+	background: url(../images/special-offers.png) no-repeat left -28px;;
+}
+#provider-navigator .schedule-existing-patient.active{
+	background: url(../images/schedule-patient.png) no-repeat;
+}
+#provider-navigator .schedule-existing-patient{
+	background: url(../images/schedule-patient.png) no-repeat left -28px;;
+}
+.provider-dashboard-header  nav #provider-navigator li {
+	display:block;
+	float:left;
+	margin-right:1px;
+}
+.provider-dashboard-header nav li a{
+	display:block;
+	width:100%;
+	height:100%;
+}
+li.daily-view{
+	width: 87px;
+	height:28px;
+	margin-left:1px;
+}
+li.weekly-view{
+	width: 102px;
+	height:28px;
+}
+li.create-appointment-details{
+	width: 191px;
+	height:28px;
+}
+li.special-offers{
+	width: 115px;
+	height:28px;
+}
+li.schedule-existing-patient{
+	width: 176px;
+	height:28px;
+}
+.provider-dashboard-header form label{
+	float: left;
+	margin-top: 4px;
+	font-weight: bold;
+	margin-right: 6px;
+}
+
+
+#slot-creator ul li{
+
+}
+
+.create-slots{
+	
+}
+
+.from, .to, .duration{
+}
+
+.duration {
+	width:124px;
+	background: url(../images/duration-spinner.png) right 0 no-repeat;
+	margin-right:32px;
+}
+
+#sc-form > li{
+	margin-top:2px;
+	float:left;
+	margin-right:5px;
+}
+#sc-form > li:last-child, #sc-form li:first-child{
+}
+#sc-form > li:first-child{
+	margin-right:33px;
+}
+#sc-form > li:last-child{
+	margin: 0 0 0 28px;
+}
+
+input.okay-button, #okay-button{
+	border:0;
+	background: url(../images/okay-button.png) no-repeat;
+	width:63px;
+	height:28px;
+}
+#okay-button{
+	display:block;
+	display: block;
+margin: 10px auto;
+}
+
+.provider-dashboard-content .schedule{
+	width:675px;
+	background: url(../images/wide-schedule-bg.png) center 0 repeat-y;
+	border:1px solid #d5d5d5;
+	border-radius:10px;	-moz-border-radius: 10px;
+	padding-bottom:0;
+}
+.table-pusher{
+	width:95%;
+	margin:0 auto;
+	height:5px;
+	background:white;
+	clear:both;
+	margin-top:5px;
+}
+.five-days .table-pusher{
+	width:98%;
+}
+.provider-dashboard-content .schedule-header{
+/*	width:671px;*/
+	border-bottom: 1px solid #D5D5D5;
+}
+.provider-dashboard-content .schedule-next{
+	
+}
+
+/**** DAILY VIEWER ****/
+table{border-collapse: separate;}
+
+.daily-viewer{
+	background: url(../images/daily-viewer-bg.png) 90px 0 repeat-y;
+	clear:both;
+	border-radius: 10px;				-moz-border-radius: 10px;
+	border: 1px solid #D5D5D5;
+}
+#daily-viewer{
+	border-radius:10px;			-moz-border-radius: 10px;
+	border:1px solid #D5D5D5;
+}
+#daily-viewer td, #daily-viewer th{
+	vertical-align:middle;
+	text-align: center;
+}
+#daily-viewer p{
+	margin:0;
+}
+	#daily-viewer th{
+		height:39px;
+		background: #f7f7eb;
+		border-bottom:1px solid #d5d5d5;
+	}
+	#daily-viewer th:first-child{
+		border-radius:10px 0 0 0;	-moz-border-radius: 10px 0 0 0;
+	}
+	#daily-viewer th:last-child{
+		border-radius:0 10px 0 0;			-moz-border-radius: 0 10px 0 0;
+	}
+	
+#daily-viewer .alternate{
+	background: #f7f7eb;
+}
+#daily-viewer tbody tr td{
+	border-bottom:1px solid #d5d5d5;
+	padding:10px 0;
+	font-size:.8em;	
+	
+}
+#daily-viewer tbody tr:first-child td{
+	border-top:5px solid white;
+}
+#daily-viewer tbody tr:last-child td{
+	border-bottom:5px solid white;
+	border-radius: 0 0 10px 10px;					-moz-border-radius: 0 0 10px 10px;
+}
+#daily-viewer	.time{
+	width: 90px;
+}
+#daily-viewer .patient-name{
+	width: 207px;
+}
+#daily-viewer .patient-name p span{
+	color: #97937c;
+}
+#daily-viewer .patient-sex{
+	width: 34px;
+}
+#daily-viewer .purpose{
+	width: 126px;
+}
+#daily-viewer .actions{
+	width: 218px;
+	height: 30px;
+	
+}
+#daily-viewer .actions ul{
+	margin-left:7px;
+}
+#daily-viewer .actions ul li{
+	float:left;
+}
+#daily-viewer .actions-noshow{
+	background: url(../images/action-buttons.png) left -85px no-repeat;
+	width:79px;
+	cursor: 
+}
+#daily-viewer .actions-noshowenable{
+	background: url(../images/action-buttons.png) left 0px no-repeat;
+	width:79px;
+}
+#daily-viewer .actions-noshowenable:hover{
+	background: url(../images/action-buttons.png) left -28px no-repeat;
+	width:79px;
+}
+#daily-viewer .actions-noshowenablewithcolor{
+	background: url(../images/action-buttons.png) left -56px no-repeat;
+	width:79px;
+}
+#daily-viewer .actions-done{
+	width:61px;
+	background: url(../images/action-buttons.png) -79px -85px no-repeat;
+}
+#daily-viewer .actions-doneenable{
+	width:61px;
+	background: url(../images/action-buttons.png) -79px 0px no-repeat;
+}
+#daily-viewer .actions-doneenable:hover{
+	width:61px;
+	background: url(../images/action-buttons.png) -79px -28px no-repeat;
+}
+#daily-viewer .actions-doneenablewithcolor{
+	background: url(../images/action-buttons.png) -79px -56px no-repeat;
+	width:61px;
+}	
+#daily-viewer .actions-cancel{
+	width: 65px;
+	background: url(../images/action-buttons.png) right -85px no-repeat;
+}
+#daily-viewer .actions-cancelenable{
+	width: 65px;
+	background: url(../images/action-buttons.png) right 0px no-repeat;
+}
+#daily-viewer .actions-cancelenable:hover{
+	width: 65px;
+	background: url(../images/action-buttons.png) right -28px no-repeat;
+}
+#daily-viewer .actions-cancelclicked{
+	width: 65px;
+	background: url(../images/action-buttons.png) right -56px no-repeat;
+	position: relative;
+}
+#daily-viewer .actions li a{
+	display:block;
+	height:28px;
+}
+#daily-viewer .actions-noshow a,#daily-viewer .actions-done a,#daily-viewer .actions-cancel a,
+#daily-viewer .actions-doneenablewithcolor a,#daily-viewer .actions-noshowenablewithcolor a{
+	cursor: default;
+}
+/*special offers */
+
+#tab-special-offers{
+	width: 245px;
+	margin: 10px auto;
+}
+#tab-special-offers li{
+	float:left;
+	clear:left;
+}
+#tab-special-offers li:last-child{
+
+}
+
+#tab-special-offers label{
+	text-align:right;
+	position:absolute;
+	width:140px;
+	margin-left: -145px;
+	margin-top: 3px;
+}
+#submit-special-offer{
+	background: url(../images/create-offer-button.png) no-repeat;
+	border:0;
+	width:126px;
+	height:28px;
+}
+
+
+/* schedule existing patient tab */
+#tab-existing-patient .schedule{
+	margin-bottom:30px;
+}
+
+#tab-existing-patient form li{
+	clear:both;
+}
+#tab-existing-patient form .rightcolumn li label{
+	margin-top: 0;
+}
+#tab-existing-patient .leftcolumn{
+	float:left;
+	clear:left;
+	width:380px;
+	margin-top:30px;
+}
+#tab-existing-patient .leftcolumn label{
+	width: 122px;
+	text-align:right;
+}
+#tab-existing-patient label{
+	clear: both;
+	float: left;
+	text-align: right;
+	display: block;
+	font-weight:bold;
+	color: #5C5C5C;
+	margin-top:5px;
+	margin-right:16px;
+}
+
+#tab-existing-patient .rightcolumn{
+	float:right;
+	clear:right;
+	width:290px;
+	margin-top:30px;
+}
+#tab-existing-patient .rightcolumn label{
+	text-align: left;
+}
+#tab-existing-patient textarea{
+	width:262px;
+	min-height: 78px;
+}
+
+.submit-button{
+	width: 89px;
+	height: 28px;
+	background: url(../images/submit-button.png) no-repeat;
+	border:0;
+}
+/* registration home */
+
+#registrationhome{
+	
+}
+#registrationhome h1{
+	width: 480px;
+	border-bottom: 1px solid #CCC;
+	padding-bottom: 20px;
+	margin: 0px auto 20px;
+
+}
+#registrationhome .patient-provider-optionbox{
+	width: 570px;
+	/*
+		height: 360px;
+		background: url(../images/homesearchbg.jpg) center 0 no-repeat;
+	*/
+	margin:0 auto;
+	text-align:center;
+	padding: 40px;
+}
+#registrationhome .patient-provider-optionbox .form-group  label.marginadjust{
+	margin-left: -28px;
+}
+#registrationhome hr{
+	width: 288px;
+	height:1px;
+	background: #ccc;
+	border:0;
+	font-weight:bold;
+	margin-bottom:15px;
+}
+
+/* edit provider profile */
+#edit-provider-profile .profile-content{
+	width:789px;
+	padding:24px 7px 24px 7px;
+	float:right;
+	background:#f7f7eb;
+	border: 1px solid #d5d5d5;
+	border-radius: 10px;
+	margin-top:50px;
+}
+#edit-provider-profile .alertmessage{
+	clear: both;
+}
+#edit-provider-profile .profile-content .navhover{
+	/* past the padding and margin but not the border */
+	margin-top:-73px;
+}
+#edit-provider-profile-nav{
+	height:49px;
+	margin-left:24px;
+	float:left;
+}
+#edit-provider-profile-nav li{
+	float:left;
+	height:50px;
+	padding:11px 11px 10px;
+}
+#edit-provider-profile-nav li a{
+	
+	height:100%;
+	display:block;
+}
+#edit-provider-profile-nav li.active{
+	border:1px solid #d5d5d5;
+	border-radius: 10px 10px 0 0;
+	border-bottom:none;
+	background: #f7f7eb;
+	padding: 10px 10px;
+}
+#edit-personal-details a{
+	width: 158px;
+	background: url(../images/edit-provider-personal.png) center top 1px no-repeat;
+}
+.active#edit-personal-details a{
+	background: url(../images/edit-provider-personal.png) 0 bottom 1px no-repeat;
+}
+#edit-location-details a{
+	width: 134px;
+	background: url(../images/edit-provider-location.png) center top 1px no-repeat;
+}
+.active#edit-location-details a{
+	background:#f7f7eb url(../images/edit-provider-location.png) right 1px  no-repeat;
+}
+#edit-accreditation-details a{
+	width: 158px;
+	background: url(../images/edit-provider-accreditation.png) center top 1px no-repeat;
+}
+.active#edit-accreditation-details a{
+	background: #f7f7eb url(../images/edit-provider-accreditation.png) center bottom 1px no-repeat;
+}
+
+
+#edit-provider-profile h1{
+	border-bottom: 1px solid #e9e9e9;
+	padding-bottom:12px;
+}
+#edit-provider-image.profile-image{
+	float:none;
+	margin-left: 0;
+}
+.left-floating-sidebar{
+	width: 162px;
+	margin-left: -172px;
+	float:left;		
+}
+
+.left-floating-sidebar form h2{
+	color: #e21a58;
+	margin-top:0;
+}
+
+.left-floating-sidebar form, #change-patient-password form{
+	background: #f7f7eb;
+	border-radius: 10px;
+	border: 1px solid #d5d5d5;
+	padding: 13px 7px;
+	position:relative;
+	margin:-34px 0 8px -50px;
+	width:195px;
+	text-align: center;
+}
+#change-patient-password form input,#change-patient-password form select, #change-password-form input{
+	float:none;
+	margin-bottom: 8px;
+	margin-left: 15px;
+	width: 150px;
+	height: 28px;
+}
+#change-patient-password form  .mini-btn{
+	padding: 3px 7px;
+	width: 63px;
+}
+#change-patient-password form{
+	margin-left:-35px;
+	margin-top:-50px;
+	text-align:center;
+}
+#change-patient-password{
+	float:left;
+	clear:both;
+	margin: 125px 0 0 55px
+}
+#change-photo .input_170{
+	margin-left: 11px;
+}
+.form-thanks{
+	display:none;
+}
+.form-hint{
+	color:red;
+	display:none;
+}
+.mini-btn{
+	border: 0;
+	background: url(../images/mini-btn.png) no-repeat;
+	width: 63px;
+	height: 24px;
+	margin: 0 1px;
+}
+
+.left-floating-sidebar form input{
+	margin-bottom:8px;
+}
+.left-floating-sidebar form label{
+	margin-left:2px;
+	font-size:12px;
+	font-weight:bold;
+}
+
+.registration-page{
+	margin-bottom:40px;
+	clear:both;
+}
+
+/**** EDIT PROVIDER PROFILE  FORMS *****/
+
+#edit-profile-forms #form_provider_registration .leftcolumn{
+	width:335px;
+}
+#edit-profile-forms #form_provider_registration .rightcolumn{
+	width:430px;
+	margin-right:5px;
+}
+#edit-profile-forms #form_provider_registration .leftcolumn label{
+	width:100px;
+}
+#edit-profile-forms #form_provider_registration .leftcolumn label{
+	width:93px;
+}
+#edit-profile-forms #form_provider_registration label.radioboxlabel{
+	width:auto;
+}
+#form_provider_registration .rightcolumn.registerpage1 label {
+	width: 240px;
+}
+#edit-personal-details-form #form_provider_registration .rightcolumn label{
+	width:185px;
+}
+#edit-personal-details-form #form_provider_registration .rightcolumn input[type="submit"],
+#edit-personal-details-form #form_provider_registration .small{
+	margin-left:200px;
+}
+
+
+#edit-profile-forms #location_details{
+	margin-top:0;
+}
+nav#location-selecter{
+	width: 707px;
+	padding: 10px 0 0 80px;
+	border-bottom: 1px solid #E2E2D7;
+	min-height: 51px;
+	margin-bottom:25px;
+}
+
+#location-selecter .selected-location{
+	float:left;
+	display: inline-flex;
+}
+
+#edit-profile-forms #location-selecter #delete-clinic{
+	border-left: 1px solid #5C5C5C;
+	padding-left: 20px;
+	margin-left:20px;
+	font-size: 12px;
+	float: left;
+	margin-top: 2px;
+	padding: 3px 20px;
+}
+#edit-location-details-form #form_provider_registration .rightcolumn {
+	width:349px;
+}
+#edit-location-details-form #form_provider_registration .leftcolumn {
+	margin-left:30px;
+}
+
+hr.deleteme{
+	border:1px dotted #c5c5c5;
+	margin: 40px auto;
+	clear:both;
+}
+
+ .accreditation  #form_provider_registration .leftcolumn{
+	width:600px;
+}
+
+#edit-accreditation-details-form #form_provider_registration .leftcolumn{
+	width:400px;
+}
+#edit-accreditation-details-form #form_provider_registration .leftcolumn label{
+	width:155px;
+}
+#edit-accreditation-details-form  #form_provider_registration .rightcolumn{
+	width:300px
+}
+#edit-accreditation-details-form  #form_provider_registration .rightcolumn label{
+	text-align:left;
+	width:200px;
+}
+#edit-accreditation-details-form #form_provider_registration textarea{
+	float:left;
+	clear:left;
+	background:white;
+}
+#edit-accreditation-details-form #form_provider_registration .checkbox{
+	margin-left:0px;
+}
+#edit-accreditation-details-form #form_provider_registration input[type="submit"],
+#edit-accreditation-details-form #form_provider_registration .small{
+	margin-left:80px;
+}
+
+.accreditation .small,
+.accreditation #form_provider_registration input[type="submit"],
+.accreditation .checkbox{
+	margin-left:180px;
+}
+#edit-personal-details-form #form_provider_registration .rightcolumn input[type="submit"]{
+	margin-left: 250px;
+}
+
+ #edit-accreditation-details-form #form_provider_registration .small{
+ 	margin-left: 0px;
+ }
+#submit_provider_registration {
+	clear:both;
+	margin-left: 80px;
+	display:block;
+	width:97px;
+	height:28px;
+	background:transparent url("../images/register-button.png") left top no-repeat;
+	border:none;
+}
+
+
+#the-chosen-location, #the_chosen_location_chzn{
+	
+}
+
+
+
+/*	reset css	*/
+/*	reset css	*/
+/*	reset css	*/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	text-decoration:none;
+	font-family: Arial, Helvetica, sans-serif;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-spacing: 0;
+}
+
+
+
+/*forms.css*/
+/*forms.css*/
+/*forms.css*/
+
+/*forms.css*/
+/*forms.css*/
+/*forms.css*/
+/*forms.css*/
+/*forms.css*/
+/*forms.css*/
+
+
+
+	#search p {
+		margin-top:20px;
+	}
+
+	#form_patient_registration {
+		width:500px;
+	}
+	.appointment-usercheck #form_patient_registration {
+		margin-left: 135px;
+	}
+	
+	#form_patient_registration label {
+		clear: both;
+		float:left;
+		text-align: right;
+		display: block;
+		width:140px;
+		margin-right: 10px;
+		margin-top:6px;
+		font-size: 14px;
+	}
+  	#form_patient_registration input {
+  		background:transparent url("../images/input-bg-230px.png") left top no-repeat;
+  		border:none;
+		float:left;
+		width:210px;
+		height:28px;
+		/*margin-bottom: 20px;*/
+		padding: 0 10px;
+  	}
+  	#edit-patient-profile #form_patient_registration input {
+  		margin-bottom: 20px;
+  	}
+  	#form_patient_registration .datepicker{
+  		margin-bottom: 0px;
+  	}
+  	#provider-registration-page input.datepicker{
+  		width: 170px;
+  	}
+  	#form_patient_registration input.datepicker{
+  		width: 180px;
+  	}
+  	input {
+  		margin-bottom:0;
+  		
+  		/*background: none;*/
+  	}
+  	
+  	.chzn-search input {
+   		border: 1px solid #AAAAAA;
+	}
+	
+	.input_230, .input_170 {
+  		background:transparent url("../images/input-bg-230px.png") left top no-repeat;
+  		border:none;
+		float:left;
+		width:210px;
+		height:28px;
+		margin-bottom: 20px;
+		padding: 0 10px;
+  	}
+	.input_230.inputerror, .input_170.inputerror{
+		border-radius: 10px;
+		/*border:1px solid red;*/
+	}
+	
+	.input_170{
+		background:transparent url("../images/input-bg-170px.png") left top no-repeat;
+		width:150px;
+	}
+	
+	.sign-in .input_170, .forgot-password .input_170{
+		float:none;
+		margin-bottom:0px;
+	}
+	
+	.homepage #search .input_230 {
+		float:none;
+	}
+	
+	
+  	
+  	select {
+		width:230px;
+	}
+  	
+  	#form_patient_registration .radioboxlabel {
+  		clear:none;
+  		width:auto;
+  		text-align: left;
+		margin-bottom: 20px;
+  	}
+
+  	#form_patient_registration input[type="checkbox"] {
+  		display:none;
+	}
+	
+	#form_patient_registration .terms {
+		clear:none;
+		width:295px;
+		float:right;
+		margin-bottom: 8px;
+		text-align: left;
+	}
+  	
+  	.radio, .checkbox{
+  		background:url("../images/checkbox-unselected.png") no-repeat;
+  		height:18px;
+  		width:18px;
+  		float:left;
+  		margin-right:5px;
+  	}
+  	
+  	.checkbox {
+  		clear:both;
+  		float:left;
+  		margin-left: 150px;
+  	}
+  	  	
+  	.selected {
+  		background:url("../images/checkbox-selected.png") no-repeat;	
+  	}
+  	
+  	.focused{
+  		/*border:1px dashed gray;*/
+  	}
+  	
+  	#form_patient_registration input[type="submit"] {
+  		clear:both;
+  		margin-left: 150px;
+  		width:63px;
+  		height:28px;
+  		background:transparent url("../images/save-button.png") left top no-repeat;
+  		border:none;
+	}
+	
+	
+
+/*  --  REGISTRATION -- */
+/*  --  REGISTRATION -- */
+/*  --  REGISTRATION -- */
+/*  --  REGISTRATION -- */
+
+
+	  .leftcolumn {
+    	float:left;
+    	width:470px;
+    }
+    .rightcolumn {
+    	float:right;
+    	width:470px;
+    }
+    
+    .spacer {
+    	clear:both; 
+    	height:1px;
+    }
+    
+    .chzn-container {
+    	margin-bottom:20px;
+    }
+	
+	.chzn-no-search .chzn-search{
+		display:none;
+	}
+    
+    #provider_registration_progressbar {
+    	display: block;
+    	background:url("../images/progressbar-registration.png") 0 0;
+    	width:442px;
+		height:42px;
+		margin-bottom:20px;
+    }
+	
+	.accreditation #provider_registration_progressbar {
+ 
+    	background:url("../images/progressbar-registration.png") 0 -42px;
+  
+    }
+    
+    #form_provider_registration h2 {
+    	background-color: #9c9;
+    	padding:10px;
+    	margin-bottom:20px;
+    	margin-left:10px;
+    }
+    #form_provider_registration #provider-registration-page.complete h2{
+    	margin-left: 30%;
+    }
+	#form_provider_registration label {
+		clear: both;
+		float:left;
+		text-align: right;
+		display: block;
+		width:170px;
+		margin-right: 10px;
+		margin-bottom: 20px;
+		color: #5c5c5c;
+		margin-top: 6px;
+	}
+  	#form_provider_registration .input_230 {
+  		background:transparent url("../images/input-bg-230px.png") left top no-repeat;
+  		border:none;
+		float:left;
+		width:210px;
+		height:28px;
+		margin-bottom: 20px;
+		padding-left:10px;
+  	}
+  	
+  	  	
+  	#form_provider_registration .radioboxlabel {
+  		clear:none;
+  		width:auto;
+  		text-align: left;
+  	}
+  	
+  	#form_provider_registration input[type="radio"] {
+  		display: none;
+  	}
+  	
+  	#form_provider_registration input[type="checkbox"] {
+  		display:none;
+	}
+	
+	#form_provider_registration .terms {
+		clear:none;
+		width:200px;
+		float:left;
+	}
+	
+	.questionmark {
+		float:left;
+		background:url("../images/questionmark.png") no-repeat;
+		height:26px;
+		width:26px;
+		margin-left:10px;
+	}
+  	
+  	.radio, .checkbox{
+  		background:url("../images/checkbox-unselected.png") no-repeat;
+  		height:18px;
+  		width:18px;
+  		float:left;
+  		margin-right:5px;
+		margin-top: 6px;
+  	}
+  	
+  	.checkbox {
+  		clear:both;
+  		float:left;
+  		margin-left: 150px;
+  	}
+  	  	
+  	.selected {
+  		background:url("../images/checkbox-selected.png") no-repeat;	
+  	}
+  	
+  	#form_provider_registration input[type="submit"] {
+  		clear:both;
+  		margin-left: 80px;
+  		width:63px;
+  		height:28px;
+  		background:transparent url("../images/save-button.png") left top no-repeat;
+  		border:none;
+	}
+
+	#form_provider_registration textarea{
+		float:none;
+		width: 75%;
+		margin-bottom: 20px;
+	}
+
+	#location_details {
+		margin-top:20px;
+	}
+
+	.location-box {
+
+		float:left;
+		border-right: 1px solid #f2f2e9;
+	}
+	
+	#location_details .location-box label{
+		margin-top:0;
+	}
+	
+	#location_details label {
+		width:80px;
+	}
+	
+	
+	#location_details h2 {
+		background-color: #f2f2e9;
+		color: #5c5c5c;
+	}
+	
+	a.locationdetails {
+/*		position: absolute;
+		bottom: -855px;*/
+		/*float:right;*/
+		font-size: small;
+		margin-top: 10px;
+		font-size: 15px;
+		position: relative;
+		top: 80px
+	}
+	
+	.small {
+		margin-left:80px;
+		font-size: 0.8em;
+		clear:both;
+	}
+	
+	
+	
+/*	#form_provider_registration select {
+		width:230px;
+	}*/
+	
+	.select_170{
+		width:170px;
+	}
+	.tiny-select{
+		width:72px !important;
+		height:20px ;
+		font-weight:normal;
+		font-size: 12px;
+	}
+	
+	.chzn-no-arrow .chzn-container-single .chzn-single div b, .chzn-no-arrow .chzn-container-single .chzn-single div{
+		width:11px;
+		background: url(../images/spinner-arrows.png) 0px 5px no-repeat;
+	}
+	.super-tiny-select{
+		width:50px;
+		
+	}
+	.super-tiny-select b{
+		display:none;
+	}
+
+	#form_provider_registration .chzn-search input {
+   		border: 1px solid #AAAAAA;
+	}
+
+.profiletemp {
+	float: left;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	background: #f7f7eb;
+	width: 338px;
+	padding: 8px 21px 8px;
+}
+#location_details  input[type="submit"],
+#location_details  .small{
+	margin-left:90px;
+}
+#location_details input[type="submit"]{
+	margin-left: 150px;
+}
+.reportcontrol ul.headerul{
+	background: #f7f7eb;
+	border: 1px solid black;
+	-webkit-border-radius: 10px 10px 0 0;
+	border-radius: 10px 10px 0 0;
+	margin-top: 20px;
+}
+
+.reportcontrol ul.headerul li{
+	height: 39px;	
+	padding: 10px;
+}
+.reportcontrol ul.headerul li:first-child{
+	 -webkit-border-radius: 10px 0 0 10px;
+	border-radius: 10px 0 0 10px;
+}
+.reportcontrol ul.headerul li:last-child{
+	-webkit-border-radius: 0 10px 10px 0;
+	border-radius: 0 10px 10px 0;
+}
+.reportcontrol ul.bookedhistroy{
+	border: 1px dotted #4c5252;
+	border-top: none;
+}
+.reportcontrol ul.bookedhistroy li{
+	padding: 10px;
+	border-left: 1px dotted gray;
+}
+.reportcontrol ul.bookedhistroy li:first-child span{
+	display: none;
+}
+.reportcontrol ul.bookedhistroy li:first-child:hover span{
+	display: inline;
+	background: #f7f7eb;
+}
+.reportcontrol ul.bookedhistroy:last-child{
+	-webkit-border-radius: 0 0 10px 10px ;
+	border-radius:  0 0 10px 10px;
+}
+#patient-dashboard i.fa-list-alt {
+	position: absolute;
+	left: 285px;
+	color: #4a9d94;
+	top: 10px;
+}
+.provider-Info .headerinfo .chosen-drop li {
+	margin: 0;
+}

@@ -1,0 +1,90 @@
+	
+<div class="daily-View col-sm-12 paddingZero" >
+	<div class="selected-date col-sm-6" ng-click="selectedDatesInCalender(dates)">
+		<label class="col-sm-5 paddingZero marginSmallTop">Selected Date: </label> 
+		<input min-date="minDate"   data-ng-model="currentDate" readonly	 date-format="MM-dd-yyyy"   class="col-sm-2 paddingZero marginLeft form-control" />
+	</div>
+
+	<div class="selected-location col-sm-6">
+		<label>Selected Location:</label>
+		<select class="chzn-select"  ng-required="true" ng-model="loctaions.locId" ng-options="obj.locId as obj.address for obj in loctaions" ng-change="weeklyView()"></select>
+
+
+	</div>
+</div>						
+
+<div id="tab-existing-patient" class="marginTop">
+
+	<div class="schedule seven-days">
+
+		<div class="schedule-header">
+			<div class="schedule-view-control">
+				<div class="schedule-previous" ng-hide="indexValue == 0"><a href="" ng-click="nextslotsschedule('prev')" ></a></div>
+				<div class="schedule-next"><a href="" ng-click="nextslotsschedule('next')"></a></div>
+			</div>
+
+			<ul>
+				<li ng-repeat="weekday in weeklyArray"><b>{{weekday.day}}</b>{{weekday.date}}</li>
+			</ul>
+		</div>
+
+		<ol>
+			<li class="schedule-wednesday" ng-repeat="appointment in weeklyArray ">
+				<div ng-repeat="timeslot in appointment.slots">
+					<a href="" ng-show="timeslot.status === 'available' " ng-click="timetableTimeSelected(timeslot.from,appointment.date)">{{timeslot.from}}</a>
+					<a  href="" class="status" ng-hide="timeslot.status === 'available' ">{{timeslot.from}}
+												
+					</a>
+				</div>
+				<div class="special-offer" ng-show="appointment.title">
+					<span><p class="ng-binding">{{appointment.title}}: {{appointment.description}}</p></span>
+				</div>
+				<br /></li>
+
+				<li class="push"></li>
+			</ol>
+			<div class="table-pusher"></div>
+		</div>
+
+		<h4>Please select the appointment time from the above available slots.</h4>
+		<hr />
+
+		<form ng-submit="CreateSlotSubmit(formMethod.reasonforvisit,formMethod.paitentEmail,formMethod.paitentName)">
+
+			<div class="leftcolumn">
+				<ul>
+					<li>
+						<label for="existing-date">Date</label>
+						<input type="text" class="form-control inputerror" ng-model= "selectDateTable" required/>
+					</li>
+					<li>
+						<label for="existing-slot">Appointment Slot *</label>
+						<input type="text" class="form-control inputerror" ng-model="selectDateTableTime" required/>
+					</li>
+					<li>
+						<label for="existing-patient">Patient Name *</label>
+						<input type="text" class="form-control inputerror" ng-model="formMethod.paitentName" required placeholder="name"/>
+					</li>
+					<li>
+						<label for="existing-email">Patient Email *</label>
+						<input type="email" class="form-control inputerror" ng-model="formMethod.paitentEmail" required placeholder="email"/>
+					</li>
+				</ul>
+			</div>
+			<div class="rightcolumn">
+				<ul>
+					<li><label>Reason for visit *</label><br>
+						<textarea name="reasonforvisit" ng-model="formMethod.reasonforvisit" ng-required="true"></textarea>
+
+					</li>
+					<li>
+						<input class="btn loginbutton" type="submit"  />
+					</li>
+				</ul>
+
+			</div>
+		</form>
+	</div>
+
+
+
